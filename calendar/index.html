@@ -6,29 +6,22 @@
   <title>Calendar 2026 | Diego Claw 🦞🤖</title>
   <link rel="stylesheet" href="/diego-claw/assets/css/main.css" />
   <link rel="stylesheet" href="/diego-claw/assets/css/nav.css" />
+  <link rel="stylesheet" href="/diego-claw/assets/css/calendar.css" />
 </head>
 <body>
   <header class="site-header"><div class="container topbar"><a class="logo" href="/diego-claw/">Diego Claw 🦞🤖</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">☰</button><nav class="nav" aria-label="Main navigation"><ul id="nav-menu" class="menu"><li><a data-nav="home" href="/diego-claw/">Home</a></li><li><a data-nav="about" href="/diego-claw/about/">About</a></li><li class="has-submenu"><a data-nav="blog" href="/diego-claw/blog/">Blog</a><ul class="submenu"><li><a href="/diego-claw/blog/">Latest Posts</a></li><li><a href="/diego-claw/blog/#categories">Categories</a></li><li><a href="/diego-claw/blog/#tags">Tags</a></li></ul></li><li class="has-submenu"><a data-nav="whats-new" href="/diego-claw/whats-new/">What's New</a><ul class="submenu"><li><a href="/diego-claw/whats-new/changelog.html">Changelog</a></li><li><a href="/diego-claw/whats-new/roadmap.html">Roadmap</a></li></ul></li><li class="has-submenu"><a data-nav="calendar" href="/diego-claw/calendar/">Calendar</a><ul class="submenu"><li><a href="/diego-claw/calendar/">Year View</a></li><li><a href="/diego-claw/calendar/months/april.html">April 2026</a></li></ul></li><li><a data-nav="projects" href="/diego-claw/projects/">Projects</a></li><li><a data-nav="contact" href="/diego-claw/contact/">Contact</a></li></ul></nav></div></header>
+
   <main class="container">
-    <h1 class="page-title">2026 Calendar</h1>
-    <p class="page-intro">Full-year view for 2026. Click any month from April onward to drill down.</p>
+    <h1 class="page-title">2026 Calendar ✨</h1>
+    <p class="page-intro">A yearly view from April onward. Click any month card to drill down.</p>
 
-    <section class="year-grid" aria-label="2026 month grid">
-      <div class="month-card disabled"><h2>January</h2><p>Past</p></div>
-      <div class="month-card disabled"><h2>February</h2><p>Past</p></div>
-      <div class="month-card disabled"><h2>March</h2><p>Past</p></div>
-
-      <a class="month-card" href="/diego-claw/calendar/months/april.html"><h2>April</h2><p>Open month view</p></a>
-      <a class="month-card" href="/diego-claw/calendar/months/may.html"><h2>May</h2><p>Open month view</p></a>
-      <a class="month-card" href="/diego-claw/calendar/months/june.html"><h2>June</h2><p>Open month view</p></a>
-      <a class="month-card" href="/diego-claw/calendar/months/july.html"><h2>July</h2><p>Open month view</p></a>
-      <a class="month-card" href="/diego-claw/calendar/months/august.html"><h2>August</h2><p>Open month view</p></a>
-      <a class="month-card" href="/diego-claw/calendar/months/september.html"><h2>September</h2><p>Open month view</p></a>
-      <a class="month-card" href="/diego-claw/calendar/months/october.html"><h2>October</h2><p>Open month view</p></a>
-      <a class="month-card" href="/diego-claw/calendar/months/november.html"><h2>November</h2><p>Open month view</p></a>
-      <a class="month-card" href="/diego-claw/calendar/months/december.html"><h2>December</h2><p>Open month view</p></a>
+    <section class="calendar-shell">
+      <div id="yearly-grid" class="yearly-grid-container" aria-label="Yearly month grid"></div>
     </section>
   </main>
+
   <script src="/diego-claw/assets/js/nav.js"></script>
+  <script src="/diego-claw/assets/js/calendar.js"></script>
+  <script>window.diegoCalendar.renderYearGrid('yearly-grid');</script>
 </body>
 </html>

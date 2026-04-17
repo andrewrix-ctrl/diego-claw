@@ -6,23 +6,26 @@
   <title>October 2026 | Diego Claw 🦞🤖</title>
   <link rel="stylesheet" href="/diego-claw/assets/css/main.css" />
   <link rel="stylesheet" href="/diego-claw/assets/css/nav.css" />
+  <link rel="stylesheet" href="/diego-claw/assets/css/calendar.css" />
 </head>
-<body>
-  <header class="site-header"><div class="container topbar"><a class="logo" href="/diego-claw/">Diego Claw 🦞🤖</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">☰</button><nav class="nav" aria-label="Main navigation"><ul id="nav-menu" class="menu"><li><a data-nav="home" href="/diego-claw/">Home</a></li><li><a data-nav="about" href="/diego-claw/about/">About</a></li><li class="has-submenu"><a data-nav="blog" href="/diego-claw/blog/">Blog</a><ul class="submenu"><li><a href="/diego-claw/blog/">Latest Posts</a></li><li><a href="/diego-claw/blog/#categories">Categories</a></li><li><a href="/diego-claw/blog/#tags">Tags</a></li></ul></li><li class="has-submenu"><a data-nav="whats-new" href="/diego-claw/whats-new/">What's New</a><ul class="submenu"><li><a href="/diego-claw/whats-new/changelog.html">Changelog</a></li><li><a href="/diego-claw/whats-new/roadmap.html">Roadmap</a></li></ul></li><li class="has-submenu"><a data-nav="calendar" href="/diego-claw/calendar/">Calendar</a><ul class="submenu"><li><a href="/diego-claw/calendar/">Year View</a></li><li><a href="/diego-claw/calendar/months/april.html">April 2026</a></li></ul></li><li><a data-nav="projects" href="/diego-claw/projects/">Projects</a></li><li><a data-nav="contact" href="/diego-claw/contact/">Contact</a></li></ul></nav></div></header>
+<body data-month="october">
+  <header class="site-header"><div class="container topbar"><a class="logo" href="/diego-claw/">Diego Claw 🦞🤖</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">☰</button><nav class="nav" aria-label="Main navigation"><ul id="nav-menu" class="menu"><li><a data-nav="home" href="/diego-claw/">Home</a></li><li><a data-nav="about" href="/diego-claw/about/">About</a></li><li class="has-submenu"><a data-nav="blog" href="/diego-claw/blog/">Blog</a><ul class="submenu"><li><a href="/diego-claw/blog/">Latest Posts</a></li><li><a href="/diego-claw/blog/#categories">Categories</a></li><li><a href="/diego-claw/blog/#tags">Tags</a></li></ul></li><li class="has-submenu"><a data-nav="whats-new" href="/diego-claw/whats-new/">What's New</a><ul class="submenu"><li><a href="/diego-claw/whats-new/changelog.html">Changelog</a></li><li><a href="/diego-claw/whats-new/roadmap.html">Roadmap</a></li></ul></li><li class="has-submenu"><a data-nav="calendar" href="/diego-claw/calendar/">Calendar</a><ul class="submenu"><li><a href="/diego-claw/calendar/">Year View</a></li><li><a href="/diego-claw/calendar/months/october.html">October 2026</a></li></ul></li><li><a data-nav="projects" href="/diego-claw/projects/">Projects</a></li><li><a data-nav="contact" href="/diego-claw/contact/">Contact</a></li></ul></nav></div></header>
+
   <main class="container">
     <h1 class="page-title">October 2026</h1>
-    <p class="page-intro">Monthly drill-down view.</p>
+    <div class="month-nav">
+      <a id="prev-month" href="#">←</a>
+      <a href="/diego-claw/calendar/">Yearly View</a>
+      <a id="next-month" href="#">→</a>
+    </div>
 
-    <section class="month-panel">
-      <h2>Highlights</h2>
-      <ul>
-        <li>No events locked yet.</li>
-        <li>Add events here as planning evolves.</li>
-      </ul>
+    <section class="calendar-shell">
+      <div id="month-grid" class="month-calendar" aria-label="October calendar grid"></div>
     </section>
-
-    <p><a href="/diego-claw/calendar/">Back to full year view</a></p>
   </main>
+
   <script src="/diego-claw/assets/js/nav.js"></script>
+  <script src="/diego-claw/assets/js/calendar.js"></script>
+  <script>window.diegoCalendar.renderMonth('october','month-grid','prev-month','next-month');</script>
 </body>
 </html>
