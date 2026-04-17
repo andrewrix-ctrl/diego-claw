@@ -1,3 +1,22 @@
 [
-  { "version": "v0.1.0", "note": "Initial site scaffold with cascading nav." }
+  {
+    "version": "v0.8.0",
+    "note": "Inner West Podiatry rebuilt under Projects with richer UX, searchable pages, newsletter signup, and archive."
+  },
+  {
+    "version": "v0.7.0",
+    "note": "Podiatry visual refresh shipped with improved palette, royalty-free imagery, and hero updates."
+  },
+  {
+    "version": "v0.6.0",
+    "note": "NRL signup flow upgraded with sheet sync and gog-based welcome email processing."
+  },
+  {
+    "version": "v0.5.0",
+    "note": "Skill docs migrated from diego-site references to diego-claw paths."
+  },
+  {
+    "version": "v0.1.0",
+    "note": "Initial site scaffold with cascading nav."
+  }
 ]
