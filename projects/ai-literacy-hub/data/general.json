@@ -1,0 +1,229 @@
+{
+  "slug": "general",
+  "title": "General AI Literacy",
+  "emoji": "🌐",
+  "audience": "Anyone who wants a solid practical understanding of AI at work.",
+  "questionCount": 20,
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is the clearest definition of AI in a workplace context?",
+      "options": [
+        "A system that can perform tasks requiring patterns, prediction, or language reasoning.",
+        "Any software that runs in the cloud.",
+        "A robot that replaces all human roles.",
+        "A spreadsheet with macros."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 2,
+      "text": "What does a large language model (LLM) primarily do?",
+      "options": [
+        "Stores company files forever.",
+        "Predicts likely next tokens to generate text.",
+        "Guarantees factual accuracy.",
+        "Encrypts all internet traffic."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 3,
+      "text": "What is a hallucination in AI output?",
+      "options": [
+        "An intentional lie by the AI.",
+        "An output with no grammar.",
+        "A confident-sounding but incorrect or unsupported response.",
+        "A slow response caused by bad Wi-Fi."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 4,
+      "text": "Which prompt usually improves response quality most?",
+      "options": [
+        "Do this.",
+        "Write something useful.",
+        "You know what I mean, just do it.",
+        "You are a project analyst. Summarise this in 5 bullet points for execs, include risks and actions."
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 5,
+      "text": "What is the best first step before using AI output in a real decision?",
+      "options": [
+        "Publish immediately.",
+        "Check key facts, assumptions, and sources.",
+        "Translate it into another language.",
+        "Add more emojis."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 6,
+      "text": "Which is safest to avoid sharing in public AI tools unless approved?",
+      "options": [
+        "Personal or confidential company information.",
+        "Public product descriptions.",
+        "Published blog post text.",
+        "Generic meeting agenda templates."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 7,
+      "text": "What does 'human-in-the-loop' mean?",
+      "options": [
+        "A human writes every line manually.",
+        "A human reviews or approves outputs at key control points.",
+        "Humans are no longer needed.",
+        "Only managers can use AI."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 8,
+      "text": "Which use case is usually low risk and high value to start with?",
+      "options": [
+        "Automating legal sign-off without review.",
+        "Diagnosing medical conditions autonomously.",
+        "Drafting summaries, emails, and first-pass documents.",
+        "Approving payments end-to-end."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 9,
+      "text": "What is a practical way to reduce hallucinations?",
+      "options": [
+        "Ask for structured output and require citations/evidence where possible.",
+        "Use all-caps prompts.",
+        "Always ask longer questions.",
+        "Disable spelling checks."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 10,
+      "text": "Why is prompt context important?",
+      "options": [
+        "It makes the AI run on cheaper hardware.",
+        "It tells the model audience, intent, and constraints.",
+        "It permanently trains the model by default.",
+        "It converts output into JSON automatically."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 11,
+      "text": "What is a sign an AI workflow needs governance?",
+      "options": [
+        "It is used for high-impact outcomes (financial, legal, customer, safety).",
+        "It creates colourful charts.",
+        "It runs in under 2 seconds.",
+        "It uses keyboard shortcuts."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 12,
+      "text": "Which metric matters most for business AI adoption?",
+      "options": [
+        "Number of prompts sent per day.",
+        "How often people mention AI in meetings.",
+        "Outcome improvement (quality, speed, risk, cost).",
+        "Number of tools installed."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 13,
+      "text": "What is retrieval-augmented generation (RAG) designed to do?",
+      "options": [
+        "Retrieve relevant source content at runtime before generating an answer.",
+        "Replace all document systems.",
+        "Increase randomness in outputs.",
+        "Hide model limitations."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 14,
+      "text": "In practical terms, what is model drift?",
+      "options": [
+        "When the model file is moved to another folder.",
+        "When performance degrades over time as data/context changes.",
+        "When users change their writing style.",
+        "When prompts are too short."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 15,
+      "text": "Which is the best way to use AI for drafting comms?",
+      "options": [
+        "Send first draft directly to customers.",
+        "Use AI for draft + human edit for tone, facts, and approvals.",
+        "Use AI only for subject lines.",
+        "Avoid any review to keep speed high."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 16,
+      "text": "What should you do when AI confidence seems high but evidence is weak?",
+      "options": [
+        "Trust confidence wording by default.",
+        "Escalate confidence and publish quickly.",
+        "Request verification steps, sources, or independent checks.",
+        "Ask the same prompt louder."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 17,
+      "text": "Which statement about AI and jobs is most accurate?",
+      "options": [
+        "AI will instantly replace every knowledge worker.",
+        "AI changes task composition, often augmenting roles and shifting skill needs.",
+        "AI only affects software engineers.",
+        "AI has no impact on workflows."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 18,
+      "text": "What is an effective way to build AI capability in teams?",
+      "options": [
+        "One-off announcement email.",
+        "Tool rollout without examples.",
+        "Practical use-case playbooks, training, and measurable pilots.",
+        "Blocking all experimentation."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 19,
+      "text": "When should an AI output be treated as high risk?",
+      "options": [
+        "When it affects policy, legal exposure, money, safety, or external commitments.",
+        "When it contains bullet points.",
+        "When it is shorter than 100 words.",
+        "When it references a meeting note."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 20,
+      "text": "What is a mature AI operating model aiming for?",
+      "options": [
+        "Maximum novelty regardless of control.",
+        "No experimentation at all.",
+        "Centralized approvals for every single prompt.",
+        "Balanced speed, quality, safety, and accountability with clear ownership."
+      ],
+      "answerIndex": 3
+    }
+  ]
+}

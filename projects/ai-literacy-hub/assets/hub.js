@@ -1,4 +1,5 @@
 const tracks = [
+  { slug: 'general', title: 'General AI Literacy', emoji: '🌐' },
   { slug: 'technical', title: 'Technical Specialist / Engineer', emoji: '🛠️' },
   { slug: 'delivery', title: 'Delivery / Operations Professional', emoji: '🚚' },
   { slug: 'architect', title: 'Architect / Designer', emoji: '🏗️' },
