@@ -1,6 +1,7 @@
 name = "diego-claw-contact-relay"
 main = "worker.js"
 compatibility_date = "2026-04-17"
+account_id = "71b51db3bf2634eb372dd318e8ace8b4"
 
 [vars]
 # Set this to your site origin for tighter CORS, e.g.
