@@ -21,22 +21,12 @@
       ]
     },
     {
-      "name": "Big Bets",
-      "items": [
-        { "tag": "P3", "text": "AI content studio for blog/newsletter draft generation." },
-        { "tag": "P3", "text": "Personal dashboard for updates, tasks, and launches." },
-        { "tag": "P3", "text": "Micro-product lab with fast reusable starter scaffolds." },
-        { "tag": "P2", "text": "SEO + performance sprint (schema, social cards, Lighthouse)." }
-      ]
+      "name": "Doing",
+      "items": []
     },
     {
-      "name": "Backlog",
-      "items": [
-        { "tag": "Idea", "text": "Voice-note summaries for weekly updates." },
-        { "tag": "Idea", "text": "Interactive timeline of launches and milestones." },
-        { "tag": "Idea", "text": "Public changelog RSS feed." },
-        { "tag": "Idea", "text": "Build with Diego starter templates." }
-      ]
+      "name": "Done",
+      "items": []
     }
   ]
 }
