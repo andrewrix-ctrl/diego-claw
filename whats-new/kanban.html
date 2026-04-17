@@ -58,6 +58,8 @@
     <div class="toolbar">
       <p class="muted" style="margin:0;">Data source: <a href="/diego-claw/data/roadmap-kanban.json">/data/roadmap-kanban.json</a></p>
       <button id="kanban-reset" class="btn-mini" type="button">Reset board</button>
+      <button id="kanban-copy-json" class="btn-mini" type="button">Copy JSON</button>
+      <button id="kanban-download-json" class="btn-mini" type="button">Download JSON</button>
       <span class="muted">Drag cards across columns, status updates automatically.</span>
     </div>
     <div id="kanban-grid" class="kanban-grid"></div>
@@ -67,6 +69,8 @@
     (async function initKanban() {
       const root = document.getElementById('kanban-grid');
       const resetBtn = document.getElementById('kanban-reset');
+      const copyBtn = document.getElementById('kanban-copy-json');
+      const downloadBtn = document.getElementById('kanban-download-json');
       const storageKey = 'diego-claw-kanban-state-v1';
       if (!root) return;
 
@@ -194,6 +198,37 @@
           localStorage.removeItem(storageKey);
           board = await loadBoard();
           render();
+        });
+      }
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async function () {
+          if (!board) return;
+          const pretty = JSON.stringify(board, null, 2);
+          try {
+            await navigator.clipboard.writeText(pretty);
+            copyBtn.textContent = 'Copied';
+            setTimeout(() => (copyBtn.textContent = 'Copy JSON'), 1200);
+          } catch (_) {
+            copyBtn.textContent = 'Copy failed';
+            setTimeout(() => (copyBtn.textContent = 'Copy JSON'), 1200);
+          }
+        });
+      }
+
+      if (downloadBtn) {
+        downloadBtn.addEventListener('click', function () {
+          if (!board) return;
+          const pretty = JSON.stringify(board, null, 2);
+          const blob = new Blob([pretty], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'roadmap-kanban.json';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
         });
       }
     })();
