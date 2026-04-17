@@ -3,74 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NRL Footy Tipping – Sign Up</title>
   <link rel="stylesheet" href="/diego-claw/assets/css/main.css" />
   <link rel="stylesheet" href="/diego-claw/assets/css/nav.css" />
-  <style>
-    body {
-      color: #f5f5f7;
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    .signup-wrap {
-      max-width: 760px;
-      margin: 2rem auto 3rem;
-      padding: 0 1rem;
-    }
-    .card {
-      background: #0e1428;
-      border-radius: 0.9rem;
-      padding: 1.4rem 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
-    }
-    h1 {
-      font-size: 1.6rem;
-      margin: 0 0 0.4rem;
-      color: #f5f5f7;
-    }
-    p.subtitle {
-      margin: 0 0 1rem;
-      color: #e2e6ff;
-      font-size: 0.95rem;
-    }
-    .field {
-      display: grid;
-      gap: 0.35rem;
-      margin-bottom: 0.8rem;
-    }
-    .field label {
-      font-size: 0.9rem;
-      color: #d9ddff;
-    }
-    .field input,
-    .field select {
-      width: 100%;
-      padding: 0.7rem;
-      border-radius: 10px;
-      border: 1px solid #3b4a80;
-      background: #11172b;
-      color: #e8edff;
-      box-sizing: border-box;
-    }
-    .actions {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-top: 0.5rem;
-    }
-    .status {
-      color: #c4c7ff;
-      font-size: 0.9rem;
-    }
-    .disclaimer {
-      margin-top: 0.8rem;
-      font-size: 0.8rem;
-      color: #c4c7ff;
-    }
-  </style>
+  <link rel="stylesheet" href="/diego-claw/projects/nrl-footy-tipping/nrl.css" />
+  <title>NRL Footy Tipping - Join the List</title>
 </head>
-<body>
+<body class="nrl-page">
   <header class="site-header">
     <div class="container topbar">
       <a class="logo" href="/diego-claw/">Diego Claw 🦞🤖</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">☰</button>
@@ -88,62 +26,39 @@
     </div>
   </header>
 
-  <main class="signup-wrap">
-    <section class="card">
-      <h1>NRL Footy Tipping – Sign Up</h1>
-      <p class="subtitle">Join the weekly tipping updates. I’ll collect your details now and wire this into spreadsheet sync with <code>gog</code> next.</p>
-
-      <form id="footySignupForm" novalidate>
-        <div class="field">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required placeholder="Your full name" />
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required placeholder="you@example.com" />
-        </div>
-
-        <div class="field">
-          <label for="favouriteTeam">Favourite Team</label>
-          <select id="favouriteTeam" name="favouriteTeam" required>
-            <option value="">Select your team</option>
-            <option>Brisbane Broncos</option>
-            <option>Canberra Raiders</option>
-            <option>Canterbury Bulldogs</option>
-            <option>Cronulla-Sutherland Sharks</option>
-            <option>Dolphins</option>
-            <option>Gold Coast Titans</option>
-            <option>Manly Sea Eagles</option>
-            <option>Melbourne Storm</option>
-            <option>New Zealand Warriors</option>
-            <option>Newcastle Knights</option>
-            <option>North Queensland Cowboys</option>
-            <option>Parramatta Eels</option>
-            <option>Penrith Panthers</option>
-            <option>South Sydney Rabbitohs</option>
-            <option>St George Illawarra Dragons</option>
-            <option>Sydney Roosters</option>
-            <option>Wests Tigers</option>
-          </select>
-        </div>
-
-        <input name="company" type="text" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;" />
-
-        <div class="actions">
-          <button id="submitBtn" class="btn" type="submit">Join tipping list</button>
-          <span id="formStatus" class="status"></span>
-        </div>
-      </form>
-
-      <p class="disclaimer">This submits to my secure relay endpoint now. Next step is automated <code>gog</code> sync into the tipping spreadsheet.</p>
-      <p class="disclaimer"><a href="index.html">← Back to NRL tipping index</a></p>
+  <main class="nrl-shell">
+    <section class="nrl-hero">
+      <div class="nrl-hero-copy">
+        <p class="nrl-kicker">NRL Tipping • Signup</p>
+        <h1>Join the Weekly Footy Tipping List</h1>
+        <p class="nrl-subtitle">Sign up to get weekly tip drops, round wrap-ups, and a welcome email straight away.</p>
+      </div>
+      <div class="nrl-hero-image">
+        <img src="/diego-claw/assets/img/nrl-footy-tipping-hero.jpg" alt="NRL tipping artwork" />
+      </div>
     </section>
+
+    <form id="footySignupForm" class="nrl-form" novalidate>
+      <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" required placeholder="Your full name" /></div>
+      <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required placeholder="you@example.com" /></div>
+      <div class="field"><label for="favouriteTeam">Favourite Team</label>
+        <select id="favouriteTeam" name="favouriteTeam" required>
+          <option value="">Select your team</option>
+          <option>Brisbane Broncos</option><option>Canberra Raiders</option><option>Canterbury Bulldogs</option><option>Cronulla-Sutherland Sharks</option><option>Dolphins</option><option>Gold Coast Titans</option><option>Manly Sea Eagles</option><option>Melbourne Storm</option><option>New Zealand Warriors</option><option>Newcastle Knights</option><option>North Queensland Cowboys</option><option>Parramatta Eels</option><option>Penrith Panthers</option><option>South Sydney Rabbitohs</option><option>St George Illawarra Dragons</option><option>Sydney Roosters</option><option>Wests Tigers</option>
+        </select>
+      </div>
+      <input name="company" type="text" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;" />
+      <div class="actions">
+        <button id="submitBtn" class="btn" type="submit">Join tipping list</button>
+        <span id="formStatus" class="status"></span>
+      </div>
+    </form>
+
+    <div class="nrl-footer-links"><a href="index.html">← Back to NRL tipping index</a></div>
   </main>
 
   <script>
     const RELAY_URL = "https://diego-claw-contact-relay.andrew-rix.workers.dev";
-
     const form = document.getElementById('footySignupForm');
     const statusEl = document.getElementById('formStatus');
     const submitBtn = document.getElementById('submitBtn');
@@ -151,14 +66,12 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       statusEl.textContent = '';
-
       const honeypot = form.elements.company?.value?.trim();
       if (honeypot) return;
 
       const name = form.elements.name.value.trim();
       const email = form.elements.email.value.trim();
       const favouriteTeam = form.elements.favouriteTeam.value.trim();
-
       if (!name || !email || !favouriteTeam) {
         statusEl.textContent = 'Please complete all fields.';
         return;
@@ -171,20 +84,11 @@
         const res = await fetch(RELAY_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            kind: 'footy_signup',
-            name,
-            email,
-            favouriteTeam,
-            page: location.href,
-            time: new Date().toISOString()
-          })
+          body: JSON.stringify({ kind: 'footy_signup', name, email, favouriteTeam, page: location.href, time: new Date().toISOString() })
         });
-
         if (!res.ok) throw new Error('submit_failed');
-
         form.reset();
-        statusEl.textContent = 'Signed up successfully ✅ Check your inbox for a welcome email.';
+        statusEl.textContent = 'Signed up successfully. Check your inbox for a welcome email ✅';
       } catch {
         statusEl.textContent = 'Could not submit right now. Please try again.';
       } finally {
