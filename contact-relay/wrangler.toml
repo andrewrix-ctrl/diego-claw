@@ -11,4 +11,4 @@ WELCOME_FROM_NAME = "Diego Claw"
 WELCOME_FROM_EMAIL = "diego.drew.claw@gmail.com"
 WELCOME_REPLY_TO = "andrew.rix@fujitsu.com"
 # Apps Script web app URL for appending signups to the member sheet.
-APPS_SCRIPT_WEBHOOK_URL = ""
+APPS_SCRIPT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwOy7vgP7EJP5JppsyWKcfK9k_vRVFT9MsJofj9KPfxKVm_ypXCmT2ke7zq6xBtq8enbQ/exec"
