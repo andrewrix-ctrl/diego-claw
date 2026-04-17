@@ -105,6 +105,49 @@ a { color: var(--accent); }
   margin-top: 0;
 }
 
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: .9rem;
+  margin-top: 1rem;
+}
+
+.month-card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: .9rem;
+}
+
+.month-card h2 {
+  margin: 0 0 .35rem;
+  font-size: 1rem;
+}
+
+.month-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.month-card:hover {
+  border-color: #5064b7;
+}
+
+.month-card.disabled {
+  opacity: .55;
+  pointer-events: none;
+}
+
+.month-panel {
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
 @media (max-width: 700px) {
   .hero {
     grid-template-columns: 1fr;
