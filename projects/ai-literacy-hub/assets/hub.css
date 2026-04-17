@@ -84,4 +84,16 @@
 .table-wrap table { width:100%; border-collapse: collapse; }
 .table-wrap th, .table-wrap td { border: 1px solid #324173; padding: .45rem .55rem; }
 .table-wrap th { background: #1e2a4d; }
+.grade-pill {
+  display: inline-block;
+  margin: .2rem 0 0;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  border: 1px solid #3f4f88;
+  background: #121a33;
+}
+.grade-beginner { border-color: #ef5e7a; color: #ffd6de; }
+.grade-intermediate { border-color: #f0c05f; color: #ffefc2; }
+.grade-advanced { border-color: #41d28f; color: #d7ffe9; }
 .muted { color: var(--muted); margin-top: .45rem; }

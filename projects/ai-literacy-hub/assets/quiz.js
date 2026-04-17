@@ -14,6 +14,7 @@ const el = {
   feedback: document.getElementById('feedback'),
   resultCard: document.getElementById('resultCard'),
   scoreText: document.getElementById('scoreText'),
+  gradeText: document.getElementById('gradeText'),
   summaryBody: document.getElementById('summaryBody')
 };
 
@@ -56,18 +57,33 @@ function renderQuestion() {
   renderProgress();
 }
 
+function fireConfetti() {
+  if (typeof confetti !== 'function') return;
+  confetti({
+    particleCount: 90,
+    spread: 70,
+    origin: { y: 0.6 },
+    scalar: 0.95
+  });
+}
+
 function gradeCurrent() {
   if (selected === null || locked) return;
   locked = true;
   const q = data.questions[index];
   const correct = q.answerIndex;
   const isRight = selected === correct;
-  if (isRight) score += 1;
+  if (isRight) {
+    score += 1;
+    fireConfetti();
+  }
 
   answers.push({
     q: q.id,
     selected,
+    selectedText: q.options[selected],
     correct,
+    correctText: q.options[correct],
     isRight
   });
 
@@ -91,12 +107,31 @@ function showResults() {
   el.resultCard.style.display = 'block';
   el.progressBar.style.width = '100%';
   const pct = Math.round((score / data.questions.length) * 100);
+
+  let grade = 'Beginner';
+  let gradeEmoji = '🌱';
+  let gradeClass = 'grade-beginner';
+  if (pct >= 75) {
+    grade = 'Advanced';
+    gradeEmoji = '🚀';
+    gradeClass = 'grade-advanced';
+  } else if (pct >= 45) {
+    grade = 'Intermediate';
+    gradeEmoji = '⚡';
+    gradeClass = 'grade-intermediate';
+  }
+
   el.scoreText.textContent = `You scored ${score}/${data.questions.length} (${pct}%).`;
+  if (el.gradeText) {
+    el.gradeText.className = `grade-pill ${gradeClass}`;
+    el.gradeText.textContent = `${gradeEmoji} ${grade}`;
+  }
+
   el.summaryBody.innerHTML = answers.map((a, idx) => `
     <tr>
       <td>${idx + 1}</td>
-      <td>${String.fromCharCode(65 + a.selected)}</td>
-      <td>${String.fromCharCode(65 + a.correct)}</td>
+      <td><strong>${String.fromCharCode(65 + a.selected)}</strong>. ${a.selectedText}</td>
+      <td><strong>${String.fromCharCode(65 + a.correct)}</strong>. ${a.correctText}</td>
       <td>${a.isRight ? '✅' : '❌'}</td>
     </tr>
   `).join('');
