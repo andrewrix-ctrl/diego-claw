@@ -16,30 +16,59 @@ export default {
       }
 
       const body = await request.json();
-      const name = String(body?.name || '').trim();
-      const email = String(body?.email || '').trim();
-      const message = String(body?.message || '').trim();
-      const page = String(body?.page || '').trim();
-      const time = String(body?.time || '').trim();
-
-      if (!name || !email || !message) {
-        return json({ ok: false, error: 'invalid_payload' }, 400);
-      }
+      const kind = String(body?.kind || 'contact').trim();
 
       const maxLen = 4000;
-      const safe = (v) => v.replace(/[<>]/g, '').slice(0, maxLen);
+      const safe = (v) => String(v || '').trim().replace(/[<>]/g, '').slice(0, maxLen);
 
-      const text = [
-        '📬 New website contact form message',
-        '',
-        `Name: ${safe(name)}`,
-        `Email: ${safe(email)}`,
-        'Message:',
-        safe(message),
-        '',
-        `Page: ${safe(page)}`,
-        `Time: ${safe(time)}`
-      ].join('\n');
+      let text = '';
+
+      if (kind === 'footy_signup') {
+        const name = safe(body?.name);
+        const email = safe(body?.email);
+        const favouriteTeam = safe(body?.favouriteTeam);
+        const page = safe(body?.page);
+        const time = safe(body?.time);
+
+        if (!name || !email || !favouriteTeam) {
+          return json({ ok: false, error: 'invalid_payload' }, 400);
+        }
+
+        text = [
+          '🏉 New NRL tipping signup',
+          '',
+          `Name: ${name}`,
+          `Email: ${email}`,
+          `Favourite team: ${favouriteTeam}`,
+          '',
+          `Page: ${page}`,
+          `Time: ${time}`,
+          '',
+          'Next step: sync to sheet via gog.'
+        ].join('\n');
+      } else {
+        const name = safe(body?.name);
+        const email = safe(body?.email);
+        const message = safe(body?.message);
+        const page = safe(body?.page);
+        const time = safe(body?.time);
+
+        if (!name || !email || !message) {
+          return json({ ok: false, error: 'invalid_payload' }, 400);
+        }
+
+        text = [
+          '📬 New website contact form message',
+          '',
+          `Name: ${name}`,
+          `Email: ${email}`,
+          'Message:',
+          message,
+          '',
+          `Page: ${page}`,
+          `Time: ${time}`
+        ].join('\n');
+      }
 
       const tgRes = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
         method: 'POST',

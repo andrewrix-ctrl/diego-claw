@@ -12,22 +12,17 @@
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
-    .page-wrapper {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem 1rem;
+    .signup-wrap {
+      max-width: 760px;
+      margin: 2rem auto 3rem;
+      padding: 0 1rem;
     }
     .card {
       background: #0e1428;
       border-radius: 0.9rem;
-      padding: 1.6rem 1.8rem;
+      padding: 1.4rem 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
-      max-width: 720px;
-      width: 100%;
-      box-sizing: border-box;
     }
     h1 {
       font-size: 1.6rem;
@@ -39,9 +34,34 @@
       color: #e2e6ff;
       font-size: 0.95rem;
     }
-    iframe {
-      border-radius: 0.75rem;
-      background: rgba(10, 14, 30, 0.65);
+    .field {
+      display: grid;
+      gap: 0.35rem;
+      margin-bottom: 0.8rem;
+    }
+    .field label {
+      font-size: 0.9rem;
+      color: #d9ddff;
+    }
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 10px;
+      border: 1px solid #3b4a80;
+      background: #11172b;
+      color: #e8edff;
+      box-sizing: border-box;
+    }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-top: 0.5rem;
+    }
+    .status {
+      color: #c4c7ff;
+      font-size: 0.9rem;
     }
     .disclaimer {
       margin-top: 0.8rem;
@@ -68,28 +88,111 @@
     </div>
   </header>
 
-  <div class="page-wrapper">
-    <div class="card">
+  <main class="signup-wrap">
+    <section class="card">
       <h1>NRL Footy Tipping – Sign Up</h1>
-      <p class="subtitle">This form feeds straight into my NRL tipping signup sheet so I can email you the weekly link and results.</p>
+      <p class="subtitle">Join the weekly tipping updates. I’ll collect your details now and wire this into spreadsheet sync with <code>gog</code> next.</p>
 
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdquQakH30dz0of6NFIrDGClOpf4Hs-FJneDn8RKTml9ayrlQ/viewform?embedded=1"
-        width="100%"
-        height="700"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0"
-        style="border: none;"
-      >
-        Loading NRL tipping signup form…
-      </iframe>
+      <form id="footySignupForm" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="Your full name" />
+        </div>
 
-      <p class="disclaimer">
-        Your details go only to Drew&apos;s NRL tipping list (first name, last name, email and your consent). Max two emails per week.
-      </p>
-    </div>
-  </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" />
+        </div>
+
+        <div class="field">
+          <label for="favouriteTeam">Favourite Team</label>
+          <select id="favouriteTeam" name="favouriteTeam" required>
+            <option value="">Select your team</option>
+            <option>Brisbane Broncos</option>
+            <option>Canberra Raiders</option>
+            <option>Canterbury Bulldogs</option>
+            <option>Cronulla-Sutherland Sharks</option>
+            <option>Dolphins</option>
+            <option>Gold Coast Titans</option>
+            <option>Manly Sea Eagles</option>
+            <option>Melbourne Storm</option>
+            <option>New Zealand Warriors</option>
+            <option>Newcastle Knights</option>
+            <option>North Queensland Cowboys</option>
+            <option>Parramatta Eels</option>
+            <option>Penrith Panthers</option>
+            <option>South Sydney Rabbitohs</option>
+            <option>St George Illawarra Dragons</option>
+            <option>Sydney Roosters</option>
+            <option>Wests Tigers</option>
+          </select>
+        </div>
+
+        <input name="company" type="text" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;" />
+
+        <div class="actions">
+          <button id="submitBtn" class="btn" type="submit">Join tipping list</button>
+          <span id="formStatus" class="status"></span>
+        </div>
+      </form>
+
+      <p class="disclaimer">This submits to my secure relay endpoint now. Next step is automated <code>gog</code> sync into the tipping spreadsheet.</p>
+      <p class="disclaimer"><a href="index.html">← Back to NRL tipping index</a></p>
+    </section>
+  </main>
+
+  <script>
+    const RELAY_URL = "https://diego-claw-contact-relay.andrew-rix.workers.dev";
+
+    const form = document.getElementById('footySignupForm');
+    const statusEl = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = '';
+
+      const honeypot = form.elements.company?.value?.trim();
+      if (honeypot) return;
+
+      const name = form.elements.name.value.trim();
+      const email = form.elements.email.value.trim();
+      const favouriteTeam = form.elements.favouriteTeam.value.trim();
+
+      if (!name || !email || !favouriteTeam) {
+        statusEl.textContent = 'Please complete all fields.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        const res = await fetch(RELAY_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            kind: 'footy_signup',
+            name,
+            email,
+            favouriteTeam,
+            page: location.href,
+            time: new Date().toISOString()
+          })
+        });
+
+        if (!res.ok) throw new Error('submit_failed');
+
+        form.reset();
+        statusEl.textContent = 'Signed up successfully ✅';
+      } catch {
+        statusEl.textContent = 'Could not submit right now. Please try again.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Join tipping list';
+      }
+    });
+  </script>
   <script src="/diego-claw/assets/js/nav.js"></script>
 </body>
 </html>

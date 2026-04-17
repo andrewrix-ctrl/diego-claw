@@ -35,3 +35,13 @@ Then commit + push.
 - CORS is enabled for POST requests.
 - `ALLOWED_ORIGIN` defaults to `https://andrewrix-ctrl.github.io` in `wrangler.toml`.
 - This worker strips `<` and `>` and truncates fields to reduce abuse.
+
+## Payload types
+- Contact form (default):
+  ```json
+  { "name": "...", "email": "...", "message": "...", "page": "...", "time": "..." }
+  ```
+- NRL signup form:
+  ```json
+  { "kind": "footy_signup", "name": "...", "email": "...", "favouriteTeam": "...", "page": "...", "time": "..." }
+  ```
