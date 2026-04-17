@@ -75,7 +75,7 @@
     .toast { position: fixed; right: 16px; bottom: 16px; background:#101827; color:#e2e8f0; border:1px solid #334155; border-radius:10px; padding:.6rem .85rem; opacity:0; transform: translateY(10px); pointer-events:none; transition:.25s; }
     .toast.show { opacity:1; transform: translateY(0); }
 
-    .modal { position: fixed; inset: 0; background: rgba(2,6,23,.65); display:none; align-items:center; justify-content:center; }
+    .modal { position: fixed; inset: 0; z-index: 9999; background: rgba(2,6,23,.65); display:none; align-items:center; justify-content:center; }
     .modal.open { display:flex; }
     .modal-card { width:min(500px,92vw); background: #0f172a; border:1px solid #334155; border-radius:14px; padding:1rem; color:#e2e8f0; }
 
@@ -126,7 +126,7 @@
       <div class="btn-row">
         <button class="btnx primary" id="confettiBtn">Launch confetti</button>
         <button class="btnx" id="themeBtn">Toggle theme</button>
-        <button class="btnx" id="modalBtn">Open modal</button>
+        <button class="btnx" id="modalBtn" onclick="window.__openFancyModal && window.__openFancyModal()">Open modal</button>
       </div>
     </section>
 
@@ -250,9 +250,17 @@
 
     document.getElementById('themeBtn').addEventListener('click', () => document.body.classList.toggle('light'));
     const modal = document.getElementById('modal');
-    document.getElementById('modalBtn').addEventListener('click', () => modal.classList.add('open'));
-    document.getElementById('closeModal').addEventListener('click', () => modal.classList.remove('open'));
-    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
+    const modalBtn = document.getElementById('modalBtn');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    function openFancyModal() { modal.classList.add('open'); }
+    function closeFancyModal() { modal.classList.remove('open'); }
+    window.__openFancyModal = openFancyModal;
+
+    if (modalBtn) modalBtn.addEventListener('click', openFancyModal);
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeFancyModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeFancyModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFancyModal(); });
 
     document.querySelectorAll('.sw').forEach((s) => s.addEventListener('click', () => {
       document.documentElement.style.setProperty('--accent', s.dataset.a);
