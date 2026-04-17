@@ -1,12 +1,55 @@
+:root {
+  --fancy-bg1: #12002f;
+  --fancy-bg2: #1d3557;
+  --fancy-bg3: #2a9d8f;
+}
+
+body {
+  background: linear-gradient(135deg, var(--fancy-bg1), var(--fancy-bg2), var(--fancy-bg3));
+  background-size: 300% 300%;
+  animation: aiHubBgShift 14s ease infinite;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55) 1px, transparent 2px),
+    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.45) 1px, transparent 2px),
+    radial-gradient(circle at 40% 70%, rgba(255,255,255,0.45) 1px, transparent 2px);
+  background-size: 180px 180px;
+  animation: aiHubTwinkle 8s linear infinite;
+  z-index: 0;
+}
+
+@keyframes aiHubBgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes aiHubTwinkle {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
 .ai-hub-wrap {
+  position: relative;
+  z-index: 1;
   padding-top: 1.4rem;
   font-family: "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 .hub-hero {
-  background: linear-gradient(135deg, rgba(124,156,255,.22), rgba(56,189,248,.18));
-  border: 1px solid #334078;
+  background: linear-gradient(135deg, rgba(255,77,157,.28), rgba(6,214,240,.2));
+  border: 1px solid rgba(255,255,255,.25);
   border-radius: 16px;
   padding: 1.2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 16px 34px rgba(0,0,0,.28);
 }
 .kicker { margin: 0; font-size: .75rem; letter-spacing: .12em; color: #a5b4fc; }
 .hub-hero h1 { margin: .25rem 0 .4rem; }
@@ -18,10 +61,11 @@
   margin-top: 1rem;
 }
 .track-card {
-  background: linear-gradient(180deg, #20284a, #161b31);
-  border: 1px solid #30417f;
+  background: rgba(18, 24, 43, .7);
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: 14px;
   padding: .9rem;
+  backdrop-filter: blur(10px);
 }
 .track-card h3 { margin: 0 0 .4rem; font-size: 1.04rem; }
 .track-card p { margin: 0 0 .65rem; color: var(--muted); font-size: .92rem; }
@@ -35,10 +79,11 @@
 }
 .back-link { display:inline-block; margin-bottom:.8rem; text-decoration:none; }
 .quiz-header {
-  background: #151b30;
-  border: 1px solid #2f3d73;
+  background: rgba(18, 24, 43, .72);
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: 14px;
   padding: 1rem;
+  backdrop-filter: blur(10px);
 }
 .quiz-header h1 { margin: 0 0 .35rem; }
 .quiz-header p { margin: 0; color: var(--muted); }
@@ -53,10 +98,12 @@
 .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #7c9cff, #38bdf8); transition: width .25s ease; }
 .quiz-card {
   margin-top: .9rem;
-  background: #151b30;
-  border: 1px solid #2f3d73;
+  background: rgba(18, 24, 43, .72);
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: 14px;
   padding: 1rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.24);
 }
 .quiz-card h2 { margin-top: 0; }
 .difficulty-tag {
