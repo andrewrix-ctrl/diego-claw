@@ -51,7 +51,8 @@ export default {
       });
 
       if (!tgRes.ok) {
-        return json({ ok: false, error: 'telegram_send_failed' }, 502);
+        const detail = await tgRes.text();
+        return json({ ok: false, error: 'telegram_send_failed', status: tgRes.status, detail }, 502);
       }
 
       return json({ ok: true }, 200);
