@@ -25,6 +25,7 @@
 
     <section id="quizCard" class="quiz-card" style="display:none;">
       <h2 id="qText"></h2>
+      <p id="difficultyTag" class="difficulty-tag"></p>
       <div id="options" class="options"></div>
       <div class="quiz-actions">
         <button id="submitBtn" class="btn">Submit answer</button>
@@ -37,9 +38,12 @@
       <h2>Results</h2>
       <p id="scoreText"></p>
       <p id="gradeText" class="grade-pill"></p>
+      <div class="quiz-actions" style="margin-top:.4rem;">
+        <button id="downloadCertBtn" class="btn">Download certificate</button>
+      </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>#</th><th>Your answer</th><th>Correct answer</th><th>Status</th></tr></thead>
+          <thead><tr><th>#</th><th>Difficulty</th><th>Your answer</th><th>Correct answer</th><th>Status</th></tr></thead>
           <tbody id="summaryBody"></tbody>
         </table>
       </div>

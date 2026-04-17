@@ -59,6 +59,20 @@
   padding: 1rem;
 }
 .quiz-card h2 { margin-top: 0; }
+.difficulty-tag {
+  display: inline-block;
+  margin: -.2rem 0 .45rem;
+  padding: .22rem .55rem;
+  border-radius: 999px;
+  border: 1px solid #3f4f88;
+  font-size: .8rem;
+  font-weight: 700;
+  color: #dbe6ff;
+  background: #121a33;
+}
+.difficulty-beginner { border-color: #ef5e7a; color: #ffd6de; }
+.difficulty-intermediate { border-color: #f0c05f; color: #ffefc2; }
+.difficulty-advanced { border-color: #41d28f; color: #d7ffe9; }
 .options { display: grid; gap: .55rem; margin-top: .8rem; }
 .option {
   border: 1px solid #30417f;
