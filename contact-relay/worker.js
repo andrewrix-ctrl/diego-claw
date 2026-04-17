@@ -22,8 +22,8 @@ export default {
       const safe = (v) => String(v || '').trim().replace(/[<>]/g, '').slice(0, maxLen);
 
       let text = '';
-      let welcomeResult = null;
       let sheetSyncResult = null;
+      let welcomeEmailQueued = null;
 
       if (kind === 'footy_signup') {
         const name = safe(body?.name);
@@ -44,9 +44,7 @@ export default {
           `Favourite team: ${favouriteTeam}`,
           '',
           `Page: ${page}`,
-          `Time: ${time}`,
-          '',
-          'Next step: sync to sheet via gog.'
+          `Time: ${time}`
         ].join('\n');
 
         sheetSyncResult = await syncSignupToSheetWebhook({
@@ -62,16 +60,8 @@ export default {
           text += `\n\n⚠️ Sheet sync failed: ${sheetSyncResult.error}`;
         }
 
-        welcomeResult = await sendWelcomeEmail({
-          toEmail: email,
-          name,
-          favouriteTeam,
-          env
-        });
-
-        if (!welcomeResult.ok) {
-          text += `\n\n⚠️ Welcome email failed: ${welcomeResult.error}`;
-        }
+        welcomeEmailQueued = true;
+        text += '\n\n📧 Welcome email queued for local gog sender.';
       } else {
         const name = safe(body?.name);
         const email = safe(body?.email);
@@ -114,8 +104,7 @@ export default {
         ok: true,
         sheetSynced: sheetSyncResult ? !!sheetSyncResult.ok : null,
         sheetSyncError: sheetSyncResult && !sheetSyncResult.ok ? sheetSyncResult.error : null,
-        welcomeEmailSent: welcomeResult ? !!welcomeResult.ok : null,
-        welcomeEmailError: welcomeResult && !welcomeResult.ok ? welcomeResult.error : null
+        welcomeEmailQueued
       }, 200);
     } catch {
       return json({ ok: false, error: 'unexpected_error' }, 500);
@@ -129,61 +118,6 @@ function corsHeaders() {
     'Access-Control-Allow-Methods': 'POST,OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type'
   };
-}
-
-async function sendWelcomeEmail({ toEmail, name, favouriteTeam, env }) {
-  const fromEmail = env.WELCOME_FROM_EMAIL || '';
-  if (!fromEmail) return { ok: false, error: 'WELCOME_FROM_EMAIL_not_configured' };
-
-  const fromName = env.WELCOME_FROM_NAME || 'Diego Claw';
-  const replyTo = env.WELCOME_REPLY_TO || fromEmail;
-
-  const subject = 'Welcome to Diego’s NRL Footy Tipping 🏉';
-  const textBody = [
-    `Hey ${name},`,
-    '',
-    'You’re in! Welcome to Diego’s NRL Footy Tipping list.',
-    `Favourite team noted: ${favouriteTeam}`,
-    '',
-    'You’ll get the weekly tipping link and updates soon.',
-    '',
-    'Cheers,',
-    'Diego Claw 🦞🤖'
-  ].join('\n');
-
-  const htmlBody = `
-    <html>
-      <body style="font-family:Arial,sans-serif;line-height:1.5;color:#111;">
-        <h2 style="margin-bottom:8px;">Welcome to Diego’s NRL Footy Tipping 🏉</h2>
-        <p>Hey ${escapeHtml(name)},</p>
-        <p>You’re in! Thanks for signing up.</p>
-        <p><strong>Favourite team noted:</strong> ${escapeHtml(favouriteTeam)}</p>
-        <p>You’ll get the weekly tipping link and updates soon.</p>
-        <p>Cheers,<br/>Diego Claw 🦞🤖</p>
-      </body>
-    </html>
-  `;
-
-  const mailRes = await fetch('https://api.mailchannels.net/tx/v1/send', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      personalizations: [{ to: [{ email: toEmail, name }] }],
-      from: { email: fromEmail, name: fromName },
-      reply_to: { email: replyTo, name: fromName },
-      subject,
-      content: [
-        { type: 'text/plain', value: textBody },
-        { type: 'text/html', value: htmlBody }
-      ]
-    })
-  });
-
-  if (!mailRes.ok) {
-    return { ok: false, error: `mail_send_failed_${mailRes.status}` };
-  }
-
-  return { ok: true };
 }
 
 async function syncSignupToSheetWebhook({ name, email, favouriteTeam, page, time, env }) {
@@ -212,15 +146,6 @@ async function syncSignupToSheetWebhook({ name, email, favouriteTeam, page, time
   } catch {
     return { ok: false, error: 'sheet_webhook_request_error' };
   }
-}
-
-function escapeHtml(value) {
-  return String(value || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
 }
 
 function json(payload, status = 200) {

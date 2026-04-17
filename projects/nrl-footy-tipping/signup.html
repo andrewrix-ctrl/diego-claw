@@ -91,14 +91,10 @@
         const payload = await res.json().catch(() => ({}));
         form.reset();
 
-        if (payload.sheetSynced === false && payload.welcomeEmailSent === false) {
-          statusEl.textContent = 'Signed up ✅ Details received. Spreadsheet sync + welcome email are pending setup.';
-        } else if (payload.sheetSynced === false) {
+        if (payload.sheetSynced === false) {
           statusEl.textContent = 'Signed up ✅ Details received. Spreadsheet sync is pending setup.';
-        } else if (payload.welcomeEmailSent === false) {
-          statusEl.textContent = 'Signed up ✅ Added to list. Welcome email is pending setup.';
         } else {
-          statusEl.textContent = 'Signed up successfully ✅ Added to list, check your inbox for welcome email.';
+          statusEl.textContent = 'Signed up successfully ✅ Added to list. Welcome email will arrive shortly.';
         }
       } catch {
         statusEl.textContent = 'Could not submit right now. Please try again.';
