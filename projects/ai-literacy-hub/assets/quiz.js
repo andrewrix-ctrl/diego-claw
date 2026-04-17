@@ -27,6 +27,27 @@ let locked = false;
 let score = 0;
 const answers = [];
 
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function randomizeQuestionOptions(questions) {
+  return questions.map((q) => {
+    const indexed = q.options.map((text, idx) => ({ text, idx }));
+    const shuffled = shuffleArray(indexed);
+    return {
+      ...q,
+      options: shuffled.map((x) => x.text),
+      answerIndex: shuffled.findIndex((x) => x.idx === q.answerIndex)
+    };
+  });
+}
+
 function getDifficultyLabel(qId) {
   if (qId <= 7) return { label: 'Beginner', emoji: '🌱', className: 'difficulty-beginner' };
   if (qId <= 14) return { label: 'Intermediate', emoji: '⚡', className: 'difficulty-intermediate' };
@@ -205,6 +226,7 @@ if (el.downloadCertBtn) {
     const res = await fetch(`/diego-claw/projects/ai-literacy-hub/data/${track}.json`);
     if (!res.ok) throw new Error('Track not found');
     data = await res.json();
+    data.questions = randomizeQuestionOptions(data.questions);
   } catch {
     el.title.textContent = 'Track not found';
     el.audience.textContent = 'Please return to the hub and select a valid track.';
