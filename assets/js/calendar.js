@@ -13,7 +13,7 @@ const MONTHS = [
   { slug: 'december', name: 'December', index: 11 }
 ];
 
-const EVENTS = {
+const DEFAULT_EVENTS = {
   april: {
     16: { text: 'Rooftop Drinks with Esteban 🍸', type: 'event' },
     19: { text: 'Bears and Stonewall 🐻🏳️‍🌈', type: 'event' },
@@ -55,6 +55,16 @@ const EVENTS = {
   }
 };
 
+let eventsPromise;
+function loadEvents() {
+  if (!eventsPromise) {
+    eventsPromise = fetch('/diego-claw/data/calendar-events-2026.json')
+      .then(res => (res.ok ? res.json() : DEFAULT_EVENTS))
+      .catch(() => DEFAULT_EVENTS);
+  }
+  return eventsPromise;
+}
+
 function getMonthMeta(slug) {
   return MONTHS.find(m => m.slug === slug);
 }
@@ -72,14 +82,16 @@ function createHeaders(className) {
   return DAY_HEADERS.map(d => `<div class="${className}">${d}</div>`).join('');
 }
 
-function renderYearGrid(containerId) {
+async function renderYearGrid(containerId) {
   const container = document.getElementById(containerId);
   if (!container) return;
+
+  const events = await loadEvents();
 
   container.innerHTML = MONTHS.map(month => {
     const startOffset = monthStartOffsetMonday(CALENDAR_YEAR, month.index);
     const totalDays = monthDays(CALENDAR_YEAR, month.index);
-    const monthEvents = EVENTS[month.slug] || {};
+    const monthEvents = events[month.slug] || {};
 
     const blanksStart = Array.from({ length: startOffset }, () => '<div class="yearly-day-cell"></div>').join('');
     const days = Array.from({ length: totalDays }, (_, i) => {
@@ -104,14 +116,16 @@ function renderYearGrid(containerId) {
   }).join('');
 }
 
-function renderMonth(slug, gridId, prevId, nextId) {
+async function renderMonth(slug, gridId, prevId, nextId) {
   const meta = getMonthMeta(slug);
   const grid = document.getElementById(gridId);
   if (!meta || !grid) return;
 
+  const events = await loadEvents();
+
   const startOffset = monthStartOffsetMonday(CALENDAR_YEAR, meta.index);
   const totalDays = monthDays(CALENDAR_YEAR, meta.index);
-  const monthEvents = EVENTS[slug] || {};
+  const monthEvents = events[slug] || {};
   const now = new Date();
 
   const blanksStart = Array.from({ length: startOffset }, () => '<div class="day-cell"></div>').join('');
@@ -140,6 +154,7 @@ function renderMonth(slug, gridId, prevId, nextId) {
     if (idx > 0) {
       prev.href = `/diego-claw/calendar/months/${MONTHS[idx - 1].slug}.html`;
       prev.textContent = `← ${MONTHS[idx - 1].name}`;
+      prev.classList.remove('disabled');
     } else {
       prev.classList.add('disabled');
       prev.removeAttribute('href');
@@ -151,6 +166,7 @@ function renderMonth(slug, gridId, prevId, nextId) {
     if (idx < MONTHS.length - 1) {
       next.href = `/diego-claw/calendar/months/${MONTHS[idx + 1].slug}.html`;
       next.textContent = `${MONTHS[idx + 1].name} →`;
+      next.classList.remove('disabled');
     } else {
       next.classList.add('disabled');
       next.removeAttribute('href');

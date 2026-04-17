@@ -1,0 +1,41 @@
+{
+  "april": {
+    "16": { "text": "Rooftop Drinks with Esteban 🍸", "type": "event" },
+    "19": { "text": "Bears and Stonewall 🐻🏳️‍🌈", "type": "event" },
+    "20": { "text": "Away: Wellington, NZ 🥝", "type": "away" },
+    "21": { "text": "Away: Wellington, NZ 🥝", "type": "away" },
+    "22": { "text": "Away: Wellington, NZ 🥝", "type": "away" },
+    "23": { "text": "Away: Wellington, NZ 🥝", "type": "away" },
+    "24": { "text": "Away: Wellington, NZ 🥝", "type": "away" },
+    "28": { "text": "Away: Canberra 🏛️", "type": "away" },
+    "29": { "text": "Away: Canberra 🏛️", "type": "away" },
+    "30": { "text": "Away: Canberra 🏛️", "type": "away" }
+  },
+  "may": {
+    "29": { "text": "Sydney social night ✨", "type": "event" }
+  },
+  "september": {
+    "28": { "text": "Away block starts", "type": "away" },
+    "29": { "text": "Away block", "type": "away" },
+    "30": { "text": "Away block", "type": "away" }
+  },
+  "october": {
+    "1": { "text": "Away block", "type": "away" },
+    "2": { "text": "Away block", "type": "away" },
+    "3": { "text": "Away block", "type": "away" },
+    "4": { "text": "Away block", "type": "away" },
+    "5": { "text": "Away block", "type": "away" },
+    "6": { "text": "Away block", "type": "away" },
+    "7": { "text": "Away block", "type": "away" },
+    "8": { "text": "Away block", "type": "away" },
+    "9": { "text": "Away block", "type": "away" },
+    "10": { "text": "Away block", "type": "away" },
+    "11": { "text": "Away block", "type": "away" },
+    "12": { "text": "Away block", "type": "away" },
+    "13": { "text": "Away block", "type": "away" },
+    "14": { "text": "Away block", "type": "away" },
+    "15": { "text": "Away block", "type": "away" },
+    "16": { "text": "Away block", "type": "away" },
+    "17": { "text": "Away block", "type": "away" }
+  }
+}
