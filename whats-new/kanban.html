@@ -32,8 +32,18 @@
       margin-bottom: .65rem;
       color: #e5e7eb;
       font-size: .95rem;
+      cursor: grab;
     }
+    .card:active { cursor: grabbing; }
+    .card.dragging { opacity: .55; border-color: #60a5fa; }
+    .lane-cards { min-height: 72px; }
+    .lane.drop-target { outline: 2px dashed #60a5fa; outline-offset: 2px; }
+    .empty-card { opacity: .75; }
     .tag { font-size: .72rem; color: #94a3b8; display:block; margin-bottom:.25rem; }
+    .status { font-size: .72rem; color: #67e8f9; display:block; margin-top:.35rem; }
+    .toolbar { display:flex; gap:.65rem; align-items:center; margin:.5rem 0 1rem; flex-wrap:wrap; }
+    .btn-mini { font-size:.82rem; border:1px solid #334155; background:#0b1220; color:#cbd5e1; border-radius:8px; padding:.35rem .55rem; cursor:pointer; }
+    .btn-mini:hover { border-color:#60a5fa; color:#fff; }
     .muted { color: #94a3b8; font-size: .9rem; }
     @media (max-width: 980px) { .kanban-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 620px) { .kanban-grid { grid-template-columns: 1fr; } }
@@ -45,38 +55,146 @@
     <h1 class="page-title">Roadmap Kanban</h1>
     <p class="page-intro">Visual board for the new ideas so you can track what to ship next.</p>
 
-    <p class="muted">Data source: <a href="/diego-claw/data/roadmap-kanban.json">/data/roadmap-kanban.json</a></p>
+    <div class="toolbar">
+      <p class="muted" style="margin:0;">Data source: <a href="/diego-claw/data/roadmap-kanban.json">/data/roadmap-kanban.json</a></p>
+      <button id="kanban-reset" class="btn-mini" type="button">Reset board</button>
+      <span class="muted">Drag cards across columns, status updates automatically.</span>
+    </div>
     <div id="kanban-grid" class="kanban-grid"></div>
   </main>
   <script src="/diego-claw/assets/js/nav.js"></script>
   <script>
     (async function initKanban() {
       const root = document.getElementById('kanban-grid');
+      const resetBtn = document.getElementById('kanban-reset');
+      const storageKey = 'diego-claw-kanban-state-v1';
       if (!root) return;
 
-      try {
-        const res = await fetch('/diego-claw/data/roadmap-kanban.json', { cache: 'no-store' });
-        if (!res.ok) throw new Error('kanban_fetch_failed');
-        const data = await res.json();
-        const lanes = Array.isArray(data.lanes) ? data.lanes : [];
+      let board = null;
+      let dragFromLaneIndex = null;
+      let dragFromItemIndex = null;
 
-        root.innerHTML = lanes.map((lane) => {
+      function escapeHtml(value) {
+        return String(value || '')
+          .replaceAll('&', '&amp;')
+          .replaceAll('<', '&lt;')
+          .replaceAll('>', '&gt;')
+          .replaceAll('"', '&quot;')
+          .replaceAll("'", '&#39;');
+      }
+
+      function saveBoard() {
+        if (!board) return;
+        localStorage.setItem(storageKey, JSON.stringify(board));
+      }
+
+      function render() {
+        const lanes = Array.isArray(board?.lanes) ? board.lanes : [];
+
+        root.innerHTML = lanes.map((lane, laneIndex) => {
           const items = Array.isArray(lane.items) ? lane.items : [];
-          const cards = items.map((item) => `
-            <article class="card">
-              <span class="tag">${item.tag || ''}</span>${item.text || ''}
+          const cards = items.map((item, itemIndex) => `
+            <article class="card" draggable="true" data-lane-index="${laneIndex}" data-item-index="${itemIndex}">
+              <span class="tag">${escapeHtml(item.tag)}</span>
+              ${escapeHtml(item.text)}
+              <span class="status">Status: ${escapeHtml(item.status || lane.name || '')}</span>
             </article>
           `).join('');
 
           return `
-            <section class="lane">
-              <h2>${lane.name || 'Lane'}</h2>
-              ${cards || '<article class="card"><span class="tag">Empty</span>No items yet.</article>'}
+            <section class="lane" data-lane-index="${laneIndex}">
+              <h2>${escapeHtml(lane.name || 'Lane')}</h2>
+              <div class="lane-cards" data-lane-index="${laneIndex}">
+                ${cards || '<article class="card empty-card"><span class="tag">Empty</span>Drop a card here.</article>'}
+              </div>
             </section>
           `;
         }).join('');
+
+        root.querySelectorAll('.card[draggable="true"]').forEach((cardEl) => {
+          cardEl.addEventListener('dragstart', (event) => {
+            dragFromLaneIndex = Number(cardEl.dataset.laneIndex);
+            dragFromItemIndex = Number(cardEl.dataset.itemIndex);
+            cardEl.classList.add('dragging');
+            if (event.dataTransfer) {
+              event.dataTransfer.effectAllowed = 'move';
+              event.dataTransfer.setData('text/plain', JSON.stringify({
+                laneIndex: dragFromLaneIndex,
+                itemIndex: dragFromItemIndex
+              }));
+            }
+          });
+
+          cardEl.addEventListener('dragend', () => {
+            cardEl.classList.remove('dragging');
+            root.querySelectorAll('.lane').forEach((l) => l.classList.remove('drop-target'));
+          });
+        });
+
+        root.querySelectorAll('.lane-cards').forEach((laneCardsEl) => {
+          laneCardsEl.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            const laneEl = laneCardsEl.closest('.lane');
+            if (laneEl) laneEl.classList.add('drop-target');
+          });
+
+          laneCardsEl.addEventListener('dragleave', () => {
+            const laneEl = laneCardsEl.closest('.lane');
+            if (laneEl) laneEl.classList.remove('drop-target');
+          });
+
+          laneCardsEl.addEventListener('drop', (event) => {
+            event.preventDefault();
+            const targetLaneIndex = Number(laneCardsEl.dataset.laneIndex);
+            if (!Number.isInteger(targetLaneIndex)) return;
+            if (!Number.isInteger(dragFromLaneIndex) || !Number.isInteger(dragFromItemIndex)) return;
+
+            const sourceLane = board.lanes?.[dragFromLaneIndex];
+            const targetLane = board.lanes?.[targetLaneIndex];
+            if (!sourceLane || !targetLane) return;
+
+            const sourceItems = Array.isArray(sourceLane.items) ? sourceLane.items : [];
+            const [moved] = sourceItems.splice(dragFromItemIndex, 1);
+            if (!moved) return;
+
+            moved.status = targetLane.name || moved.status || '';
+            targetLane.items = Array.isArray(targetLane.items) ? targetLane.items : [];
+            targetLane.items.push(moved);
+
+            dragFromLaneIndex = null;
+            dragFromItemIndex = null;
+            saveBoard();
+            render();
+          });
+        });
+      }
+
+      async function loadBoard() {
+        const local = localStorage.getItem(storageKey);
+        if (local) {
+          try {
+            return JSON.parse(local);
+          } catch (_) {}
+        }
+
+        const res = await fetch('/diego-claw/data/roadmap-kanban.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('kanban_fetch_failed');
+        return await res.json();
+      }
+
+      try {
+        board = await loadBoard();
+        render();
       } catch (error) {
         root.innerHTML = '<section class="lane"><h2>Kanban</h2><article class="card"><span class="tag">Error</span>Could not load board data.</article></section>';
+      }
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', async function () {
+          localStorage.removeItem(storageKey);
+          board = await loadBoard();
+          render();
+        });
       }
     })();
   </script>
