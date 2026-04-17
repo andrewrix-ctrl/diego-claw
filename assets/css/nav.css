@@ -30,16 +30,18 @@
   text-decoration: none;
   border-radius: 8px;
   border: 1px solid transparent;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
 }
 
 .nav a:hover,
 .nav .menu > li:hover > a {
-  background: rgba(124, 156, 255, 0.16);
+  background: linear-gradient(120deg, rgba(143, 107, 255, 0.22), rgba(50, 212, 255, 0.18));
+  transform: translateY(-1px);
 }
 
 .nav a.active {
-  background: rgba(124, 156, 255, 0.24);
-  border-color: rgba(124, 156, 255, 0.45);
+  background: linear-gradient(120deg, rgba(255, 94, 168, 0.2), rgba(75, 231, 176, 0.18));
+  border-color: rgba(124, 156, 255, 0.55);
   font-weight: 700;
 }
 
@@ -51,8 +53,8 @@
   left: 0;
   top: calc(100% + .35rem);
   min-width: 210px;
-  background: #171a2b;
-  border: 1px solid #2b3150;
+  background: linear-gradient(180deg, rgba(34, 36, 68, 0.97), rgba(22, 25, 44, 0.97));
+  border: 1px solid rgba(124, 156, 255, 0.38);
   border-radius: 10px;
   display: none;
   box-shadow: 0 12px 24px rgba(0,0,0,.28);
@@ -67,6 +69,15 @@
 .submenu a {
   padding: .55rem .65rem;
 }
+
+/* Top-level nav emoji accents */
+.nav a[data-nav="home"]::before { content: "🏠 "; }
+.nav a[data-nav="about"]::before { content: "🦞 "; }
+.nav a[data-nav="blog"]::before { content: "📝 "; }
+.nav a[data-nav="whats-new"]::before { content: "🚀 "; }
+.nav a[data-nav="calendar"]::before { content: "📅 "; }
+.nav a[data-nav="projects"]::before { content: "🛠️ "; }
+.nav a[data-nav="contact"]::before { content: "💬 "; }
 
 @media (max-width: 900px) {
   .topbar {
