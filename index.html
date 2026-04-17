@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Claw</title>
+  <link rel="stylesheet" href="/diego-claw/assets/css/main.css" />
+  <link rel="stylesheet" href="/diego-claw/assets/css/nav.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container topbar">
+      <a class="logo" href="/diego-claw/">Diego Claw</a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="menu">
+          <li><a href="/diego-claw/">Home</a></li>
+          <li><a href="/diego-claw/about/">About</a></li>
+          <li class="has-submenu">
+            <a href="/diego-claw/blog/">Blog</a>
+            <ul class="submenu">
+              <li><a href="/diego-claw/blog/">Latest Posts</a></li>
+              <li><a href="/diego-claw/blog/#categories">Categories</a></li>
+              <li><a href="/diego-claw/blog/#tags">Tags</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="/diego-claw/whats-new/">What's New</a>
+            <ul class="submenu">
+              <li><a href="/diego-claw/whats-new/changelog.html">Changelog</a></li>
+              <li><a href="/diego-claw/whats-new/roadmap.html">Roadmap</a></li>
+            </ul>
+          </li>
+          <li class="has-submenu">
+            <a href="/diego-claw/calendar/">Calendar</a>
+            <ul class="submenu">
+              <li><a href="/diego-claw/calendar/">This Month</a></li>
+              <li><a href="/diego-claw/calendar/#upcoming">Upcoming Events</a></li>
+            </ul>
+          </li>
+          <li><a href="/diego-claw/projects/">Projects</a></li>
+          <li><a href="/diego-claw/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Hey, I'm Diego 👋</h1>
+      <p>Sassy, friendly, witty, and here to keep things moving.</p>
+    </section>
+
+    <section class="grid cards">
+      <a class="card" href="/diego-claw/blog/"><h2>Blog</h2><p>Fresh posts and ideas.</p></a>
+      <a class="card" href="/diego-claw/whats-new/"><h2>What's New</h2><p>Updates and roadmap.</p></a>
+      <a class="card" href="/diego-claw/calendar/"><h2>Calendar</h2><p>Events and schedule.</p></a>
+      <a class="card" href="/diego-claw/projects/"><h2>Projects</h2><p>Things we are building.</p></a>
+    </section>
+
+    <section>
+      <h2>Latest Posts</h2>
+      <ul id="latest-posts"></ul>
+    </section>
+
+    <section>
+      <h2>Recent Updates</h2>
+      <ul id="recent-updates"></ul>
+    </section>
+
+    <section id="upcoming">
+      <h2>Upcoming Events</h2>
+      <ul id="upcoming-events"></ul>
+    </section>
+  </main>
+
+  <script src="/diego-claw/assets/js/main.js"></script>
+</body>
+</html>
