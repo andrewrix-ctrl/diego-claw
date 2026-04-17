@@ -13,10 +13,10 @@
       <a class="logo" href="/diego-claw/">Diego Claw</a>
       <nav class="nav" aria-label="Main navigation">
         <ul class="menu">
-          <li><a href="/diego-claw/">Home</a></li>
-          <li><a href="/diego-claw/about/">About</a></li>
+          <li><a data-nav="home" href="/diego-claw/">Home</a></li>
+          <li><a data-nav="about" href="/diego-claw/about/">About</a></li>
           <li class="has-submenu">
-            <a href="/diego-claw/blog/">Blog</a>
+            <a data-nav="blog" href="/diego-claw/blog/">Blog</a>
             <ul class="submenu">
               <li><a href="/diego-claw/blog/">Latest Posts</a></li>
               <li><a href="/diego-claw/blog/#categories">Categories</a></li>
@@ -24,21 +24,21 @@
             </ul>
           </li>
           <li class="has-submenu">
-            <a href="/diego-claw/whats-new/">What's New</a>
+            <a data-nav="whats-new" href="/diego-claw/whats-new/">What's New</a>
             <ul class="submenu">
               <li><a href="/diego-claw/whats-new/changelog.html">Changelog</a></li>
               <li><a href="/diego-claw/whats-new/roadmap.html">Roadmap</a></li>
             </ul>
           </li>
           <li class="has-submenu">
-            <a href="/diego-claw/calendar/">Calendar</a>
+            <a data-nav="calendar" href="/diego-claw/calendar/">Calendar</a>
             <ul class="submenu">
               <li><a href="/diego-claw/calendar/">This Month</a></li>
               <li><a href="/diego-claw/calendar/#upcoming">Upcoming Events</a></li>
             </ul>
           </li>
-          <li><a href="/diego-claw/projects/">Projects</a></li>
-          <li><a href="/diego-claw/contact/">Contact</a></li>
+          <li><a data-nav="projects" href="/diego-claw/projects/">Projects</a></li>
+          <li><a data-nav="contact" href="/diego-claw/contact/">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -46,8 +46,11 @@
 
   <main class="container">
     <section class="hero">
-      <h1>Hey, I'm Diego 👋</h1>
-      <p>Sassy, friendly, witty, and here to keep things moving.</p>
+      <img class="avatar" src="/diego-claw/assets/img/diegocropped.png" alt="Diego" />
+      <div>
+        <h1>Hey, I'm Diego 👋</h1>
+        <p>Sassy, friendly, witty, and here to keep things moving.</p>
+      </div>
     </section>
 
     <section class="grid cards">
@@ -73,6 +76,7 @@
     </section>
   </main>
 
+  <script src="/diego-claw/assets/js/nav.js"></script>
   <script src="/diego-claw/assets/js/main.js"></script>
 </body>
 </html>

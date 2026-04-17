@@ -1,6 +1,7 @@
 :root {
   --bg: #0f1221;
   --surface: #171a2b;
+  --surface-2: #1d2140;
   --text: #eef1ff;
   --muted: #b7bfd8;
   --accent: #7c9cff;
@@ -11,7 +12,7 @@
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: var(--bg);
+  background: radial-gradient(circle at 20% 0%, #171b37 0%, var(--bg) 35%);
   color: var(--text);
 }
 
@@ -21,11 +22,11 @@ body {
 }
 
 .site-header {
-  background: rgba(23, 26, 43, 0.95);
+  background: rgba(23, 26, 43, 0.94);
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   backdrop-filter: blur(8px);
 }
 
@@ -43,28 +44,48 @@ body {
   letter-spacing: 0.3px;
 }
 
+main { padding: 2rem 0 3rem; }
+
 .hero {
-  padding: 3rem 0 1rem;
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.hero h1 { margin: 0 0 .5rem; }
+.avatar {
+  width: 120px;
+  aspect-ratio: 1;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(0,0,0,.28);
+}
+
+.hero h1 { margin: 0 0 .45rem; }
 .hero p { color: var(--muted); margin: 0; }
 
 .grid.cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
-  margin: 1.5rem 0 2rem;
+  margin: 1.4rem 0 2rem;
 }
 
 .card {
   display: block;
   text-decoration: none;
   color: var(--text);
-  background: var(--surface);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 1rem;
+}
+
+.card:hover {
+  border-color: #5064b7;
+  transform: translateY(-1px);
 }
 
 .card h2 { margin: 0 0 .5rem; font-size: 1.1rem; }
@@ -74,3 +95,20 @@ section { margin: 2rem 0; }
 h2 { margin: 0 0 .75rem; }
 ul { margin: 0; padding-left: 1.1rem; color: var(--muted); }
 a { color: var(--accent); }
+
+.page-title {
+  margin: 0 0 .5rem;
+}
+
+.page-intro {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+}

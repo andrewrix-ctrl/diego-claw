@@ -17,11 +17,18 @@
   color: #eef1ff;
   text-decoration: none;
   border-radius: 8px;
+  border: 1px solid transparent;
 }
 
 .nav a:hover,
 .nav .menu > li:hover > a {
   background: rgba(124, 156, 255, 0.16);
+}
+
+.nav a.active {
+  background: rgba(124, 156, 255, 0.24);
+  border-color: rgba(124, 156, 255, 0.45);
+  font-weight: 700;
 }
 
 .submenu {
@@ -31,11 +38,12 @@
   position: absolute;
   left: 0;
   top: calc(100% + .35rem);
-  min-width: 200px;
+  min-width: 210px;
   background: #171a2b;
   border: 1px solid #2b3150;
   border-radius: 10px;
   display: none;
+  box-shadow: 0 12px 24px rgba(0,0,0,.28);
 }
 
 .has-submenu:hover > .submenu,
