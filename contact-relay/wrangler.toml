@@ -1,0 +1,8 @@
+name = "diego-claw-contact-relay"
+main = "worker.js"
+compatibility_date = "2026-04-17"
+
+[vars]
+# Set this to your site origin for tighter CORS, e.g.
+# ALLOWED_ORIGIN = "https://andrewrix-ctrl.github.io"
+ALLOWED_ORIGIN = "https://andrewrix-ctrl.github.io"

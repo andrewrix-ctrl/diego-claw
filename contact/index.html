@@ -39,36 +39,12 @@
   </main>
 
   <script>
-    // Preferred: set TELEGRAM_WEBHOOK_URL to your own backend/webhook that forwards to Telegram.
-    // Optional quick mode: set TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID directly (not recommended for public sites).
-    const TELEGRAM_WEBHOOK_URL = "";
-    const TELEGRAM_BOT_TOKEN = "";
-    const TELEGRAM_CHAT_ID = "";
+    // Secure relay endpoint (Cloudflare Worker). Keep Telegram bot token out of this public page.
+    const TELEGRAM_WEBHOOK_URL = "https://REPLACE-ME.contact-relay.workers.dev";
 
     const form = document.getElementById('contactForm');
     const statusEl = document.getElementById('formStatus');
     const sendBtn = document.getElementById('sendBtn');
-
-    function escapeHtml(str) {
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
-    }
-
-    async function sendViaTelegramApi(text) {
-      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text,
-          parse_mode: 'HTML'
-        })
-      });
-      if (!res.ok) throw new Error('Telegram API send failed');
-    }
 
     async function sendViaWebhook(payload) {
       const res = await fetch(TELEGRAM_WEBHOOK_URL, {
@@ -98,26 +74,18 @@
       sendBtn.disabled = true;
       sendBtn.textContent = 'Sending...';
 
-      const text = [
-        '📬 <b>New website contact form message</b>',
-        '',
-        `<b>Name:</b> ${escapeHtml(name)}`,
-        `<b>Email:</b> ${escapeHtml(email)}`,
-        `<b>Message:</b>`,
-        `${escapeHtml(message)}`,
-        '',
-        `<b>Page:</b> ${location.href}`,
-        `<b>Time:</b> ${new Date().toISOString()}`
-      ].join('\n');
-
       try {
-        if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-          await sendViaTelegramApi(text);
-        } else if (TELEGRAM_WEBHOOK_URL) {
-          await sendViaWebhook({ name, email, message, page: location.href, time: new Date().toISOString() });
-        } else {
-          throw new Error('No Telegram transport configured');
+        if (!TELEGRAM_WEBHOOK_URL || TELEGRAM_WEBHOOK_URL.includes('REPLACE-ME')) {
+          throw new Error('Webhook not configured');
         }
+
+        await sendViaWebhook({
+          name,
+          email,
+          message,
+          page: location.href,
+          time: new Date().toISOString()
+        });
 
         form.reset();
         statusEl.textContent = 'Thanks, message sent ✅';
