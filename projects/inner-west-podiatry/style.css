@@ -3,15 +3,15 @@
 }
 
 :root {
-  --bg: #ede2d4;
-  --bg-soft: #f9f3eb;
-  --bg-soft-2: #f5ebdf;
-  --text: #3f2a20;
-  --text-soft: #5c4332;
-  --accent: #8b5e3c;
-  --accent-dark: #7a5030;
-  --border: #e0cdb8;
-  --shadow: 0 10px 24px rgba(63, 42, 32, 0.12);
+  --bg: #e9f7f6;
+  --bg-soft: #f4fbfb;
+  --bg-soft-2: #ecf8f8;
+  --text: #14353a;
+  --text-soft: #33626a;
+  --accent: #0c8f93;
+  --accent-dark: #0a767a;
+  --border: #b9e4e5;
+  --shadow: 0 10px 24px rgba(12, 95, 99, 0.16);
 }
 
 body {
@@ -42,7 +42,7 @@ a:hover {
 
 .site-footer {
   flex-shrink: 0;
-  border-top: 1px solid #d4bfa9;
+  border-top: 1px solid #b9e4e5;
   padding: 1rem 1.5rem 1.6rem;
   margin-top: 2rem;
   font-size: 0.85rem;
@@ -55,9 +55,9 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(247, 235, 220, 0.95);
+  background: rgba(236, 248, 248, 0.95);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid #dfc9af;
+  border-bottom: 1px solid #b9e4e5;
   padding: 0.85rem 1.5rem 0.9rem;
 }
 
@@ -95,14 +95,14 @@ a:hover {
 
 .top-nav a.active {
   background: var(--accent);
-  color: #fdf7f0;
-  box-shadow: 0 8px 18px rgba(63, 42, 32, 0.25);
+  color: #f7ffff;
+  box-shadow: 0 8px 18px rgba(12, 95, 99, 0.25);
 }
 
 .top-nav a:hover {
   text-decoration: none;
   background: var(--accent-dark);
-  color: #fdf7f0;
+  color: #f7ffff;
   border-color: var(--accent-dark);
 }
 
@@ -110,7 +110,7 @@ a:hover {
 .hero {
   padding: 2.5rem 1.5rem 1.5rem;
   background: var(--bg-soft);
-  border-bottom: 1px solid #d4bfa9;
+  border-bottom: 1px solid #b9e4e5;
 }
 
 .page-header-inner,
@@ -204,7 +204,7 @@ main {
 }
 
 .badge-list li {
-  background: #fffaf5;
+  background: #f7ffff;
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 0.28rem 0.75rem;
@@ -266,7 +266,7 @@ main {
 .finder-controls input {
   flex: 1 1 260px;
   border: 1px solid var(--border);
-  background: #fff;
+  background: #f9ffff;
   border-radius: 0.7rem;
   padding: 0.68rem 0.8rem;
   font-size: 0.95rem;
@@ -278,7 +278,7 @@ main {
 
 .condition-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 24px rgba(63, 42, 32, 0.16);
+  box-shadow: 0 14px 24px rgba(12, 95, 99, 0.18);
 }
 
 .hidden {
@@ -294,7 +294,7 @@ main {
   background: var(--bg-soft);
   border: 1px solid var(--border);
   border-radius: 0.8rem;
-  box-shadow: 0 8px 20px rgba(63, 42, 32, 0.08);
+  box-shadow: 0 8px 20px rgba(12, 95, 99, 0.12);
   overflow: hidden;
 }
 
@@ -311,7 +311,7 @@ main {
 
 .callout {
   border-left: 4px solid var(--accent);
-  background: #fff8f0;
+  background: #eefbfb;
   padding: 0.8rem 0.95rem;
   border-radius: 0.45rem;
 }
