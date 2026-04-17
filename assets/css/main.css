@@ -148,6 +148,37 @@ a { color: var(--accent); }
   padding: 1rem;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.quote-card {
+  background: linear-gradient(140deg, #26244d, #1a2f4a);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: .55rem .85rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid #4b5fae;
+  background: rgba(124, 156, 255, .14);
+  color: #d8e0ff;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background: rgba(124, 156, 255, .24);
+}
+
 @media (max-width: 700px) {
   .hero {
     grid-template-columns: 1fr;
