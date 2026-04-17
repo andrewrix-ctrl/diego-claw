@@ -45,3 +45,14 @@ Then commit + push.
   ```json
   { "kind": "footy_signup", "name": "...", "email": "...", "favouriteTeam": "...", "page": "...", "time": "..." }
   ```
+
+## Welcome email for NRL signups
+The worker can send an automatic welcome email (via MailChannels) when `kind=footy_signup` is received.
+
+Configure these vars in `wrangler.toml` or via Wrangler secrets/vars:
+
+- `WELCOME_FROM_NAME` (default `Diego Claw`)
+- `WELCOME_FROM_EMAIL` (**required**)
+- `WELCOME_REPLY_TO` (optional)
+
+If `WELCOME_FROM_EMAIL` is blank, signup still works and Telegram alert is sent, but welcome email is skipped/fails.

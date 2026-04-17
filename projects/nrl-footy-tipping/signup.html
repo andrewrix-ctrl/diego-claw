@@ -184,7 +184,7 @@
         if (!res.ok) throw new Error('submit_failed');
 
         form.reset();
-        statusEl.textContent = 'Signed up successfully ✅';
+        statusEl.textContent = 'Signed up successfully ✅ Check your inbox for a welcome email.';
       } catch {
         statusEl.textContent = 'Could not submit right now. Please try again.';
       } finally {
