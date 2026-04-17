@@ -87,8 +87,15 @@
           body: JSON.stringify({ kind: 'footy_signup', name, email, favouriteTeam, page: location.href, time: new Date().toISOString() })
         });
         if (!res.ok) throw new Error('submit_failed');
+
+        const payload = await res.json().catch(() => ({}));
         form.reset();
-        statusEl.textContent = 'Signed up successfully. Check your inbox for a welcome email ✅';
+
+        if (payload.welcomeEmailSent === false) {
+          statusEl.textContent = 'Signed up ✅ We got your details, but welcome email is pending setup.';
+        } else {
+          statusEl.textContent = 'Signed up successfully. Check your inbox for a welcome email ✅';
+        }
       } catch {
         statusEl.textContent = 'Could not submit right now. Please try again.';
       } finally {

@@ -8,7 +8,5 @@ account_id = "71b51db3bf2634eb372dd318e8ace8b4"
 # ALLOWED_ORIGIN = "https://andrewrix-ctrl.github.io"
 ALLOWED_ORIGIN = "https://andrewrix-ctrl.github.io"
 WELCOME_FROM_NAME = "Diego Claw"
-# Set to a real sender mailbox/domain you control before production use.
-WELCOME_FROM_EMAIL = ""
-# Optional reply-to override.
-WELCOME_REPLY_TO = ""
+WELCOME_FROM_EMAIL = "diego.drew.claw@gmail.com"
+WELCOME_REPLY_TO = "andrew.rix@fujitsu.com"

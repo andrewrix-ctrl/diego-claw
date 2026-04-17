@@ -22,6 +22,7 @@ export default {
       const safe = (v) => String(v || '').trim().replace(/[<>]/g, '').slice(0, maxLen);
 
       let text = '';
+      let welcomeResult = null;
 
       if (kind === 'footy_signup') {
         const name = safe(body?.name);
@@ -47,7 +48,7 @@ export default {
           'Next step: sync to sheet via gog.'
         ].join('\n');
 
-        const welcomeResult = await sendWelcomeEmail({
+        welcomeResult = await sendWelcomeEmail({
           toEmail: email,
           name,
           favouriteTeam,
@@ -95,7 +96,11 @@ export default {
         return json({ ok: false, error: 'telegram_send_failed', status: tgRes.status, detail }, 502);
       }
 
-      return json({ ok: true }, 200);
+      return json({
+        ok: true,
+        welcomeEmailSent: welcomeResult ? !!welcomeResult.ok : null,
+        welcomeEmailError: welcomeResult && !welcomeResult.ok ? welcomeResult.error : null
+      }, 200);
     } catch {
       return json({ ok: false, error: 'unexpected_error' }, 500);
     }
