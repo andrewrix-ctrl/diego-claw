@@ -1,4 +1,4 @@
-(function markActiveNav() {
+(function setupNav() {
   const path = window.location.pathname.replace(/\/$/, '');
 
   const map = [
@@ -12,9 +12,30 @@
   ];
 
   const current = map.find(item => item.match.test(path))?.key;
-  if (!current) return;
+  if (current) {
+    document.querySelectorAll('.nav a[data-nav]').forEach(a => {
+      if (a.dataset.nav === current) a.classList.add('active');
+    });
+  }
 
-  document.querySelectorAll('.nav a[data-nav]').forEach(a => {
-    if (a.dataset.nav === current) a.classList.add('active');
+  const nav = document.querySelector('.nav');
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  if (!nav || !toggle || !menu) return;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('menu-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.textContent = isOpen ? '✕' : '☰';
+  });
+
+  const submenuParents = menu.querySelectorAll('.has-submenu > a[data-nav]');
+  submenuParents.forEach(link => {
+    link.addEventListener('click', e => {
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        e.preventDefault();
+        link.parentElement.classList.toggle('open');
+      }
+    });
   });
 })();
