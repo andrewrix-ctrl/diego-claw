@@ -350,16 +350,18 @@
           <button class="btn primary" id="btnB" disabled style="display:none">B • Movie quote</button>
         </div>
 
-        <div id="feedback" class="feedback" style="display:none"></div>
-        <div class="result-visual" id="resultVisual" style="display:none">
-          <span id="resultIcon" class="big-tick">✓</span>
-          <img id="resultImage" src="/diego-site/media/trump-happy.jpg" alt="Result image" />
-        </div>
         <div class="progress" id="progressText"></div>
       </section>
 
       <aside class="card" id="sideResultCard" style="min-height:220px;">
         <h2>Result visual</h2>
+        <div id="liveResult" style="display:none; margin-top:.7rem;">
+          <div class="result-visual" id="resultVisual" style="display:flex; margin-top:0;">
+            <span id="resultIcon" class="big-tick">✓</span>
+            <img id="resultImage" src="/diego-site/media/trump-happy.jpg" alt="Result image" />
+          </div>
+          <div id="resultFeedback" class="feedback" style="display:block; margin-top:.7rem;"></div>
+        </div>
         <div id="resultsBlock" style="display:none; width:100%; margin-top:.7rem;">
           <h2>Final results</h2>
           <div id="finalSummary" class="muted"></div>
@@ -965,7 +967,8 @@
     const quoteText = document.getElementById('quoteText');
     const qCounter = document.getElementById('qCounter');
     const qHint = document.getElementById('qHint');
-    const feedback = document.getElementById('feedback');
+    const liveResult = document.getElementById('liveResult');
+    const resultFeedback = document.getElementById('resultFeedback');
     const progressText = document.getElementById('progressText');
     const btnA = document.getElementById('btnA');
     const btnB = document.getElementById('btnB');
@@ -985,6 +988,7 @@
       score = 0;
       answers.length = 0;
       resultsBlock.style.display = 'none';
+      if (liveResult) liveResult.style.display = 'none';
       finalSummary.textContent = '';
       resultsBody.innerHTML = '';
       if (scoreBadge) scoreBadge.textContent = 'Score hidden • 0 / 5';
@@ -1006,8 +1010,11 @@
       quoteText.textContent = q.quote;
       qCounter.textContent = `Question ${index + 1} of 5`;
       qHint.textContent = "A = Trump, B = Movie";
-      feedback.style.display = 'none';
-      feedback.className = 'feedback';
+      if (liveResult) liveResult.style.display = 'none';
+      if (resultFeedback) {
+        resultFeedback.className = 'feedback';
+        resultFeedback.textContent = '';
+      }
       const resultVisual = document.getElementById('resultVisual');
       if (resultVisual) resultVisual.style.display = 'none';
       progressText.textContent = '';
@@ -1032,8 +1039,8 @@
         isCorrect
       });
 
-      feedback.style.display = 'block';
-      feedback.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+      if (liveResult) liveResult.style.display = 'block';
+      if (resultFeedback) resultFeedback.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
 
       const resultVisual = document.getElementById('resultVisual');
       const resultImage = document.getElementById('resultImage');
@@ -1057,7 +1064,7 @@
       lines.push(`Correct answer: ${correctLabel}`);
       lines.push('');
       lines.push(`Source details: ${q.sourceDetails}`);
-      feedback.textContent = lines.join('\n');
+      if (resultFeedback) resultFeedback.textContent = lines.join('\n');
 
       btnA.disabled = true;
       btnB.disabled = true;
@@ -1076,6 +1083,7 @@
     }
 
     function finishQuiz() {
+      if (liveResult) liveResult.style.display = 'none';
       resultsBlock.style.display = 'block';
       const pct = Math.round((score / 5) * 100);
       let emoji = '😐';
