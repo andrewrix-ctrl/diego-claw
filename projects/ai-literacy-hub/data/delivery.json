@@ -1,0 +1,229 @@
+{
+  "slug": "delivery",
+  "title": "Delivery / Operations Professional",
+  "emoji": "🚚",
+  "audience": "Service delivery, reliability, release and operations roles.",
+  "questionCount": 20,
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is the primary goal of \"AIOps\"?",
+      "options": [
+        "To apply AI and Machine Learning to IT operations data to automate and improve operations.",
+        "To replace all human IT staff with AI.",
+        "To develop new AI algorithms for operational tasks.",
+        "To exclusively manage cloud infrastructure."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 2,
+      "text": "When an AI model is moved from development to actual use by customers, what phase is this commonly called?",
+      "options": [
+        "Data Annotation.",
+        "Deployment or Production.",
+        "Model Training.",
+        "Algorithm Design."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 3,
+      "text": "Why is \"monitoring\" an AI system in production important for a Delivery/Operations team?",
+      "options": [
+        "To ensure the AI is not creating art.",
+        "To solely manage its energy consumption.",
+        "To track its performance, detect failures, and identify degradation or unexpected behavior.",
+        "To see if the AI is chatting with users."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 4,
+      "text": "What does \"model performance degradation\" in an AI system typically refer to?",
+      "options": [
+        "The AI model getting physically damaged.",
+        "The AI becoming less visually appealing.",
+        "The model running slower due to hardware issues.",
+        "A decrease in the model's accuracy or effectiveness over time in a production environment."
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 5,
+      "text": "Which of these is a key responsibility for an operations professional when managing an AI-powered service?",
+      "options": [
+        "Providing end-user technical support and incident management for the AI service.",
+        "Ensuring the AI model is regularly retrained with new data.",
+        "Writing the underlying AI algorithms from scratch.",
+        "Designing the AI's internal architecture."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 6,
+      "text": "What is an \"SLA\" (Service Level Agreement) in the context of an AI-driven service?",
+      "options": [
+        "A type of AI model for customer service.",
+        "A contract defining the level of service expected from a provider, including uptime and performance.",
+        "A programming language used to build AI.",
+        "A system for collecting feedback on AI."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 7,
+      "text": "In AI operational management, what is a \"rollback\" strategy primarily used for?",
+      "options": [
+        "To teach the AI new tricks.",
+        "To automatically update the AI model daily.",
+        "To revert a deployed AI model to a previous stable version in case of issues.",
+        "To transfer AI data to a different server."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 8,
+      "text": "What is \"model drift\" and why is it a concern for operations teams?",
+      "options": [
+        "When an AI model physically moves from one server to another.",
+        "A security vulnerability involving manipulated inputs that can cause incorrect outputs.",
+        "The tendency of AI models to slow down during peak usage.",
+        "When the relationship between model inputs and the target output changes over time, causing decreased accuracy, requiring monitoring and potential retraining."
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 9,
+      "text": "When an AI system fails in production, what is \"post-mortem analysis\" intended to achieve?",
+      "options": [
+        "To determine the root cause of the failure and prevent recurrence, improving incident response.",
+        "To celebrate the AI's eventual recovery.",
+        "To redesign the entire AI system from scratch.",
+        "To officially decommission the AI system."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 10,
+      "text": "What is a \"feature flag\" or \"toggle\" useful for in deploying AI features?",
+      "options": [
+        "To visually highlight parts of the AI's output.",
+        "To enable or disable specific AI features or versions in a controlled manner, often for A/B testing or gradual rollout.",
+        "To automatically train new AI models.",
+        "To secure AI models from unauthorized access."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 11,
+      "text": "In the context of AI operations, what is \"dark launch\" or \"shadow mode\" deployment?",
+      "options": [
+        "Launching an AI model without telling anyone it's live.",
+        "Deploying an AI model only at night to save computational costs.",
+        "Deploying a new AI model in production alongside the existing one, running it on live data but not impacting user experience, to monitor its performance.",
+        "A security measure to hide the AI model's internal workings."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 12,
+      "text": "What role does \"alerting\" play in managing production AI systems?",
+      "options": [
+        "To inform users about new AI features.",
+        "To schedule routine maintenance for AI hardware.",
+        "To warn the AI about potential cybersecurity threats.",
+        "To proactively notify operations teams about anomalies, performance degradation, or errors in AI models."
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 13,
+      "text": "Why is \"data pipeline monitoring\" crucial for AI systems?",
+      "options": [
+        "To detect issues with data quality, freshness, and throughput that could negatively impact AI model performance.",
+        "To ensure data is always stored in the most expensive cloud storage.",
+        "To monitor the physical location of data centers.",
+        "To automatically generate new data for AI training."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 14,
+      "text": "What is the primary benefit of \"automated testing\" for AI features in a CI/CD pipeline?",
+      "options": [
+        "It makes AI models more ethical.",
+        "It accelerates deployment cycles and reduces manual effort by verifying AI functionality and performance consistently.",
+        "It automatically writes new AI models.",
+        "It helps AI models understand human emotions better."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 15,
+      "text": "Which of these best describes \"Canary Releases\" for AI models?",
+      "options": [
+        "Releasing a new AI model to all users simultaneously.",
+        "Deploying an AI model only to users in specific geographical regions.",
+        "Gradually rolling out a new AI model to a small subset of users first, monitoring its performance, and then expanding the rollout if stable.",
+        "A method for training AI models faster than usual."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 16,
+      "text": "What is \"A/B testing\" commonly used for in AI development and operations?",
+      "options": [
+        "To determine if an AI model can accurately predict two different outcomes.",
+        "To measure the energy consumption of AI systems.",
+        "To train two AI models simultaneously on the same dataset.",
+        "To compare the performance of two different AI models or feature versions with live users to identify the superior one."
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 17,
+      "text": "In the context of ITIL or IT Service Management, what would be a key \"problem management\" activity related to a recurring AI model error?",
+      "options": [
+        "Investigating the root cause of the failure and prevent recurrence, improving incident response.",
+        "Immediately restarting the AI system whenever an error occurs.",
+        "Notifying all users about the AI error via email.",
+        "Redeploying the exact same AI model repeatedly."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 18,
+      "text": "What is the significance of a \"service level objective\" (SLO) for an AI-powered API?",
+      "options": [
+        "It's a marketing slogan for the AI service.",
+        "It defines a target value for a service level indicator (SLI), specifying the desired performance or availability of the AI API.",
+        "It describes the internal architecture of the AI API.",
+        "It's a list of all features the AI API provides."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 19,
+      "text": "What is \"drift detection\" in ML monitoring, beyond just model output drift?",
+      "options": [
+        "Detecting when the physical AI hardware starts to drift apart.",
+        "Detecting when the AI model changes its internal algorithms without warning.",
+        "Monitoring changes in the input data distribution or target concept over time, which can indicate potential model degradation.",
+        "Detecting server performance metrics like CPU or memory spikes."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 20,
+      "text": "Which of these is a primary challenge in managing \"AI incident response\"?",
+      "options": [
+        "AI models generating too many creative ideas.",
+        "Deciding on a fun name for each AI incident.",
+        "The AI model being too fast for humans to keep up.",
+        "Rapidly diagnosing and mitigating issues in complex, opaque AI systems, often requiring specialized ML expertise alongside traditional IT skills."
+      ],
+      "answerIndex": 3
+    }
+  ]
+}

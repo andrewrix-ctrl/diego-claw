@@ -1,0 +1,229 @@
+{
+  "slug": "technical",
+  "title": "Technical Specialist / Engineer",
+  "emoji": "🛠️",
+  "audience": "Engineering, platform, integration, data, and cyber roles.",
+  "questionCount": 20,
+  "questions": [
+    {
+      "id": 1,
+      "text": "When designing a system that uses AI, what is \"technical debt\" typically referring to?",
+      "options": [
+        "The cost of purchasing AI software licenses.",
+        "Design or implementation choices that are expedient in the short term but create future rework or quality issues.",
+        "Loans taken out to fund AI research.",
+        "The process of training an AI model."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 2,
+      "text": "What is the role of a \"Proof of Concept\" (PoC) in an AI project's design phase?",
+      "options": [
+        "To fully deploy the AI solution to production users.",
+        "To demonstrate the feasibility and potential of a specific AI idea or technology on a small scale.",
+        "To write all the documentation for the AI system.",
+        "To secure funding for the entire AI project."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 3,
+      "text": "In AI system design, what is \"scalability\"?",
+      "options": [
+        "The ability to measure the height of AI models.",
+        "The capability of an AI system to handle increasing workloads or user demand effectively.",
+        "The process of scanning AI models for security vulnerabilities.",
+        "The ease with which an AI system can be visually designed."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 4,
+      "text": "What is a \"monolithic architecture\" versus a \"microservices architecture\" in the context of AI application deployment?",
+      "options": [
+        "Monolithic is always better for AI; microservices are never used.",
+        "Monolithic means a single, tightly coupled application; microservices means breaking it into smaller, independent services.",
+        "Monolithic uses older AI models; microservices use newer ones.",
+        "Monolithic is only for on-premise; microservices are only for cloud."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 5,
+      "text": "When designing an AI solution, what is \"interoperability\"?",
+      "options": [
+        "The ability of the AI system to only work with proprietary software.",
+        "The capability of different AI components or systems to work together and exchange information effectively.",
+        "The speed at which an AI model can respond to user queries.",
+        "The process of designing the AI's internal algorithms."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 6,
+      "text": "Which of these is a key consideration for a solution architect integrating a third-party AI service?",
+      "options": [
+        "The brand color of the AI service provider.",
+        "Data privacy, security, API documentation, and service reliability.",
+        "The favorite food of the AI's developers.",
+        "The number of human developers working on the AI."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 7,
+      "text": "What is a \"design pattern\" in software engineering, and why might it be relevant for AI solution design?",
+      "options": [
+        "A specific AI algorithm for design tasks.",
+        "A reusable solution to commonly occurring problems in software design, which can offer proven AI integration strategies.",
+        "A visual tool for designing AI models.",
+        "A mandatory template for all AI project documentation."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 8,
+      "text": "When designing an AI application, what is a \"data contract\" (or data schema agreement) between systems?",
+      "options": [
+        "A legal agreement for data sharing between companies.",
+        "A formal agreement defining the structure, format, and meaning of data exchanged between different components or services.",
+        "A system for securely encrypting AI data.",
+        "A document outlining the visual design of a database."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 9,
+      "text": "What is the difference between \"model inference\" and \"model training\" from an architectural perspective?",
+      "options": [
+        "Inference is always done on GPUs; training is always done on CPUs.",
+        "Inference is using a trained model to make predictions; training is the process of teaching the model from data. These often have different hardware/scalability needs.",
+        "Inference is for small AI models; training is for large ones.",
+        "Inference happens before deployment; training happens after deployment."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 10,
+      "text": "In the context of AI governance design, what is a \"model card\"?",
+      "options": [
+        "A credit card used to pay for AI services.",
+        "A short document accompanying an AI model, providing details on its performance, usage, limitations, and ethical considerations.",
+        "A physical card showing the AI model's version number.",
+        "A component that stores AI model weights."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 11,
+      "text": "When designing an AI deployment strategy, what is the role of a \"feature store\"?",
+      "options": [
+        "A marketplace for selling AI models.",
+        "A centralized system for managing, serving, and sharing engineered features consistently across model training and inference.",
+        "A database specifically for storing raw data.",
+        "A tool for visualizing feature importance."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 12,
+      "text": "What does \"container orchestration\" (e.g., Kubernetes) provide for deploying AI models?",
+      "options": [
+        "A musical score for AI-generated music.",
+        "Automation for deploying, scaling, and managing containerized applications (including AI models) across clusters of machines.",
+        "A method for encrypting data within containers.",
+        "A tool for designing graphical user interfaces for AI."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 13,
+      "text": "In the design of an AI-powered product, what is a \"feedback loop\"?",
+      "options": [
+        "A repeating error in the AI's code.",
+        "A mechanism to capture user interactions or real-world outcomes to continuously improve the AI model over time.",
+        "A system for AI models to communicate with each other.",
+        "A component that causes the AI to endlessly repeat a task."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 14,
+      "text": "What is \"data lineage\" and why is it important in complex AI data architectures?",
+      "options": [
+        "Tracking the genealogy of AI model developers.",
+        "Tracing the flow of data from its source through various transformations to its use in AI models, crucial for data governance and debugging.",
+        "A method for speeding up AI model training.",
+        "A way to categorize different types of datasets."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 15,
+      "text": "Which architectural pattern is often preferred for highly scalable and responsive AI inference services?",
+      "options": [
+        "Batch processing with nightly job runs.",
+        "Real-time, event-driven microservices with serverless functions or containerized endpoints.",
+        "A single monolithic application running on an on-premise server.",
+        "Manual deployment and scaling by human operators."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 16,
+      "text": "Why are \"adversarial examples\" a significant concern for security architects when designing AI systems?",
+      "options": [
+        "They make AI models run slower.",
+        "They are subtly manipulated inputs that cause AI models to make incorrect predictions, posing security risks in critical systems.",
+        "They are examples of AI models that become adversarial to their users.",
+        "They are errors caused by poor data quality during training."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 17,
+      "text": "When designing an AI system, what is the significance of a \"service mesh\" like Istio or Linkerd?",
+      "options": [
+        "To manage model weights during deep learning training.",
+        "To provide advanced traffic management, observability, and security features for microservices, including AI endpoints.",
+        "To create a mesh network for inter-AI communication.",
+        "To deploy AI models to edge devices more efficiently."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 18,
+      "text": "In the context of data pipelines for AI, what is a \"data lakehouse\" architecture?",
+      "options": [
+        "A specific type of database designed solely for AI model storage.",
+        "A hybrid data architecture that combines the flexibility of data lakes with the data management features of data warehouses.",
+        "A system for real-time streaming of data from IoT devices.",
+        "A graphical interface for visualizing large datasets."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 19,
+      "text": "What is \"model quantization\" in AI deployment?",
+      "options": [
+        "The process of splitting a large AI model into smaller, more manageable parts.",
+        "A technique to reduce the precision of numerical representations (e.g., from 32-bit to 8-bit floats) in AI models to optimize for inference speed and memory.",
+        "A method for securing AI models against unauthorized access.",
+        "The process of adding more layers to a neural network."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 20,
+      "text": "Which of these is a core responsibility of an Enterprise Architect in driving AI adoption across an organization?",
+      "options": [
+        "Building individual AI models for every business unit.",
+        "Defining AI strategy, establishing architectural principles, identifying common platforms, and ensuring alignment with overall enterprise objectives.",
+        "Manually cleaning all data for AI model training.",
+        "Personally managing all AI project budgets."
+      ],
+      "answerIndex": 1
+    }
+  ]
+}

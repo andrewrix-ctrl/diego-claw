@@ -1,0 +1,229 @@
+{
+  "slug": "risk",
+  "title": "Risk / GRC / Assurance",
+  "emoji": "🛡️",
+  "audience": "Risk, compliance, legal, privacy, and assurance roles.",
+  "questionCount": 20,
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is \"algorithmic bias\" in AI?",
+      "options": [
+        "The process of selecting the best algorithm for a task.",
+        "Systematic and unfair discrimination by an AI system against certain groups or individuals.",
+        "A preference for certain algorithms over others.",
+        "The AI's inability to learn complex patterns."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 2,
+      "text": "Why is \"data privacy\" a significant concern when handling data for AI models?",
+      "options": [
+        "To speed up AI model training.",
+        "To keep data hidden from competitors.",
+        "To reduce the storage cost of data.",
+        "To prevent unauthorized access, use, or disclosure of personal and sensitive information."
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 3,
+      "text": "What does \"transparency\" generally refer to in AI systems from a governance perspective?",
+      "options": [
+        "The extent to which humans can understand the internal workings and decision-making processes of an AI model.",
+        "Ensuring the AI's code is open-source.",
+        "The ability to physically see the AI hardware.",
+        "The AI's ability to communicate clearly using human language."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 4,
+      "text": "In the context of AI risk management, what is a \"false positive\" when an AI system flags something?",
+      "options": [
+        "The AI correctly identified a threat.",
+        "The AI failed to identify a real threat.",
+        "The AI incorrectly identified something as a threat (e.g., flagging a legitimate transaction as fraudulent).",
+        "The AI generated a positive outcome."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 5,
+      "text": "Which of these is a common ethical principle for responsible AI development?",
+      "options": [
+        "AI should bypass human oversight whenever possible.",
+        "AI should be designed to be explainable and fair.",
+        "AI should always prioritize profit maximization.",
+        "AI should be developed in complete secrecy."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 6,
+      "text": "What is a primary concern for legal professionals regarding AI-generated content?",
+      "options": [
+        "The file size of the generated content.",
+        "The speed at which content is generated.",
+        "Ensuring the content is visually appealing.",
+        "Copyright ownership, intellectual property rights, and potential for defamation."
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 7,
+      "text": "What role does \"auditing\" play in ensuring responsible AI systems?",
+      "options": [
+        "To train AI models on new audit data.",
+        "To evaluate AI systems for compliance with ethical guidelines, regulatory requirements, and performance standards.",
+        "To automatically fix all errors in AI models.",
+        "To count the number of AI models in an organization."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 8,
+      "text": "What is \"model interpretability\" and why is it important for assurance professionals?",
+      "options": [
+        "The ease with which an AI model's code can be read.",
+        "The ability to understand or explain why an AI model made a specific prediction or decision, crucial for validating fairness and compliance.",
+        "The model's ability to interpret complex data.",
+        "The process of translating AI model outputs into human language."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 9,
+      "text": "Which regulatory framework specifically addresses AI systems' risks and aims to ensure their safety and fundamental rights?",
+      "options": [
+        "HIPAA (Health Insurance Portability and Accountability Act).",
+        "GDPR (General Data Protection Regulation).",
+        "The proposed EU AI Act.",
+        "PCI DSS (Payment Card Industry Data Security Standard)."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 10,
+      "text": "What is a \"synthetic data\" approach, and how can it mitigate privacy risks in AI development?",
+      "options": [
+        "Encrypting all real data before it's used by AI.",
+        "Generating artificial data that mimics the statistical properties of real data without containing actual sensitive information.",
+        "Training AI models on real, sensitive data.",
+        "Deleting all personal data after model training."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 11,
+      "text": "What is \"adversarial machine learning\" concerning security risks in AI?",
+      "options": [
+        "A field dedicated to understanding and defending against malicious attacks that manipulate AI models (e.g., data poisoning, evasion attacks).",
+        "AI models helping humans in adversarial legal disputes.",
+        "Training AI models to compete against each other.",
+        "AI models that are inherently aggressive."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 12,
+      "text": "What does \"model risk management\" primarily aim to address?",
+      "options": [
+        "The risk of AI models getting bored.",
+        "The potential for adverse consequences from decisions or outputs of AI models, encompassing financial, operational, and reputational risks.",
+        "The risk of losing AI model files.",
+        "The risk that an AI model becomes too powerful."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 13,
+      "text": "Why is \"data provenance\" important in AI governance?",
+      "options": [
+        "To determine the popularity of certain datasets.",
+        "To identify where old data from AI models comes from.",
+        "To track the origin, history, and transformations of data used in AI, ensuring its quality, integrity, and compliance.",
+        "To prove that AI models are from a specific region."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 14,
+      "text": "In the context of AI compliance, what is \"explainability as a service\"?",
+      "options": [
+        "An outsourced service for AI model training.",
+        "Tools or platforms that provide insights into an AI model's decisions, often integrated into a broader compliance framework.",
+        "A subscription service for explaining AI concepts to clients.",
+        "An AI model that explains its own code."
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": 15,
+      "text": "Which statistical method can be used to assess and quantify \"disparate impact\" in AI models?",
+      "options": [
+        "K-Means Clustering.",
+        "Simple Linear Regression.",
+        "Principal Component Analysis (PCA).",
+        "Techniques like demographic parity, equal opportunity, or statistical parity metrics applied to model outcomes across groups."
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": 16,
+      "text": "What is \"differential privacy\" and its relevance to AI?",
+      "options": [
+        "A way to create different AI models for different levels of privacy.",
+        "A method to ensure AI model performance differs significantly between various datasets.",
+        "A technique to add noise to data or model outputs to provide strong privacy guarantees, protecting individual data points while allowing overall trends for AI analysis.",
+        "AI models that learn to keep data private on their own."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 17,
+      "text": "When auditing an AI system, what does \"counterfactual explanation\" provide?",
+      "options": [
+        "A narrative about how the AI model made its predictions.",
+        "A list of all historical predictions made by the AI model.",
+        "A statement of the minimal changes to features that would result in a different model prediction, aiding interpretability and fairness analysis.",
+        "An explanation of what would have happened if the AI model was trained on different data."
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": 18,
+      "text": "What is the primary purpose of a \"sandbox environment\" in AI development from a risk perspective?",
+      "options": [
+        "To provide an isolated, secure environment for testing AI models with sensitive data without affecting production systems or exposing information.",
+        "To train AI models on sand-based datasets.",
+        "To store AI models that are still under development.",
+        "To restrict AI models from accessing the internet."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 19,
+      "text": "What does \"model monitoring for data and concept drift\" architecturally address from a quality assurance perspective?",
+      "options": [
+        "The ongoing observation of model inputs and outputs to detect changes in data distribution or the underlying relationships (concepts), signaling a need for retraining or recalibration.",
+        "Tracking the version history of deployed AI models.",
+        "The physical movement of AI models between data centers.",
+        "Monitoring the cost of data storage for AI models."
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": 20,
+      "text": "Which is a core component of an \"AI governance framework\"?",
+      "options": [
+        "A list of all hardware used for AI.",
+        "A centralized database for all AI project plans.",
+        "A set of AI algorithms for managing data.",
+        "Policies, procedures, and oversight mechanisms to ensure AI systems are developed and used ethically, legally, and responsibly."
+      ],
+      "answerIndex": 3
+    }
+  ]
+}
