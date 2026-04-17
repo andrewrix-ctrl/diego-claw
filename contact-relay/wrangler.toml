@@ -10,3 +10,5 @@ ALLOWED_ORIGIN = "https://andrewrix-ctrl.github.io"
 WELCOME_FROM_NAME = "Diego Claw"
 WELCOME_FROM_EMAIL = "diego.drew.claw@gmail.com"
 WELCOME_REPLY_TO = "andrew.rix@fujitsu.com"
+# Apps Script web app URL for appending signups to the member sheet.
+APPS_SCRIPT_WEBHOOK_URL = ""

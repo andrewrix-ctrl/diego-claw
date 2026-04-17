@@ -23,6 +23,7 @@ export default {
 
       let text = '';
       let welcomeResult = null;
+      let sheetSyncResult = null;
 
       if (kind === 'footy_signup') {
         const name = safe(body?.name);
@@ -47,6 +48,19 @@ export default {
           '',
           'Next step: sync to sheet via gog.'
         ].join('\n');
+
+        sheetSyncResult = await syncSignupToSheetWebhook({
+          name,
+          email,
+          favouriteTeam,
+          page,
+          time,
+          env
+        });
+
+        if (!sheetSyncResult.ok) {
+          text += `\n\n⚠️ Sheet sync failed: ${sheetSyncResult.error}`;
+        }
 
         welcomeResult = await sendWelcomeEmail({
           toEmail: email,
@@ -98,6 +112,8 @@ export default {
 
       return json({
         ok: true,
+        sheetSynced: sheetSyncResult ? !!sheetSyncResult.ok : null,
+        sheetSyncError: sheetSyncResult && !sheetSyncResult.ok ? sheetSyncResult.error : null,
         welcomeEmailSent: welcomeResult ? !!welcomeResult.ok : null,
         welcomeEmailError: welcomeResult && !welcomeResult.ok ? welcomeResult.error : null
       }, 200);
@@ -168,6 +184,34 @@ async function sendWelcomeEmail({ toEmail, name, favouriteTeam, env }) {
   }
 
   return { ok: true };
+}
+
+async function syncSignupToSheetWebhook({ name, email, favouriteTeam, page, time, env }) {
+  const webhookUrl = (env.APPS_SCRIPT_WEBHOOK_URL || '').trim();
+  if (!webhookUrl) return { ok: false, error: 'APPS_SCRIPT_WEBHOOK_URL_not_configured' };
+
+  try {
+    const res = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        source: 'diego-claw-footy-signup',
+        timestamp: time,
+        name,
+        email,
+        favouriteTeam,
+        page
+      })
+    });
+
+    if (!res.ok) {
+      return { ok: false, error: `sheet_webhook_failed_${res.status}` };
+    }
+
+    return { ok: true };
+  } catch {
+    return { ok: false, error: 'sheet_webhook_request_error' };
+  }
 }
 
 function escapeHtml(value) {

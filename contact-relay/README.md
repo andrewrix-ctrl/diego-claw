@@ -56,3 +56,35 @@ Configure these vars in `wrangler.toml` or via Wrangler secrets/vars:
 - `WELCOME_REPLY_TO` (optional)
 
 If `WELCOME_FROM_EMAIL` is blank, signup still works and Telegram alert is sent, but welcome email is skipped/fails.
+
+## Apps Script webhook for sheet sync
+Set `APPS_SCRIPT_WEBHOOK_URL` to a deployed Google Apps Script Web App URL.
+The relay will POST signup data to it:
+
+```json
+{
+  "source": "diego-claw-footy-signup",
+  "timestamp": "2026-04-17T12:00:00.000Z",
+  "name": "...",
+  "email": "...",
+  "favouriteTeam": "...",
+  "page": "https://..."
+}
+```
+
+Suggested Apps Script `doPost` handler:
+
+```javascript
+function doPost(e) {
+  const sheet = SpreadsheetApp.openById('1NkZ8KMEDGVGTigZjsGGzlwfDFHPRQpOhWJ6XZNV6uZ8').getSheetByName('Sheet1');
+  const data = JSON.parse(e.postData.contents || '{}');
+  sheet.appendRow([
+    data.timestamp || new Date().toISOString(),
+    data.name || '',
+    data.email || '',
+    data.favouriteTeam || '',
+    data.page || ''
+  ]);
+  return ContentService.createTextOutput(JSON.stringify({ ok: true })).setMimeType(ContentService.MimeType.JSON);
+}
+```
