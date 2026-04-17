@@ -80,9 +80,47 @@
     }
   }
 
+  function initNewsletterSignup() {
+    const form = document.getElementById('newsletter-signup-form');
+    if (!form) return;
+
+    const status = document.getElementById('newsletterStatus');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = (document.getElementById('newsletterName')?.value || '').trim();
+      const email = (document.getElementById('newsletterEmail')?.value || '').trim();
+      const topics = (document.getElementById('newsletterTopics')?.value || 'General foot care').trim();
+
+      if (!name || !email) {
+        if (status) status.textContent = 'Please add your name and email to subscribe.';
+        return;
+      }
+
+      const subject = encodeURIComponent(`Newsletter signup: ${name}`);
+      const body = encodeURIComponent([
+        `Please add this subscriber to Beth's monthly tips newsletter.`,
+        '',
+        `Name: ${name}`,
+        `Email: ${email}`,
+        `Preferred topic: ${topics}`,
+        `Source: Inner West Podiatry website newsletter section`
+      ].join('\n'));
+
+      window.location.href = `mailto:admin@sydneyinnerwestpodiatry.com.au?subject=${subject}&body=${body}`;
+
+      if (status) {
+        status.textContent = 'Opening your email app now to confirm your signup request.';
+      }
+
+      form.reset();
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initConditionFinder();
     initFaqSearch();
     initNewsFeed();
+    initNewsletterSignup();
   });
 })();

@@ -241,6 +241,44 @@ main {
   border-color: var(--accent-dark);
 }
 
+.newsletter-form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.8rem;
+}
+
+.newsletter-form label {
+  display: block;
+  margin-bottom: 0.24rem;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.newsletter-form input,
+.newsletter-form select {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: #f9ffff;
+  border-radius: 0.7rem;
+  padding: 0.62rem 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.newsletter-form button {
+  justify-self: start;
+}
+
+.helper-text {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+.newsletter-wrap {
+  align-items: start;
+}
+
 .gallery-grid img,
 .image-card img {
   width: 100%;
