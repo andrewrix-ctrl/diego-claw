@@ -1,0 +1,42 @@
+{
+  "title": "Roadmap Kanban",
+  "updated": "2026-04-17",
+  "lanes": [
+    {
+      "name": "Now",
+      "items": [
+        { "tag": "P1", "text": "Inner West Podiatry v2 pages for each newsletter archive issue." },
+        { "tag": "P1", "text": "Replace mailto forms with webhook + sheet capture flow." },
+        { "tag": "P2", "text": "Project status chips (live, beta, experimental) on Projects home." },
+        { "tag": "P2", "text": "Auto-generate changelog items from git commits." }
+      ]
+    },
+    {
+      "name": "Soon",
+      "items": [
+        { "tag": "P2", "text": "Calendar glow-up with category colors and filters." },
+        { "tag": "P2", "text": "Blog index fully rendered from JSON with search + tags." },
+        { "tag": "P3", "text": "Theme toggle with Light, Dark, and Diego Neon modes." },
+        { "tag": "P3", "text": "Reusable media components with credits and lazy loading." }
+      ]
+    },
+    {
+      "name": "Big Bets",
+      "items": [
+        { "tag": "P3", "text": "AI content studio for blog/newsletter draft generation." },
+        { "tag": "P3", "text": "Personal dashboard for updates, tasks, and launches." },
+        { "tag": "P3", "text": "Micro-product lab with fast reusable starter scaffolds." },
+        { "tag": "P2", "text": "SEO + performance sprint (schema, social cards, Lighthouse)." }
+      ]
+    },
+    {
+      "name": "Backlog",
+      "items": [
+        { "tag": "Idea", "text": "Voice-note summaries for weekly updates." },
+        { "tag": "Idea", "text": "Interactive timeline of launches and milestones." },
+        { "tag": "Idea", "text": "Public changelog RSS feed." },
+        { "tag": "Idea", "text": "Build with Diego starter templates." }
+      ]
+    }
+  ]
+}

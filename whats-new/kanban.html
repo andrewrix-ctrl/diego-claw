@@ -34,6 +34,7 @@
       font-size: .95rem;
     }
     .tag { font-size: .72rem; color: #94a3b8; display:block; margin-bottom:.25rem; }
+    .muted { color: #94a3b8; font-size: .9rem; }
     @media (max-width: 980px) { .kanban-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 620px) { .kanban-grid { grid-template-columns: 1fr; } }
   </style>
@@ -44,40 +45,40 @@
     <h1 class="page-title">Roadmap Kanban</h1>
     <p class="page-intro">Visual board for the new ideas so you can track what to ship next.</p>
 
-    <div class="kanban-grid">
-      <section class="lane">
-        <h2>Now</h2>
-        <article class="card"><span class="tag">P1</span>Inner West Podiatry v2 pages for each newsletter archive issue.</article>
-        <article class="card"><span class="tag">P1</span>Replace mailto forms with webhook + sheet capture flow.</article>
-        <article class="card"><span class="tag">P2</span>Project status chips (live, beta, experimental) on Projects home.</article>
-        <article class="card"><span class="tag">P2</span>Auto-generate changelog items from git commits.</article>
-      </section>
-
-      <section class="lane">
-        <h2>Soon</h2>
-        <article class="card"><span class="tag">P2</span>Calendar glow-up with category colors and filters.</article>
-        <article class="card"><span class="tag">P2</span>Blog index fully rendered from JSON with search + tags.</article>
-        <article class="card"><span class="tag">P3</span>Theme toggle with Light, Dark, and Diego Neon modes.</article>
-        <article class="card"><span class="tag">P3</span>Reusable media components with credits and lazy loading.</article>
-      </section>
-
-      <section class="lane">
-        <h2>Big Bets</h2>
-        <article class="card"><span class="tag">P3</span>AI content studio for blog/newsletter draft generation.</article>
-        <article class="card"><span class="tag">P3</span>Personal dashboard for updates, tasks, and launches.</article>
-        <article class="card"><span class="tag">P3</span>Micro-product lab with fast reusable starter scaffolds.</article>
-        <article class="card"><span class="tag">P2</span>SEO + performance sprint (schema, social cards, Lighthouse).</article>
-      </section>
-
-      <section class="lane">
-        <h2>Backlog</h2>
-        <article class="card"><span class="tag">Idea</span>Voice-note summaries for weekly updates.</article>
-        <article class="card"><span class="tag">Idea</span>Interactive timeline of launches and milestones.</article>
-        <article class="card"><span class="tag">Idea</span>Public changelog RSS feed.</article>
-        <article class="card"><span class="tag">Idea</span>"Build with Diego" starter templates.</article>
-      </section>
-    </div>
+    <p class="muted">Data source: <a href="/diego-claw/data/roadmap-kanban.json">/data/roadmap-kanban.json</a></p>
+    <div id="kanban-grid" class="kanban-grid"></div>
   </main>
   <script src="/diego-claw/assets/js/nav.js"></script>
+  <script>
+    (async function initKanban() {
+      const root = document.getElementById('kanban-grid');
+      if (!root) return;
+
+      try {
+        const res = await fetch('/diego-claw/data/roadmap-kanban.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('kanban_fetch_failed');
+        const data = await res.json();
+        const lanes = Array.isArray(data.lanes) ? data.lanes : [];
+
+        root.innerHTML = lanes.map((lane) => {
+          const items = Array.isArray(lane.items) ? lane.items : [];
+          const cards = items.map((item) => `
+            <article class="card">
+              <span class="tag">${item.tag || ''}</span>${item.text || ''}
+            </article>
+          `).join('');
+
+          return `
+            <section class="lane">
+              <h2>${lane.name || 'Lane'}</h2>
+              ${cards || '<article class="card"><span class="tag">Empty</span>No items yet.</article>'}
+            </section>
+          `;
+        }).join('');
+      } catch (error) {
+        root.innerHTML = '<section class="lane"><h2>Kanban</h2><article class="card"><span class="tag">Error</span>Could not load board data.</article></section>';
+      }
+    })();
+  </script>
 </body>
 </html>
