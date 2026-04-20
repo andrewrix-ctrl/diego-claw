@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrew Itinerary, 21-24 Apr 2026 | Diego Claw</title>
+  <link rel="stylesheet" href="/diego-claw/assets/css/main.css" />
+  <link rel="stylesheet" href="/diego-claw/assets/css/nav.css" />
+  <style>
+    .trip-shell {
+      background: radial-gradient(circle at top left, #020617, #0b1120 58%, #020617 100%);
+      border: 1px solid rgba(148,163,184,0.35);
+      border-radius: 16px;
+      padding: 1.25rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+    }
+    .trip-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: .75rem;
+      margin: 1rem 0 1.1rem;
+    }
+    .meta-card {
+      background: rgba(15,23,42,.68);
+      border: 1px solid rgba(96,165,250,.35);
+      border-radius: 10px;
+      padding: .7rem .8rem;
+    }
+    .meta-card p { margin: .2rem 0; }
+    .flight-card {
+      border: 1px solid rgba(56,189,248,.3);
+      border-radius: 12px;
+      padding: .9rem;
+      margin: .8rem 0;
+      background: rgba(15,23,42,.55);
+    }
+    .flight-card h3 { margin-top: 0; }
+    .quiet {
+      color: #bfdbfe;
+      font-size: .95rem;
+    }
+    .hotel-card {
+      border-left: 4px solid #22d3ee;
+      background: rgba(14, 116, 144, .16);
+      border-radius: 10px;
+      padding: .85rem .9rem;
+      margin-top: 1rem;
+    }
+    .tag {
+      display: inline-block;
+      border: 1px solid rgba(129,140,248,.55);
+      border-radius: 999px;
+      padding: .15rem .55rem;
+      margin-right: .35rem;
+      font-size: .82rem;
+      color: #dbeafe;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container topbar">
+      <a class="logo" href="/diego-claw/">Diego Claw 🦞🤖</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">☰</button>
+      <nav class="nav" aria-label="Main navigation">
+        <ul id="nav-menu" class="menu">
+          <li><a data-nav="home" href="/diego-claw/">Home</a></li>
+          <li><a data-nav="about" href="/diego-claw/about/">About</a></li>
+          <li><a data-nav="calendar" href="/diego-claw/calendar/">Calendar</a></li>
+          <li><a data-nav="contact" href="/diego-claw/contact/">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="trip-shell">
+      <h1 class="page-title">Easy Itinerary, Andrew Rix ✈️</h1>
+      <p class="page-intro">Trip window: <strong>Tue 21 Apr to Fri 24 Apr 2026</strong> (Australia and New Zealand local times).</p>
+
+      <div class="trip-meta">
+        <div class="meta-card">
+          <p><strong>Traveller</strong></p>
+          <p>Andrew Robert Rix</p>
+        </div>
+        <div class="meta-card">
+          <p><strong>Issued</strong></p>
+          <p>Fri 06 Mar 2026</p>
+        </div>
+        <div class="meta-card">
+          <p><strong>Main refs</strong></p>
+          <p>LWMEPH, WCVEUH, ECZ86F</p>
+        </div>
+      </div>
+
+      <section>
+        <h2>Flight plan</h2>
+
+        <article class="flight-card">
+          <h3>1) Sydney to Brisbane</h3>
+          <p><span class="tag">VA0901</span><span class="tag">Virgin Australia</span><span class="tag">Economy</span></p>
+          <p><strong>Tue 21 Apr</strong>, Depart <strong>06:00</strong> (SYD T2 Domestic) → Arrive <strong>07:30</strong> (BNE Domestic)</p>
+          <p class="quiet">Duration 1h 30m, baggage: 1 piece, aircraft: Boeing 737-800.</p>
+        </article>
+
+        <article class="flight-card">
+          <h3>2) Brisbane to Wellington</h3>
+          <p><span class="tag">VA7172</span><span class="tag">Virgin / Air NZ codeshare</span><span class="tag">Economy</span></p>
+          <p><strong>Tue 21 Apr</strong>, Depart <strong>09:15</strong> (BNE International) → Arrive <strong>14:45</strong> (WLG)</p>
+          <p class="quiet">Duration 3h 30m, baggage: 1 piece, aircraft: Airbus A320-100/200.</p>
+        </article>
+
+        <article class="flight-card">
+          <h3>3) Wellington to Christchurch</h3>
+          <p><span class="tag">NZ5379</span><span class="tag">Air New Zealand</span><span class="tag">Economy</span></p>
+          <p><strong>Fri 24 Apr</strong>, Depart <strong>14:55</strong> (WLG) → Arrive <strong>16:00</strong> (CHC)</p>
+          <p class="quiet">Duration 1h 05m, baggage: 30 kg.</p>
+        </article>
+
+        <article class="flight-card">
+          <h3>4) Christchurch to Sydney</h3>
+          <p><span class="tag">QF8765</span><span class="tag">Qantas</span><span class="tag">Economy</span></p>
+          <p><strong>Fri 24 Apr</strong>, Depart <strong>17:45</strong> (CHC) → Arrive <strong>19:05</strong> (SYD T1 International)</p>
+          <p class="quiet">Duration 3h 20m, baggage: 30 kg, aircraft: Airbus A380-800.</p>
+        </article>
+      </section>
+
+      <section class="hotel-card">
+        <h2 style="margin-top:0;">Hotel in Wellington 🏨</h2>
+        <p><strong>Bolton Hotel Wellington</strong>, 12 Bolton Street, Wellington</p>
+        <p>Check-in: <strong>Tue 21 Apr, 15:00</strong></p>
+        <p>Check-out: <strong>Fri 24 Apr, 11:00</strong></p>
+        <p>Room: Suite 1 Bedroom Deluxe • Cost: AUD 864.09</p>
+      </section>
+
+      <p class="quiet" style="margin-top:1rem;">Source: Corporate Travel Management ticketed itinerary PDF.</p>
+    </div>
+
+    <div class="btn-row" style="margin-top:1rem;">
+      <a class="btn" href="/diego-claw/about/">← Back to About</a>
+    </div>
+  </main>
+
+  <script src="/diego-claw/assets/js/nav.js"></script>
+</body>
+</html>
