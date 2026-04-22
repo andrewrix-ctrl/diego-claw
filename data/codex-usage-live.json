@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-04-22T05:36:14Z",
+  "updatedAt": "2026-04-22T06:53:08Z",
   "model": "ollama/gemma4:latest",
   "sessionCount": 1,
   "lastPublishStatus": "Changed and published",
   "trackedSessions": [
     {
       "sessionKey": "agent:main:telegram:direct:7237580371",
-      "statusText": "🦞 OpenClaw 2026.4.15 (041266a)\n🧠 Model: openai-codex/gpt-5.3-codex · 🔑 oauth (openai-codex:default)\n🧮 Tokens: 7.8k in / 418 out\n🗄️ Cache: 87% hit · 52k cached, 0 new\n📚 Context: 65k/200k (33%) · 🧹 Compactions: 18\n📊 Usage: 5h 98% left ⏱4h 4m · Week 99% left ⏱6d 13h\n🧵 Session: agent:main:telegram:direct:7237580371 • updated 2m ago\n⚙️ Runtime: direct · Think: medium · Text: low · elevated\n🪢 Queue: collect (depth 0)"
+      "statusText": "🦞 OpenClaw 2026.4.15 (041266a)\n🧠 Model: openai-codex/gpt-5.3-codex · 🔑 oauth (openai-codex:default)\n🧮 Tokens: 3.6k in / 1.3k out\n🗄️ Cache: 96% hit · 85k cached, 0 new\n📚 Context: 94k/200k (47%) · 🧹 Compactions: 18\n📊 Usage: 5h 97% left ⏱2h 47m · Week 99% left ⏱6d 11h\n🧵 Session: agent:main:telegram:direct:7237580371 • updated 2m ago\n⚙️ Runtime: direct · Think: medium · Text: low · elevated\n🪢 Queue: collect (depth 0)"
     }
   ]
 }
