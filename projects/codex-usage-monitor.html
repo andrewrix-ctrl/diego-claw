@@ -29,6 +29,7 @@
     .small { color: var(--muted); font-size: .88rem; }
     .danger { color:#ffb2d3; }
     .good { color:#93f5d3; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
   </style>
 </head>
 <body>
@@ -37,6 +38,17 @@
   <main class="container">
     <h1 class="page-title">Codex 5.3 Usage Monitor</h1>
     <p class="page-intro">Track your ChatGPT Codex sessions, prompts, and estimated intensity so you can spot heavy days early.</p>
+
+    <section class="monitor-shell">
+      <h2>Auto snapshot (Gemma 4)</h2>
+      <p class="small">Updated by a scheduled local Gemma 4 job so you do not burn Codex tokens just to keep the dashboard fresh.</p>
+      <div class="monitor-grid" style="margin-top:.4rem;">
+        <article class="stat-card"><p class="stat-label">Last Snapshot</p><p id="autoUpdatedAt" class="stat-value" style="font-size:1.05rem;">-</p></article>
+        <article class="stat-card"><p class="stat-label">Session Tokens</p><p id="autoTokens" class="stat-value" style="font-size:1.15rem;">-</p></article>
+        <article class="stat-card"><p class="stat-label">Session Usage</p><p id="autoUsage" class="stat-value" style="font-size:1.15rem;">-</p></article>
+      </div>
+      <p id="autoModel" class="small mono"></p>
+    </section>
 
     <section class="monitor-grid">
       <article class="stat-card"><p class="stat-label">Today Sessions</p><p id="todaySessions" class="stat-value">0</p></article>
@@ -128,7 +140,11 @@
       todaySessions: document.getElementById('todaySessions'),
       todayPrompts: document.getElementById('todayPrompts'),
       todayMinutes: document.getElementById('todayMinutes'),
-      weekPrompts: document.getElementById('weekPrompts')
+      weekPrompts: document.getElementById('weekPrompts'),
+      autoUpdatedAt: document.getElementById('autoUpdatedAt'),
+      autoTokens: document.getElementById('autoTokens'),
+      autoUsage: document.getElementById('autoUsage'),
+      autoModel: document.getElementById('autoModel')
     };
 
     el.date.value = todayISO;
@@ -163,6 +179,30 @@
       if (level === 'hot') return 'Heavy';
       if (level === 'warn') return 'Medium';
       return 'Light';
+    }
+
+    async function refreshAutoSnapshot() {
+      try {
+        const res = await fetch(`/diego-claw/data/codex-usage-live.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        const status = data.statusText || '';
+
+        const tokensLine = status.split('\n').find(l => l.includes('🧮 Tokens:')) || null;
+        const usageLine = status.split('\n').find(l => l.includes('📊 Usage:')) || null;
+
+        el.autoUpdatedAt.textContent = data.updatedAt
+          ? new Date(data.updatedAt).toLocaleString()
+          : '-';
+        el.autoTokens.textContent = tokensLine ? tokensLine.replace('🧮 Tokens:', '').trim() : '-';
+        el.autoUsage.textContent = usageLine ? usageLine.replace('📊 Usage:', '').trim() : '-';
+        el.autoModel.textContent = data.model || '';
+      } catch (err) {
+        el.autoUpdatedAt.textContent = 'No snapshot yet';
+        el.autoTokens.textContent = '-';
+        el.autoUsage.textContent = '-';
+        el.autoModel.textContent = 'Waiting for first Gemma snapshot run.';
+      }
     }
 
     function refresh() {
@@ -262,6 +302,8 @@
     });
 
     refresh();
+    refreshAutoSnapshot();
+    setInterval(refreshAutoSnapshot, 60 * 1000);
   </script>
 </body>
 </html>
