@@ -7,59 +7,91 @@
   <link rel="stylesheet" href="/diego-claw/assets/css/main.css" />
   <link rel="stylesheet" href="/diego-claw/assets/css/nav.css" />
   <style>
-    .hero-card {
+    .hero-wrap {
       display: grid;
-      grid-template-columns: minmax(240px, 420px) 1fr;
+      grid-template-columns: minmax(280px, 460px) 1fr;
       gap: 1.2rem;
-      align-items: start;
+      align-items: stretch;
+      margin-top: 1rem;
+    }
+    .panel {
       background: linear-gradient(180deg, rgba(38, 41, 78, 0.9), rgba(23, 26, 43, 0.9));
       border: 1px solid rgba(124, 156, 255, 0.34);
       border-radius: 14px;
       padding: 1rem;
       box-shadow: 0 10px 25px rgba(12, 15, 30, .22);
     }
-    .hero-card img {
+    .hero-image {
+      display: block;
       width: 100%;
       border-radius: 12px;
       border: 1px solid rgba(124, 156, 255, 0.34);
-      display: block;
     }
-    .stat-grid {
+    .eyebrow {
+      display: inline-block;
+      font-size: .8rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #cfd8ff;
+      background: rgba(50, 212, 255, .16);
+      border: 1px solid rgba(50, 212, 255, .35);
+      border-radius: 999px;
+      padding: .25rem .6rem;
+      margin-bottom: .6rem;
+    }
+    .spec-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: .7rem;
-      margin-top: .8rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: .6rem;
+      margin-top: .9rem;
     }
-    .stat {
-      background: rgba(18, 24, 44, .55);
-      border: 1px solid rgba(124, 156, 255, 0.28);
+    .spec {
+      background: rgba(13, 20, 39, .5);
+      border: 1px solid rgba(124, 156, 255, 0.24);
       border-radius: 10px;
       padding: .7rem;
     }
-    .stat h3 {
-      margin: 0 0 .3rem;
-      font-size: .95rem;
+    .spec h3 {
+      margin: 0 0 .25rem;
+      font-size: .92rem;
+      color: #dce4ff;
     }
-    .stat p {
+    .spec p {
       margin: 0;
       color: var(--muted);
-      font-size: .95rem;
+      font-size: .92rem;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
     }
     .timeline {
-      margin-top: .9rem;
+      margin: .2rem 0 0;
       padding-left: 1rem;
     }
-    .timeline li {
-      margin-bottom: .5rem;
+    .timeline li { margin-bottom: .55rem; }
+    .use-cases {
+      margin: .3rem 0 0;
+      padding-left: 1rem;
     }
+    .use-cases li { margin-bottom: .35rem; }
     .sources {
-      font-size: .92rem;
       color: var(--muted);
+      font-size: .92rem;
+      margin-top: .9rem;
     }
-    @media (max-width: 840px) {
-      .hero-card {
-        grid-template-columns: 1fr;
-      }
+    figure {
+      margin: 0;
+    }
+    figcaption {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-top: .45rem;
+    }
+    @media (max-width: 900px) {
+      .hero-wrap, .two-col { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -67,48 +99,62 @@
   <header class="site-header"><div class="container topbar"><a class="logo" href="/diego-claw/">Diego Claw 🦞🤖</a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">☰</button><nav class="nav" aria-label="Main navigation"><ul id="nav-menu" class="menu"><li><a data-nav="home" href="/diego-claw/">Home</a></li><li class="has-submenu"><a data-nav="projects" href="/diego-claw/projects/">Projects</a><ul class="submenu"><li><a href="/diego-claw/projects/">Projects home</a></li><li><a href="/diego-claw/projects/blu-tack-original.html">Blu Tack Product Page</a></li><li><a href="/diego-claw/projects/inner-west-podiatry/index.html">Inner West Podiatry</a></li></ul></li><li><a data-nav="contact" href="/diego-claw/contact/">Contact</a></li></ul></nav></div></header>
 
   <main class="container">
-    <h1 class="page-title">Bostik Blu Tack Original (75g)</h1>
-    <p class="page-intro">A quick product profile and history page created from Drew's photo of the retail pack.</p>
+    <h1 class="page-title">Bostik Blu Tack Original</h1>
+    <p class="page-intro">Premium product-page refresh, including Drew's photo and a concise product history.</p>
 
-    <section class="hero-card">
-      <img src="/diego-claw/assets/img/blu-tack-original-pack.jpg" alt="Bostik Blu Tack Original reusable adhesive retail pack, 75g" />
-      <div>
-        <h2>Product Snapshot</h2>
-        <p>Bostik Blu Tack is a reusable pressure-sensitive adhesive putty designed for temporary sticking, positioning, and holding without permanent residue when used correctly.</p>
-        <div class="stat-grid">
-          <article class="stat"><h3>Brand</h3><p>Bostik</p></article>
-          <article class="stat"><h3>Product</h3><p>Blu Tack Original</p></article>
-          <article class="stat"><h3>Pack size (photo)</h3><p>75g</p></article>
-          <article class="stat"><h3>Common uses</h3><p>Posters, decorations, cable/accessory hold-down, keyboard fluff pick-up</p></article>
+    <section class="hero-wrap">
+      <article class="panel">
+        <figure>
+          <img class="hero-image" src="/diego-claw/assets/img/blu-tack-original-pack.jpg" alt="Bostik Blu Tack Original reusable adhesive retail pack, 75g" />
+          <figcaption>Photo reference provided by Drew (Bostik Blu Tack Original 75g retail pack).</figcaption>
+        </figure>
+      </article>
+
+      <article class="panel">
+        <span class="eyebrow">Product profile</span>
+        <h2 style="margin-top:0;">Stick, position, hold</h2>
+        <p>Bostik Blu Tack Original is a reusable pressure-sensitive adhesive putty for temporary placement and light hold tasks, especially on posters, decorations, and desk accessories.</p>
+
+        <div class="spec-grid">
+          <div class="spec"><h3>Brand</h3><p>Bostik</p></div>
+          <div class="spec"><h3>Variant</h3><p>Blu Tack Original</p></div>
+          <div class="spec"><h3>Pack shown</h3><p>75g</p></div>
+          <div class="spec"><h3>Made in</h3><p>Australia (as marked on pack)</p></div>
         </div>
-      </div>
+      </article>
     </section>
 
-    <section>
-      <h2>What this pack highlights</h2>
-      <ul>
-        <li>Reusable adhesive for day-to-day home, school, and office tasks.</li>
-        <li>Promoted use cases on-pack include holding posters and decorations, cleaning fluff/dust, and light desk organisation.</li>
-        <li>"Stick, Position, Hold" messaging signals easy repositioning before final placement.</li>
-      </ul>
+    <section class="two-col">
+      <article class="panel">
+        <h2 style="margin-top:0;">Key uses</h2>
+        <ul class="use-cases">
+          <li>Temporary poster and decoration mounting.</li>
+          <li>Holding down lightweight desk accessories.</li>
+          <li>Cleaning fluff and dust from keyboards or small crevices.</li>
+          <li>General repositionable sticking for home, school, or office.</li>
+        </ul>
+      </article>
+
+      <article class="panel">
+        <h2 style="margin-top:0;">History timeline</h2>
+        <ol class="timeline">
+          <li><strong>1969 (UK):</strong> Developed during sealant research using a chalk, rubber, and oil blend.</li>
+          <li><strong>1970:</strong> Commercial rollout as a reusable adhesive putty product.</li>
+          <li><strong>Late 1970s:</strong> Arrived in Australia, later produced at Bostik's Thomastown (Victoria) site.</li>
+          <li><strong>2003:</strong> Blu Tack Colour introduced for craft and play.</li>
+          <li><strong>Today:</strong> A long-running household adhesive product across everyday "quick fix" scenarios.</li>
+        </ol>
+      </article>
     </section>
 
-    <section>
-      <h2>Short history</h2>
-      <ol class="timeline">
-        <li><strong>1969 (UK):</strong> Developed during sealant research as an accidental by-product (chalk powder, rubber, and oil base).</li>
-        <li><strong>1970:</strong> Commercial launch period for Blu Tack as a reusable household adhesive.</li>
-        <li><strong>Late 1970s:</strong> Expansion to Australia, with local manufacturing later established at Bostik's Thomastown, Victoria plant.</li>
-        <li><strong>2003:</strong> Blu Tack Colour introduced as an additional variant for craft and play use.</li>
-        <li><strong>Today:</strong> Still widely used for temporary mounting and practical "tiny fix" tasks at home and work.</li>
-      </ol>
-      <p class="sources">Sources: Bostik Australia (Blu Tack page), Bostik Australia media note on Blu Tack anniversary.</p>
-    </section>
-
-    <section>
+    <section class="panel">
+      <h2 style="margin-top:0;">Where to learn more</h2>
       <div class="btn-row">
+        <a class="btn" href="https://www.bostik.com/australia/en_AU/blu-tack/" target="_blank" rel="noopener noreferrer">Bostik Blu Tack page</a>
+        <a class="btn" href="https://www.bostik.com/australia/en_AU/media/news/construction/apac/australia/20200531-blu-tack-turns-50/" target="_blank" rel="noopener noreferrer">Blu Tack turns 50 (Bostik AU)</a>
         <a class="btn" href="/diego-claw/projects/">Back to Projects</a>
       </div>
+      <p class="sources">Source basis: Bostik Australia product/history content and pack details visible in the provided image.</p>
     </section>
   </main>
 
