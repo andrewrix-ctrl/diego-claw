@@ -41,6 +41,8 @@
     .progress-track { height:10px; border-radius:999px; background: rgba(124,156,255,.2); overflow:hidden; }
     .progress-fill { height:100%; border-radius:999px; background: linear-gradient(90deg, rgba(255,94,168,.7), rgba(75,231,176,.85)); width:0%; transition: width .35s ease; }
     .progress-time { font-size:.8rem; color:var(--muted); }
+    .progress-track.time { height:8px; background: rgba(75,231,176,.15); }
+    .progress-fill.time { background: linear-gradient(90deg, rgba(50,212,255,.75), rgba(143,107,255,.85)); }
   </style>
 </head>
 <body>
@@ -66,11 +68,13 @@
           <div class="progress-head"><span>5h usage left</span><strong id="fiveHourLeftLabel">-</strong></div>
           <div class="progress-track"><div id="fiveHourLeftBar" class="progress-fill"></div></div>
           <div id="fiveHourTimeLeft" class="progress-time">Time left: -</div>
+          <div class="progress-track time"><div id="fiveHourTimeBar" class="progress-fill time"></div></div>
         </div>
         <div class="progress-line">
           <div class="progress-head"><span>Week usage left</span><strong id="weekLeftLabel">-</strong></div>
           <div class="progress-track"><div id="weekLeftBar" class="progress-fill"></div></div>
           <div id="weekTimeLeft" class="progress-time">Time left: -</div>
+          <div class="progress-track time"><div id="weekTimeBar" class="progress-fill time"></div></div>
         </div>
       </div>
       <div id="autoSessionList" class="session-list"></div>
@@ -179,7 +183,9 @@
       fiveHourLeftBar: document.getElementById('fiveHourLeftBar'),
       weekLeftBar: document.getElementById('weekLeftBar'),
       fiveHourTimeLeft: document.getElementById('fiveHourTimeLeft'),
-      weekTimeLeft: document.getElementById('weekTimeLeft')
+      weekTimeLeft: document.getElementById('weekTimeLeft'),
+      fiveHourTimeBar: document.getElementById('fiveHourTimeBar'),
+      weekTimeBar: document.getElementById('weekTimeBar')
     };
 
     el.date.value = todayISO;
@@ -248,13 +254,17 @@
       return Number.isFinite(total) ? total : null;
     }
 
-    function renderProgress(left5h, leftWeek, time5h, timeWeek) {
+    function renderProgress(left5h, leftWeek, time5h, timeWeek, time5hMinutes, timeWeekMinutes) {
       el.fiveHourLeftLabel.textContent = left5h == null ? '-' : `${left5h}%`;
       el.weekLeftLabel.textContent = leftWeek == null ? '-' : `${leftWeek}%`;
       el.fiveHourLeftBar.style.width = `${left5h == null ? 0 : left5h}%`;
       el.weekLeftBar.style.width = `${leftWeek == null ? 0 : leftWeek}%`;
       el.fiveHourTimeLeft.textContent = `Time left: ${time5h || '-'}`;
       el.weekTimeLeft.textContent = `Time left: ${timeWeek || '-'}`;
+      const fiveHourPct = time5hMinutes == null ? 0 : clampPct((time5hMinutes / 300) * 100);
+      const weekPct = timeWeekMinutes == null ? 0 : clampPct((timeWeekMinutes / 10080) * 100);
+      el.fiveHourTimeBar.style.width = `${fiveHourPct ?? 0}%`;
+      el.weekTimeBar.style.width = `${weekPct ?? 0}%`;
     }
 
     async function refreshAutoSnapshot() {
@@ -288,7 +298,14 @@
         el.autoUsage.textContent = usageLine ? usageLine.replace('📊 Usage:', '').trim() : '-';
         el.autoModel.textContent = data.model || '';
         el.autoSessionCount.textContent = String(sessions.length || data.sessionCount || 0);
-        renderProgress(min5h, minWeek, min5hTimeEntry?.fiveHourTimeText || null, minWeekTimeEntry?.weekTimeText || null);
+        renderProgress(
+          min5h,
+          minWeek,
+          min5hTimeEntry?.fiveHourTimeText || null,
+          minWeekTimeEntry?.weekTimeText || null,
+          min5hTimeEntry?.fiveHourTimeMinutes ?? null,
+          minWeekTimeEntry?.weekTimeMinutes ?? null
+        );
 
         if (publishStatus.includes('changed')) {
           el.autoPublishBadge.className = 'badge ok';
@@ -322,7 +339,7 @@
         el.autoSessionList.innerHTML = '';
         el.autoPublishBadge.className = 'badge warn';
         el.autoPublishBadge.textContent = 'Unknown';
-        renderProgress(null, null, null, null);
+        renderProgress(null, null, null, null, null, null);
       }
     }
 
