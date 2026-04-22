@@ -2,6 +2,7 @@
   "updatedAt": "2026-04-22T05:36:14Z",
   "model": "ollama/gemma4:latest",
   "sessionCount": 1,
+  "lastPublishStatus": "Changed and published",
   "trackedSessions": [
     {
       "sessionKey": "agent:main:telegram:direct:7237580371",
