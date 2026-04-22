@@ -30,6 +30,8 @@
     .danger { color:#ffb2d3; }
     .good { color:#93f5d3; }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .session-list { margin-top: .6rem; display: grid; gap: .55rem; }
+    .session-item { border: 1px solid rgba(124,156,255,.25); border-radius: 10px; padding: .6rem .7rem; background: rgba(23,26,43,.55); }
   </style>
 </head>
 <body>
@@ -46,8 +48,10 @@
         <article class="stat-card"><p class="stat-label">Last Snapshot</p><p id="autoUpdatedAt" class="stat-value" style="font-size:1.05rem;">-</p></article>
         <article class="stat-card"><p class="stat-label">Session Tokens</p><p id="autoTokens" class="stat-value" style="font-size:1.15rem;">-</p></article>
         <article class="stat-card"><p class="stat-label">Session Usage</p><p id="autoUsage" class="stat-value" style="font-size:1.15rem;">-</p></article>
+        <article class="stat-card"><p class="stat-label">Tracked Codex Sessions</p><p id="autoSessionCount" class="stat-value" style="font-size:1.15rem;">0</p></article>
       </div>
       <p id="autoModel" class="small mono"></p>
+      <div id="autoSessionList" class="session-list"></div>
     </section>
 
     <section class="monitor-grid">
@@ -144,7 +148,9 @@
       autoUpdatedAt: document.getElementById('autoUpdatedAt'),
       autoTokens: document.getElementById('autoTokens'),
       autoUsage: document.getElementById('autoUsage'),
-      autoModel: document.getElementById('autoModel')
+      autoModel: document.getElementById('autoModel'),
+      autoSessionCount: document.getElementById('autoSessionCount'),
+      autoSessionList: document.getElementById('autoSessionList')
     };
 
     el.date.value = todayISO;
@@ -186,10 +192,11 @@
         const res = await fetch(`/diego-claw/data/codex-usage-live.json?t=${Date.now()}`, { cache: 'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        const status = data.statusText || '';
+        const sessions = Array.isArray(data.trackedSessions) ? data.trackedSessions : [];
 
-        const tokensLine = status.split('\n').find(l => l.includes('🧮 Tokens:')) || null;
-        const usageLine = status.split('\n').find(l => l.includes('📊 Usage:')) || null;
+        const firstStatus = data.statusText || (sessions[0]?.statusText || '');
+        const tokensLine = firstStatus.split('\n').find(l => l.includes('🧮 Tokens:')) || null;
+        const usageLine = firstStatus.split('\n').find(l => l.includes('📊 Usage:')) || null;
 
         el.autoUpdatedAt.textContent = data.updatedAt
           ? new Date(data.updatedAt).toLocaleString()
@@ -197,11 +204,27 @@
         el.autoTokens.textContent = tokensLine ? tokensLine.replace('🧮 Tokens:', '').trim() : '-';
         el.autoUsage.textContent = usageLine ? usageLine.replace('📊 Usage:', '').trim() : '-';
         el.autoModel.textContent = data.model || '';
+        el.autoSessionCount.textContent = String(sessions.length || data.sessionCount || 0);
+
+        el.autoSessionList.innerHTML = '';
+        sessions.slice(0, 10).forEach((s) => {
+          const item = document.createElement('div');
+          item.className = 'session-item';
+          const tLine = (s.statusText || '').split('\n').find(l => l.includes('🧮 Tokens:')) || '';
+          const uLine = (s.statusText || '').split('\n').find(l => l.includes('📊 Usage:')) || '';
+          item.innerHTML = `
+            <div class="small mono">${(s.sessionKey || '').replace(/</g, '&lt;')}</div>
+            <div class="small">${tLine ? tLine.replace('🧮 Tokens:', '').trim() : 'No token line'}${uLine ? ' · ' + uLine.replace('📊 Usage:', '').trim() : ''}</div>
+          `;
+          el.autoSessionList.appendChild(item);
+        });
       } catch (err) {
         el.autoUpdatedAt.textContent = 'No snapshot yet';
         el.autoTokens.textContent = '-';
         el.autoUsage.textContent = '-';
         el.autoModel.textContent = 'Waiting for first Gemma snapshot run.';
+        el.autoSessionCount.textContent = '0';
+        el.autoSessionList.innerHTML = '';
       }
     }
 
