@@ -234,9 +234,10 @@
       const weekMatch = line.match(/Week\s+(\d+)%\s+left/i);
       const fiveHourTimeMatch = line.match(/5h\s+\d+%\s+left\s+⏱\s*([^·]+)/i);
       const weekTimeMatch = line.match(/Week\s+\d+%\s+left\s+⏱\s*(.+)$/i);
+      const contextMatch = line.match(/Context\s+(\d+)%\s+used\s+·\s+(\d+)%\s+left/i);
       return {
-        fiveHourLeft: fiveHourMatch ? clampPct(fiveHourMatch[1]) : null,
-        weekLeft: weekMatch ? clampPct(weekMatch[1]) : null,
+        fiveHourLeft: fiveHourMatch ? clampPct(fiveHourMatch[1]) : (contextMatch ? clampPct(contextMatch[2]) : null),
+        weekLeft: weekMatch ? clampPct(weekMatch[1]) : (contextMatch ? clampPct(contextMatch[2]) : null),
         fiveHourTimeText: fiveHourTimeMatch ? fiveHourTimeMatch[1].trim() : null,
         weekTimeText: weekTimeMatch ? weekTimeMatch[1].trim() : null,
         fiveHourTimeMinutes: fiveHourTimeMatch ? parseDurationToMinutes(fiveHourTimeMatch[1]) : null,
