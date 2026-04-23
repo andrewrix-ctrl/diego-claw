@@ -1,7 +1,12 @@
 {
-  "updatedAt": "2026-04-23T21:53:38.105202Z",
+  "updatedAt": "2026-04-23T22:55:08.109238Z",
   "model": "ollama/gemma4:latest",
-  "sessionCount": 0,
+  "sessionCount": 1,
   "lastPublishStatus": "Changed and published",
-  "trackedSessions": []
+  "trackedSessions": [
+    {
+      "sessionKey": "agent:main:telegram:direct:7237580371",
+      "statusText": "\ud83e\uddee Tokens: 45.2k in / 971 out\n\ud83d\udcca Usage: Context 11% used \u00b7 89% left"
+    }
+  ]
 }
