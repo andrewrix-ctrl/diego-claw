@@ -42,6 +42,13 @@
       "event": "Wellington, NZ \ud83e\udd5d",
       "with": "Travel block"
     },
+    "25": {
+      "text": "Anzac Day",
+      "type": "event",
+      "event": "Anzac Day",
+      "with": "Friends",
+      "where": "Erko Bowlo"
+    },
     "28": {
       "text": "Away: Canberra \ud83c\udfdb\ufe0f",
       "type": "away",

@@ -81,7 +81,8 @@ function normalizeEvent(event) {
     type: event.type || 'event',
     text,
     event: event.event || text,
-    with: event.with || 'Not specified'
+    with: event.with || 'Not specified',
+    where: event.where || 'Not specified'
   };
   return normalized;
 }
@@ -102,6 +103,7 @@ function showHoverCard(payload, x, y) {
     <p><strong>Date:</strong> ${escapeHtml(payload.date)}</p>
     <p><strong>Event:</strong> ${escapeHtml(payload.event)}</p>
     <p><strong>Who With:</strong> ${escapeHtml(payload.with)}</p>
+    <p><strong>Where:</strong> ${escapeHtml(payload.where)}</p>
   `;
   card.style.display = 'block';
   card.style.left = `${x + 14}px`;
@@ -120,7 +122,8 @@ function attachHoverCardHandlers(root) {
     const payload = {
       date: node.getAttribute('data-hover-date') || 'Unknown',
       event: node.getAttribute('data-hover-event') || 'Not specified',
-      with: node.getAttribute('data-hover-with') || 'Not specified'
+      with: node.getAttribute('data-hover-with') || 'Not specified',
+      where: node.getAttribute('data-hover-where') || 'Not specified'
     };
 
     node.addEventListener('mouseenter', (evt) => showHoverCard(payload, evt.clientX, evt.clientY));
@@ -168,7 +171,7 @@ async function renderYearGrid(containerId) {
       const event = normalizeEvent(monthEvents[day]);
       const cls = event ? (event.type === 'away' ? 'yearly-day-cell away-yearly has-hover-card' : 'yearly-day-cell event-active has-hover-card') : 'yearly-day-cell';
       if (!event) return `<div class="${cls}">${day}</div>`;
-      return `<div class="${cls}" tabindex="0" data-hover-date="${month.name} ${day}, ${CALENDAR_YEAR}" data-hover-event="${escapeHtml(event.event)}" data-hover-with="${escapeHtml(event.with)}">${day}</div>`;
+      return `<div class="${cls}" tabindex="0" data-hover-date="${month.name} ${day}, ${CALENDAR_YEAR}" data-hover-event="${escapeHtml(event.event)}" data-hover-with="${escapeHtml(event.with)}" data-hover-where="${escapeHtml(event.where)}">${day}</div>`;
     }).join('');
     const totalCells = startOffset + totalDays;
     const endCells = (7 - (totalCells % 7)) % 7;
@@ -211,7 +214,7 @@ async function renderMonth(slug, gridId, prevId, nextId) {
     if (isToday) dayClasses.push('today');
     const eventHtml = event ? `<div class="event ${event.type === 'away' ? 'away-event' : ''}">${escapeHtml(event.event)}</div>` : '';
     const hoverAttrs = event
-      ? ` tabindex="0" data-hover-date="${meta.name} ${day}, ${CALENDAR_YEAR}" data-hover-event="${escapeHtml(event.event)}" data-hover-with="${escapeHtml(event.with)}"`
+      ? ` tabindex="0" data-hover-date="${meta.name} ${day}, ${CALENDAR_YEAR}" data-hover-event="${escapeHtml(event.event)}" data-hover-with="${escapeHtml(event.with)}" data-hover-where="${escapeHtml(event.where)}"`
       : '';
     return `<div class="${dayClasses.join(' ')}"${hoverAttrs}><div class="day-number">${day}</div>${eventHtml}</div>`;
   }).join('');
