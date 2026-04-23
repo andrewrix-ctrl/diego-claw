@@ -1,16 +1,12 @@
 {
-  "updatedAt": "2026-04-23T05:02:44.865597Z",
+  "updatedAt": "2026-04-23T05:06:03.083125Z",
   "model": "ollama/gemma4:latest",
-  "sessionCount": 2,
+  "sessionCount": 1,
   "lastPublishStatus": "Changed and published",
   "trackedSessions": [
     {
-      "sessionKey": "agent:main:subagent:6011fda4-b11b-4cf5-8097-cc8e93f67b45",
-      "statusText": "\ud83e\uddee Tokens: 14.9k in / 173 out\n\ud83d\udcca Usage: Context 7% used \u00b7 93% left"
-    },
-    {
       "sessionKey": "agent:main:telegram:direct:7237580371",
-      "statusText": "\ud83e\uddee Tokens: 13.7k in / 45 out\n\ud83d\udcca Usage: Context 33% used \u00b7 67% left"
+      "statusText": "\ud83e\uddee Tokens: 64.4k in / 75 out\n\ud83d\udcca Usage: Context 33% used \u00b7 67% left"
     }
   ]
 }
