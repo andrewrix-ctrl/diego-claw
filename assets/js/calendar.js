@@ -65,6 +65,75 @@ function loadEvents() {
   return eventsPromise;
 }
 
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function normalizeEvent(event) {
+  if (!event) return null;
+  const text = event.text || event.event || '';
+  const normalized = {
+    type: event.type || 'event',
+    text,
+    event: event.event || text,
+    with: event.with || 'Not specified'
+  };
+  return normalized;
+}
+
+let hoverCardEl;
+function getHoverCard() {
+  if (hoverCardEl) return hoverCardEl;
+  hoverCardEl = document.createElement('aside');
+  hoverCardEl.className = 'calendar-hover-card';
+  hoverCardEl.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(hoverCardEl);
+  return hoverCardEl;
+}
+
+function showHoverCard(payload, x, y) {
+  const card = getHoverCard();
+  card.innerHTML = `
+    <p><strong>Date:</strong> ${escapeHtml(payload.date)}</p>
+    <p><strong>Event:</strong> ${escapeHtml(payload.event)}</p>
+    <p><strong>Who With:</strong> ${escapeHtml(payload.with)}</p>
+  `;
+  card.style.display = 'block';
+  card.style.left = `${x + 14}px`;
+  card.style.top = `${y + 14}px`;
+  card.setAttribute('aria-hidden', 'false');
+}
+
+function hideHoverCard() {
+  if (!hoverCardEl) return;
+  hoverCardEl.style.display = 'none';
+  hoverCardEl.setAttribute('aria-hidden', 'true');
+}
+
+function attachHoverCardHandlers(root) {
+  root.querySelectorAll('[data-hover-date]').forEach((node) => {
+    const payload = {
+      date: node.getAttribute('data-hover-date') || 'Unknown',
+      event: node.getAttribute('data-hover-event') || 'Not specified',
+      with: node.getAttribute('data-hover-with') || 'Not specified'
+    };
+
+    node.addEventListener('mouseenter', (evt) => showHoverCard(payload, evt.clientX, evt.clientY));
+    node.addEventListener('mousemove', (evt) => showHoverCard(payload, evt.clientX, evt.clientY));
+    node.addEventListener('mouseleave', hideHoverCard);
+    node.addEventListener('blur', hideHoverCard);
+    node.addEventListener('focus', () => {
+      const rect = node.getBoundingClientRect();
+      showHoverCard(payload, rect.left + rect.width / 2, rect.top + rect.height / 2);
+    });
+  });
+}
+
 function getMonthMeta(slug) {
   return MONTHS.find(m => m.slug === slug);
 }
@@ -96,9 +165,10 @@ async function renderYearGrid(containerId) {
     const blanksStart = Array.from({ length: startOffset }, () => '<div class="yearly-day-cell"></div>').join('');
     const days = Array.from({ length: totalDays }, (_, i) => {
       const day = i + 1;
-      const event = monthEvents[day];
-      const cls = event ? (event.type === 'away' ? 'yearly-day-cell away-yearly' : 'yearly-day-cell event-active') : 'yearly-day-cell';
-      return `<div class="${cls}">${day}</div>`;
+      const event = normalizeEvent(monthEvents[day]);
+      const cls = event ? (event.type === 'away' ? 'yearly-day-cell away-yearly has-hover-card' : 'yearly-day-cell event-active has-hover-card') : 'yearly-day-cell';
+      if (!event) return `<div class="${cls}">${day}</div>`;
+      return `<div class="${cls}" tabindex="0" data-hover-date="${month.name} ${day}, ${CALENDAR_YEAR}" data-hover-event="${escapeHtml(event.event)}" data-hover-with="${escapeHtml(event.with)}">${day}</div>`;
     }).join('');
     const totalCells = startOffset + totalDays;
     const endCells = (7 - (totalCells % 7)) % 7;
@@ -114,6 +184,8 @@ async function renderYearGrid(containerId) {
       </article>
     `;
   }).join('');
+
+  attachHoverCardHandlers(container);
 }
 
 async function renderMonth(slug, gridId, prevId, nextId) {
@@ -131,13 +203,17 @@ async function renderMonth(slug, gridId, prevId, nextId) {
   const blanksStart = Array.from({ length: startOffset }, () => '<div class="day-cell"></div>').join('');
   const days = Array.from({ length: totalDays }, (_, i) => {
     const day = i + 1;
-    const event = monthEvents[day];
+    const event = normalizeEvent(monthEvents[day]);
     const isToday = now.getFullYear() === CALENDAR_YEAR && now.getMonth() === meta.index && now.getDate() === day;
     const dayClasses = ['day-cell'];
+    if (event) dayClasses.push('has-hover-card');
     if (event?.type === 'away') dayClasses.push('away-event');
     if (isToday) dayClasses.push('today');
-    const eventHtml = event ? `<div class="event ${event.type === 'away' ? 'away-event' : ''}">${event.text}</div>` : '';
-    return `<div class="${dayClasses.join(' ')}"><div class="day-number">${day}</div>${eventHtml}</div>`;
+    const eventHtml = event ? `<div class="event ${event.type === 'away' ? 'away-event' : ''}">${escapeHtml(event.event)}</div>` : '';
+    const hoverAttrs = event
+      ? ` tabindex="0" data-hover-date="${meta.name} ${day}, ${CALENDAR_YEAR}" data-hover-event="${escapeHtml(event.event)}" data-hover-with="${escapeHtml(event.with)}"`
+      : '';
+    return `<div class="${dayClasses.join(' ')}"${hoverAttrs}><div class="day-number">${day}</div>${eventHtml}</div>`;
   }).join('');
 
   const totalCells = startOffset + totalDays;
@@ -145,6 +221,7 @@ async function renderMonth(slug, gridId, prevId, nextId) {
   const blanksEnd = Array.from({ length: endCells }, () => '<div class="day-cell"></div>').join('');
 
   grid.innerHTML = `${createHeaders('day-header')}${blanksStart}${days}${blanksEnd}`;
+  attachHoverCardHandlers(grid);
 
   const idx = MONTHS.findIndex(m => m.slug === slug);
   const prev = document.getElementById(prevId);

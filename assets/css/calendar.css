@@ -71,6 +71,10 @@
   font-weight: 700;
 }
 
+.has-hover-card {
+  cursor: pointer;
+}
+
 .month-calendar {
   margin-top: .8rem;
 }
@@ -128,4 +132,28 @@
 .month-nav .disabled {
   opacity: .45;
   pointer-events: none;
+}
+
+.calendar-hover-card {
+  position: fixed;
+  display: none;
+  z-index: 1200;
+  width: min(280px, calc(100vw - 24px));
+  background: linear-gradient(180deg, rgba(25, 31, 54, 0.98), rgba(17, 22, 38, 0.98));
+  border: 1px solid rgba(124, 156, 255, 0.45);
+  border-radius: 10px;
+  padding: .6rem .7rem;
+  box-shadow: 0 10px 28px rgba(0,0,0,.42);
+  pointer-events: none;
+}
+
+.calendar-hover-card p {
+  margin: 0 0 .3rem;
+  font-size: .82rem;
+  color: #dce6ff;
+  line-height: 1.35;
+}
+
+.calendar-hover-card p:last-child {
+  margin-bottom: 0;
 }
