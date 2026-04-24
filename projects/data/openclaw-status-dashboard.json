@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-24T21:33:50.446563+00:00",
+  "generatedAt": "2026-04-24T22:04:36.695553+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
     "gatewayLatencyMs": null,
-    "gatewayService": "running (pid 2341, state active)",
+    "gatewayService": "running (pid 4741, state active)",
     "agents": 4,
-    "sessions": 394,
+    "sessions": 390,
     "tasksActive": 0,
     "tasksQueued": 0,
     "taskFailures": 130,
@@ -14,13 +14,13 @@
     "channelSummary": []
   },
   "session": {
-    "model": "gemma4",
+    "model": "qwen3.5:latest",
     "kind": "direct",
     "reasoning": "medium",
-    "contextUsedPercent": 13,
+    "contextUsedPercent": 20,
     "contextTokens": 131072,
-    "remainingTokens": 113978,
-    "ageMs": 150124
+    "remainingTokens": 105365,
+    "ageMs": 41365
   },
   "security": {
     "critical": 5,
@@ -32,28 +32,28 @@
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "gemma4",
-      "ageMs": 150124,
-      "percentUsed": 13,
-      "remainingTokens": 113978,
+      "model": "qwen3.5:latest",
+      "ageMs": 41365,
+      "percentUsed": 20,
+      "remainingTokens": 105365,
       "contextTokens": 131072,
       "thinkingLevel": "medium"
     },
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "gpt-5.4",
-      "ageMs": 169960,
-      "percentUsed": 26,
-      "remainingTokens": 148365,
-      "contextTokens": 200000,
-      "thinkingLevel": "medium"
+      "model": "grok-4",
+      "ageMs": 1103712,
+      "percentUsed": 16,
+      "remainingTokens": 215006,
+      "contextTokens": 256000,
+      "thinkingLevel": "off"
     },
     {
       "agentId": "webmaster",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 1164529,
+      "ageMs": 3006194,
       "percentUsed": 13,
       "remainingTokens": 114315,
       "contextTokens": 131072,
@@ -63,7 +63,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "kimi-k2.5:cloud",
-      "ageMs": 4608942,
+      "ageMs": 6450607,
       "percentUsed": 12,
       "remainingTokens": 114881,
       "contextTokens": 131072,
@@ -73,7 +73,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "kimi-k2.5:cloud",
-      "ageMs": 4833569,
+      "ageMs": 6675234,
       "percentUsed": 30,
       "remainingTokens": 140865,
       "contextTokens": 200000,
@@ -83,7 +83,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "kimi-k2.5:cloud",
-      "ageMs": 5118029,
+      "ageMs": 6959694,
       "percentUsed": 13,
       "remainingTokens": 113487,
       "contextTokens": 131072,
@@ -105,12 +105,6 @@
     }
   },
   "tokens": [
-    {
-      "name": "OpenAI Codex default OAuth",
-      "status": "OK",
-      "expiresIn": "Active",
-      "progress": 100
-    },
     {
       "name": "OpenAI Codex OAuth",
       "status": "OK",
