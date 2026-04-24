@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-04-24T13:42:31.469660+00:00",
+  "generatedAt": "2026-04-24T14:13:07.450030+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
     "gatewayLatencyMs": null,
     "gatewayService": "running (pid 33984, state active)",
     "agents": 4,
-    "sessions": 314,
-    "tasksActive": 0,
+    "sessions": 322,
+    "tasksActive": 1,
     "tasksQueued": 0,
-    "taskFailures": 98,
+    "taskFailures": 100,
     "heartbeatEvery": "30m",
     "channelSummary": []
   },
   "session": {
-    "model": "gpt-5.1",
+    "model": "gemma4:latest",
     "kind": "direct",
-    "reasoning": "medium",
-    "contextUsedPercent": null,
-    "contextTokens": 200000,
-    "remainingTokens": null,
-    "ageMs": 46985
+    "reasoning": "standard",
+    "contextUsedPercent": 13,
+    "contextTokens": 131072,
+    "remainingTokens": 114310,
+    "ageMs": 7071
   },
   "security": {
     "critical": 2,
@@ -32,30 +32,50 @@
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "gpt-5.1",
-      "ageMs": 46985,
-      "percentUsed": null,
-      "remainingTokens": null,
+      "model": "gemma4:latest",
+      "ageMs": 7071,
+      "percentUsed": 13,
+      "remainingTokens": 114310,
+      "contextTokens": 131072,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gemma4:latest",
+      "ageMs": 11512,
+      "percentUsed": 13,
+      "remainingTokens": 114310,
+      "contextTokens": 131072,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gpt-5.4",
+      "ageMs": 13997,
+      "percentUsed": 28,
+      "remainingTokens": 143168,
       "contextTokens": 200000,
       "thinkingLevel": "medium"
     },
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "gpt-5.4",
-      "ageMs": 51743,
-      "percentUsed": 18,
-      "remainingTokens": 164080,
+      "model": "google/gemini-2.5-flash",
+      "ageMs": 42201,
+      "percentUsed": 14,
+      "remainingTokens": 172340,
       "contextTokens": 200000,
-      "thinkingLevel": "low"
+      "thinkingLevel": null
     },
     {
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 274041,
+      "ageMs": 311519,
       "percentUsed": 13,
-      "remainingTokens": 114314,
+      "remainingTokens": 114310,
       "contextTokens": 131072,
       "thinkingLevel": null
     },
@@ -63,29 +83,9 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 274041,
-      "percentUsed": 13,
-      "remainingTokens": 114314,
-      "contextTokens": 131072,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 574041,
-      "percentUsed": 13,
-      "remainingTokens": 114370,
-      "contextTokens": 131072,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 874051,
-      "percentUsed": 13,
-      "remainingTokens": 114370,
+      "ageMs": 611527,
+      "percentUsed": 11,
+      "remainingTokens": 116373,
       "contextTokens": 131072,
       "thinkingLevel": null
     }
