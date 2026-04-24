@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-04-24T11:40:01.294514+00:00",
+  "generatedAt": "2026-04-24T12:10:37.920372+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
     "gatewayLatencyMs": null,
-    "gatewayService": "running (pid 22739, state active)",
+    "gatewayService": "running (pid 25875, state active)",
     "agents": 4,
-    "sessions": 290,
+    "sessions": 294,
     "tasksActive": 0,
     "tasksQueued": 0,
-    "taskFailures": 93,
+    "taskFailures": 95,
     "heartbeatEvery": "30m",
     "channelSummary": []
   },
   "session": {
-    "model": "google/gemini-2.5-flash",
+    "model": "gpt-5.4",
     "kind": "direct",
-    "reasoning": "standard",
-    "contextUsedPercent": 10,
+    "reasoning": "medium",
+    "contextUsedPercent": 58,
     "contextTokens": 200000,
-    "remainingTokens": 180737,
-    "ageMs": 83086
+    "remainingTokens": 83034,
+    "ageMs": 53924
   },
   "security": {
     "critical": 2,
@@ -32,60 +32,60 @@
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "google/gemini-2.5-flash",
-      "ageMs": 83086,
-      "percentUsed": 10,
-      "remainingTokens": 180737,
-      "contextTokens": 200000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 102537,
-      "percentUsed": 35,
-      "remainingTokens": 130422,
+      "ageMs": 53924,
+      "percentUsed": 58,
+      "remainingTokens": 83034,
       "contextTokens": 200000,
       "thinkingLevel": "medium"
     },
     {
       "agentId": "main",
       "kind": "direct",
+      "model": "gemma4:latest",
+      "ageMs": 162024,
+      "percentUsed": 13,
+      "remainingTokens": 114317,
+      "contextTokens": 131072,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gemma4:latest",
+      "ageMs": 162024,
+      "percentUsed": 13,
+      "remainingTokens": 114317,
+      "contextTokens": 131072,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
       "model": "google/gemini-2.5-flash",
-      "ageMs": 111819,
+      "ageMs": 288337,
       "percentUsed": 6,
-      "remainingTokens": 188991,
+      "remainingTokens": 188995,
       "contextTokens": 200000,
       "thinkingLevel": null
     },
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 122444,
-      "percentUsed": 13,
-      "remainingTokens": 114306,
-      "contextTokens": 131072,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 122444,
-      "percentUsed": 13,
-      "remainingTokens": 114306,
-      "contextTokens": 131072,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
       "model": "google/gemini-2.5-flash",
-      "ageMs": 358117,
+      "ageMs": 397740,
       "percentUsed": 1,
-      "remainingTokens": 198519,
+      "remainingTokens": 198517,
+      "contextTokens": 200000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": null,
+      "kind": "direct",
+      "model": "gpt-5.4",
+      "ageMs": 432909,
+      "percentUsed": null,
+      "remainingTokens": null,
       "contextTokens": 200000,
       "thinkingLevel": null
     }
