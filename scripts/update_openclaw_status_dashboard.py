@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path('/Users/diego/.openclaw/workspace/diego-claw')
 DATA_PATH = ROOT / 'projects' / 'data' / 'openclaw-status-dashboard.json'
+CONFIG_PATH = Path('/Users/diego/.openclaw/openclaw.json')
 DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
 OPENCLAW_BIN = '/opt/homebrew/bin/openclaw'
 OLLAMA_BIN = '/usr/local/bin/ollama'
@@ -30,6 +31,29 @@ def load_existing():
         except Exception:
             return {}
     return {}
+
+
+def load_auth_profiles():
+    try:
+        parsed = json.loads(CONFIG_PATH.read_text(encoding='utf-8'))
+    except Exception:
+        return []
+
+    profiles = parsed.get('auth', {}).get('profiles', {})
+    out = []
+    for profile_id, profile in profiles.items():
+        if profile.get('provider') != 'openai-codex':
+            continue
+        label = 'OpenAI Codex OAuth'
+        if profile_id.endswith(':default'):
+            label = 'OpenAI Codex default OAuth'
+        out.append({
+            'name': label,
+            'status': 'OK',
+            'expiresIn': 'Active',
+            'progress': 100,
+        })
+    return out
 
 
 def parse_security_audit():
@@ -168,9 +192,8 @@ def main():
             'day': {'leftPercent': 98, 'consumed': '5h', 'remaining': '3h 48m', 'label': 'Very safe'},
             'week': {'leftPercent': 98, 'consumed': 'Low burn', 'remaining': '4d 7h', 'label': 'Excellent'}
         }),
-        'tokens': existing.get('tokens', [
-            {'name': 'Default OAuth token', 'status': 'OK', 'expiresIn': '29h'},
-            {'name': 'OpenAI Codex account token', 'status': 'OK', 'expiresIn': '10d'}
+        'tokens': load_auth_profiles() or existing.get('tokens', [
+            {'name': 'OpenAI Codex default OAuth', 'status': 'OK', 'expiresIn': 'Active', 'progress': 100}
         ]),
     }
 
