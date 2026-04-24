@@ -137,7 +137,7 @@ main {
 
 .hero-home-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.18fr) minmax(340px, 0.92fr);
+  grid-template-columns: minmax(0, 1.24fr) minmax(300px, 0.76fr);
   gap: 1.35rem;
   align-items: stretch;
 }
@@ -271,6 +271,8 @@ main {
   padding: 0;
   overflow: hidden;
   position: relative;
+  max-width: 460px;
+  justify-self: end;
 }
 
 .hero-image,
@@ -284,7 +286,8 @@ main {
 
 .hero-image--tall {
   height: 100%;
-  min-height: 540px;
+  min-height: 440px;
+  max-height: 520px;
   border-radius: 1.25rem;
 }
 
@@ -351,6 +354,7 @@ main {
 
 .gallery-grid--three-up {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
 }
 
 .card h3 {
@@ -405,6 +409,15 @@ main {
 
 .image-card--landscape img {
   aspect-ratio: 4 / 3;
+}
+
+.image-card--compact {
+  max-width: 330px;
+}
+
+.image-card--compact img {
+  aspect-ratio: 4 / 3;
+  max-height: 240px;
 }
 
 .gallery-grid img {
