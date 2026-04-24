@@ -1,4 +1,46 @@
 (function () {
+  function initThemeToggle() {
+    const root = document.documentElement;
+    const nav = document.querySelector('.top-nav-inner');
+    if (!nav) return;
+
+    const saved = localStorage.getItem('iwp-theme');
+    if (saved === 'dark' || saved === 'light') {
+      root.setAttribute('data-theme', saved);
+    }
+
+    let actions = nav.querySelector('.top-nav-actions');
+    if (!actions) {
+      actions = document.createElement('div');
+      actions.className = 'top-nav-actions';
+      nav.appendChild(actions);
+    }
+
+    let button = actions.querySelector('.theme-toggle');
+    if (!button) {
+      button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'theme-toggle';
+      actions.appendChild(button);
+    }
+
+    const sync = () => {
+      const dark = root.getAttribute('data-theme') === 'dark';
+      button.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      button.textContent = dark ? '☀️ Light' : '🌙 Dark';
+      button.setAttribute('title', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    };
+
+    button.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('iwp-theme', next);
+      sync();
+    });
+
+    sync();
+  }
+
   function initConditionFinder() {
     const input = document.getElementById('conditionSearch');
     if (!input) return;
@@ -118,6 +160,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    initThemeToggle();
     initConditionFinder();
     initFaqSearch();
     initNewsFeed();
