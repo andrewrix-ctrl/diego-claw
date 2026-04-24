@@ -8,6 +8,8 @@ from pathlib import Path
 ROOT = Path('/Users/diego/.openclaw/workspace/diego-claw')
 DATA_PATH = ROOT / 'projects' / 'data' / 'openclaw-status-dashboard.json'
 DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+OPENCLAW_BIN = '/opt/homebrew/bin/openclaw'
+OLLAMA_BIN = '/usr/local/bin/ollama'
 
 
 def run(cmd):
@@ -31,7 +33,7 @@ def load_existing():
 
 
 def parse_security_audit():
-    raw = run_optional(['openclaw', 'security', 'audit'])
+    raw = run_optional([OPENCLAW_BIN, 'security', 'audit'])
     if not raw:
         return {'critical': None, 'warn': None, 'info': None, 'summaryText': 'Security audit unavailable'}
     m = re.search(r'Summary:\s+(\d+)\s+critical\s+·\s+(\d+)\s+warn\s+·\s+(\d+)\s+info', raw)
@@ -86,7 +88,7 @@ def ollama_summary(snapshot):
         'Base it on this OpenClaw dashboard snapshot: ' + make_summary_input(snapshot)
     )
     try:
-        raw = subprocess.check_output(['ollama', 'run', 'gemma4:latest', prompt], text=True, stderr=subprocess.STDOUT, timeout=90)
+        raw = subprocess.check_output([OLLAMA_BIN, 'run', 'gemma4:latest', prompt], text=True, stderr=subprocess.STDOUT, timeout=90)
         m = re.search(r'\{.*\}', raw, re.S)
         if not m:
             raise ValueError('No JSON object in ollama output')
@@ -117,7 +119,7 @@ def ollama_summary(snapshot):
 
 def main():
     existing = load_existing()
-    status = json.loads(run(['openclaw', 'status', '--json']))
+    status = json.loads(run([OPENCLAW_BIN, 'status', '--json']))
     security = parse_security_audit()
 
     gateway = status.get('gateway', {})

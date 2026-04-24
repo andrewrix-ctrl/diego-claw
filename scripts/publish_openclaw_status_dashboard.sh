@@ -4,6 +4,7 @@ set -euo pipefail
 REPO="/Users/diego/.openclaw/workspace/diego-claw"
 LOG_DIR="$REPO/.logs"
 LOCK_DIR="/tmp/publish_openclaw_status_dashboard.lock"
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 mkdir -p "$LOG_DIR"
 
 if ! mkdir "$LOCK_DIR" 2>/dev/null; then
@@ -16,7 +17,7 @@ trap 'rmdir "$LOCK_DIR"' EXIT
   echo "[$(date '+%Y-%m-%d %H:%M:%S')] Starting dashboard refresh"
   cd "$REPO"
 
-  /usr/bin/python3 scripts/update_openclaw_status_dashboard.py
+  /opt/homebrew/bin/python3 scripts/update_openclaw_status_dashboard.py
 
   /usr/bin/git add \
     projects/openclaw-status-dashboard.html \
