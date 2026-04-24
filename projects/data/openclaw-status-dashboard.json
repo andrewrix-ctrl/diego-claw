@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-24T15:14:30.700740+00:00",
+  "generatedAt": "2026-04-24T15:45:12.361472+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
     "gatewayLatencyMs": null,
-    "gatewayService": "running (pid 37622, state active)",
+    "gatewayService": "running (pid 39499, state active)",
     "agents": 4,
-    "sessions": 335,
+    "sessions": 342,
     "tasksActive": 0,
     "tasksQueued": 0,
     "taskFailures": 101,
@@ -17,10 +17,10 @@
     "model": "google/gemini-2.5-flash",
     "kind": "direct",
     "reasoning": "standard",
-    "contextUsedPercent": 18,
+    "contextUsedPercent": 36,
     "contextTokens": 200000,
-    "remainingTokens": 163926,
-    "ageMs": 11665
+    "remainingTokens": 128661,
+    "ageMs": 53789
   },
   "security": {
     "critical": 2,
@@ -33,9 +33,9 @@
       "agentId": "main",
       "kind": "direct",
       "model": "google/gemini-2.5-flash",
-      "ageMs": 11665,
-      "percentUsed": 18,
-      "remainingTokens": 163926,
+      "ageMs": 53789,
+      "percentUsed": 36,
+      "remainingTokens": 128661,
       "contextTokens": 200000,
       "thinkingLevel": null
     },
@@ -43,9 +43,9 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 91841,
+      "ageMs": 133498,
       "percentUsed": 13,
-      "remainingTokens": 114105,
+      "remainingTokens": 113862,
       "contextTokens": 131072,
       "thinkingLevel": null
     },
@@ -53,9 +53,9 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 91841,
+      "ageMs": 133498,
       "percentUsed": 13,
-      "remainingTokens": 114105,
+      "remainingTokens": 113862,
       "contextTokens": 131072,
       "thinkingLevel": null
     },
@@ -63,9 +63,9 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 391849,
+      "ageMs": 433505,
       "percentUsed": 13,
-      "remainingTokens": 114100,
+      "remainingTokens": 113859,
       "contextTokens": 131072,
       "thinkingLevel": null
     },
@@ -73,9 +73,9 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 443800,
+      "ageMs": 450929,
       "percentUsed": 12,
-      "remainingTokens": 115928,
+      "remainingTokens": 115862,
       "contextTokens": 131072,
       "thinkingLevel": null
     },
@@ -83,9 +83,9 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 549372,
+      "ageMs": 591072,
       "percentUsed": 1,
-      "remainingTokens": 129428,
+      "remainingTokens": 129427,
       "contextTokens": 131072,
       "thinkingLevel": null
     }
