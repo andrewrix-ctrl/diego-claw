@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us | Zenvuk AI Solutions</title>
+  <title>Contact | Zenvuk AI Solutions</title>
   <link rel="stylesheet" href="/diego-claw/projects/acme-consulting/styles.css" />
 </head>
 <body>
@@ -12,23 +12,39 @@
       <a class="brand" href="/diego-claw/projects/acme-consulting/">Zenvuk AI Solutions</a>
       <nav>
         <ul>
-          <li><a href="/diego-claw/projects/acme-consulting/about.html">About Us</a></li>
+          <li class="has-submenu">
+            <a href="/diego-claw/projects/acme-consulting/about.html">About</a>
+            <ul class="submenu">
+              <li><a href="/diego-claw/projects/acme-consulting/about.html">About Us</a></li>
+              <li><a href="/diego-claw/projects/acme-consulting/meet-our-team.html">Meet our team</a></li>
+            </ul>
+          </li>
           <li><a href="/diego-claw/projects/acme-consulting/services.html">Services</a></li>
-          <li><a href="/diego-claw/projects/acme-consulting/events.html">Events/Calendar</a></li>
-          <li><a class="active" href="/diego-claw/projects/acme-consulting/contact.html">Contact Us</a></li>
+          <li><a href="/diego-claw/projects/acme-consulting/events.html">Events</a></li>
+          <li><a class="active" href="/diego-claw/projects/acme-consulting/contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="section">
+    <section class="section media-hero">
       <img class="banner-img" src="media/banner-contact-ai-welcome.png" alt="Consultant and welcoming AI hologram in a futuristic reception scene" />
-      <h1>Contact Us</h1>
-      <p class="muted">Share your challenge, ambition, or half-formed AI idea and the fictional Zenvuk team will sound ready, composed, and impressively strategic within one business day.</p>
+      <div class="image-overlay image-overlay-right">
+        <p class="overlay-kicker">Contact</p>
+        <h1>Bring us the knotty problem.</h1>
+        <p>Whether you need an AI strategy, a leadership workshop, or a smarter operating model, Zenvuk helps you move from noise to direction fast.</p>
+      </div>
       <p class="img-credit">Custom Nano Banana Pro visual aligned to Zenvuk's indigo-plum brand palette.</p>
+    </section>
 
-      <form>
+    <section class="section two-column">
+      <div>
+        <h2>Talk to the team about your next move.</h2>
+        <p class="muted">We work with organisations looking for premium AI advisory, intelligent automation opportunities, strategic program leadership, and practical change support.</p>
+        <p class="muted">Use the form as a starting point and we can shape the conversation around your objectives, constraints, and delivery horizon.</p>
+      </div>
+      <form id="contact-form">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" placeholder="Your name" />
 
@@ -39,10 +55,10 @@
         <input id="company" name="company" type="text" placeholder="Company name" />
 
         <label for="message">How can we help?</label>
-        <textarea id="message" name="message" placeholder="A short summary of what you need"></textarea>
+        <textarea id="message" name="message" placeholder="Tell us about the opportunity, challenge, or decision in front of you"></textarea>
 
         <div class="btn-row">
-          <a class="btn" href="mailto:hello@zenvuk-ai.example?subject=Zenvuk%20AI%20Solutions%20Inquiry">Email Zenvuk AI Solutions</a>
+          <a class="btn" href="#contact-form">Request a strategy session</a>
         </div>
       </form>
     </section>

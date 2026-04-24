@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Events & Calendar | Zenvuk AI Solutions</title>
+  <title>Events | Zenvuk AI Solutions</title>
   <link rel="stylesheet" href="/diego-claw/projects/acme-consulting/styles.css" />
 </head>
 <body>
@@ -12,21 +12,34 @@
       <a class="brand" href="/diego-claw/projects/acme-consulting/">Zenvuk AI Solutions</a>
       <nav>
         <ul>
-          <li><a href="/diego-claw/projects/acme-consulting/about.html">About Us</a></li>
+          <li class="has-submenu">
+            <a href="/diego-claw/projects/acme-consulting/about.html">About</a>
+            <ul class="submenu">
+              <li><a href="/diego-claw/projects/acme-consulting/about.html">About Us</a></li>
+              <li><a href="/diego-claw/projects/acme-consulting/meet-our-team.html">Meet our team</a></li>
+            </ul>
+          </li>
           <li><a href="/diego-claw/projects/acme-consulting/services.html">Services</a></li>
-          <li><a class="active" href="/diego-claw/projects/acme-consulting/events.html">Events/Calendar</a></li>
-          <li><a href="/diego-claw/projects/acme-consulting/contact.html">Contact Us</a></li>
+          <li><a class="active" href="/diego-claw/projects/acme-consulting/events.html">Events</a></li>
+          <li><a href="/diego-claw/projects/acme-consulting/contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <section class="section">
+    <section class="section media-hero">
       <img class="banner-img" src="media/banner-events-holographic-calendar.png" alt="Futuristic holographic calendar for AI consulting events" />
-      <h1>Events & Calendar</h1>
-      <p class="muted">A fictional program of executive briefings, AI leadership labs, and transformation events designed to make Zenvuk feel like a living, premium consulting brand.</p>
+      <div class="image-overlay image-overlay-left">
+        <p class="overlay-kicker">Events</p>
+        <h1>Leadership sessions for teams building serious AI capability.</h1>
+        <p>Zenvuk events are designed for decision-makers who want sharper thinking, faster alignment, and practical signals from the front edge of AI transformation.</p>
+      </div>
       <p class="img-credit">Custom Nano Banana Pro visual aligned to Zenvuk's indigo-plum brand palette.</p>
+    </section>
+
+    <section class="section">
+      <p class="muted">Our calendar brings together executive briefings, AI leadership labs, and operating model sessions for organisations navigating modernisation, automation, and enterprise change.</p>
       <div class="table-wrap">
         <table>
           <thead>
