@@ -102,6 +102,14 @@ main { padding: 2rem 0 3rem; }
   margin-bottom: 1rem;
 }
 
+.hero-home {
+  padding: 1.2rem;
+  border: 1px solid rgba(124, 156, 255, .28);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(22, 26, 48, .78), rgba(26, 47, 74, .58));
+  box-shadow: 0 18px 38px rgba(8, 12, 24, .24);
+}
+
 .avatar {
   width: 120px;
   aspect-ratio: 1;
@@ -113,6 +121,11 @@ main { padding: 2rem 0 3rem; }
 
 .hero h1 { margin: 0 0 .45rem; }
 .hero p { color: var(--muted); margin: 0; }
+
+.hero-home p {
+  line-height: 1.6;
+  max-width: 62ch;
+}
 
 .hero h1,
 .page-title,
@@ -425,6 +438,37 @@ a:hover {
 
 .btn:hover {
   background: linear-gradient(140deg, rgba(255, 94, 168, .2), rgba(75, 231, 176, .2));
+}
+
+.hero-actions {
+  margin-top: .25rem;
+}
+
+.section-intro {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  max-width: 66ch;
+  line-height: 1.6;
+}
+
+.fun-facts-section,
+.building-next-section,
+.stay-connected {
+  position: relative;
+  padding: 1.2rem;
+  border-radius: 22px;
+  border: 1px solid rgba(124, 156, 255, .22);
+  background: linear-gradient(180deg, rgba(17, 22, 42, .7), rgba(18, 26, 49, .5));
+}
+
+.fun-fact-card {
+  min-height: 100%;
+}
+
+.stay-connected-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: .95rem;
 }
 
 @media (max-width: 700px) {
