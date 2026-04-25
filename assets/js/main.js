@@ -28,7 +28,8 @@ function initVideoModal() {
   const closeTargets = modal.querySelectorAll('[data-video-close]');
 
   const closeModal = () => {
-    modal.hidden = true;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
     if (video) {
       video.pause();
@@ -37,18 +38,15 @@ function initVideoModal() {
   };
 
   openButton.addEventListener('click', () => {
-    modal.hidden = false;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
-    if (video) {
-      video.currentTime = 0;
-      void video.play().catch(() => {});
-    }
   });
 
   closeTargets.forEach(target => target.addEventListener('click', closeModal));
 
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && !modal.hidden) {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
       closeModal();
     }
   });

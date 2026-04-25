@@ -143,6 +143,8 @@ h2 {
 }
 
 .video-thumb {
+  appearance: none;
+  -webkit-appearance: none;
   width: min(100%, 430px);
   display: grid;
   grid-template-columns: 132px 1fr;
@@ -213,17 +215,17 @@ h2 {
   line-height: 1.35;
 }
 
-.video-modal[hidden] {
-  display: none;
-}
-
 .video-modal {
   position: fixed;
   inset: 0;
   z-index: 60;
-  display: grid;
+  display: none;
   place-items: center;
   padding: 1.5rem;
+}
+
+.video-modal.is-open {
+  display: grid;
 }
 
 .video-modal-backdrop {
@@ -237,6 +239,8 @@ h2 {
   position: relative;
   z-index: 1;
   width: min(900px, 100%);
+  max-height: min(92vh, 860px);
+  overflow: auto;
   background: linear-gradient(180deg, rgba(28, 33, 61, .98), rgba(13, 18, 36, .98));
   border: 1px solid rgba(124, 156, 255, .38);
   border-radius: 22px;
