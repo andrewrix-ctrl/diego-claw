@@ -656,14 +656,27 @@ a:hover {
 }
 
 .blog-feature-image {
-  width: 100%;
+  width: min(100%, 720px);
+  max-height: 260px;
   display: block;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  object-position: center;
   border-radius: 18px;
   margin: .8rem 0 1.1rem;
   border: 1px solid rgba(124, 156, 255, .24);
   box-shadow: 0 16px 32px rgba(8, 12, 24, .18);
+}
+
+.blog-card-image {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: .85rem;
+  border: 1px solid rgba(124, 156, 255, .2);
+  box-shadow: 0 12px 24px rgba(8, 12, 24, .16);
 }
 
 .about-mini-hero {
