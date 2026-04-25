@@ -111,6 +111,7 @@ main > .grid.cards {
 
 .hero-home {
   position: relative;
+  grid-template-columns: 190px minmax(0, 1fr) minmax(260px, 300px);
   padding: 1.4rem;
   border: 1px solid rgba(124, 156, 255, .26);
   border-radius: 24px;
@@ -147,6 +148,13 @@ main > .grid.cards {
 .hero-home p {
   line-height: 1.6;
   max-width: 62ch;
+}
+
+.hero-home .avatar {
+  width: 178px;
+  border-radius: 24px;
+  justify-self: center;
+  align-self: center;
 }
 
 .hero h1,
@@ -208,11 +216,11 @@ h2 {
   -webkit-appearance: none;
   align-self: center;
   justify-self: end;
-  width: min(100%, 340px);
+  width: min(100%, 285px);
   display: grid;
   grid-template-columns: 1fr;
-  gap: .75rem;
-  padding: .8rem;
+  gap: .65rem;
+  padding: .72rem;
   border-radius: 18px;
   border: 1px solid rgba(124, 156, 255, .42);
   background: linear-gradient(135deg, rgba(38, 41, 78, .94), rgba(20, 31, 58, .94));
@@ -588,7 +596,16 @@ a:hover {
   }
 
   .hero-home {
+    grid-template-columns: 1fr;
     padding: 1.15rem;
+  }
+
+  .hero-home .avatar {
+    width: 138px;
+  }
+
+  .video-thumb {
+    width: 100%;
   }
 
   .hero-copy {
