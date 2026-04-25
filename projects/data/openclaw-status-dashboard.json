@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T01:08:40.888644+00:00",
+  "generatedAt": "2026-04-25T01:39:23.434872+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
@@ -14,13 +14,13 @@
     "channelSummary": []
   },
   "session": {
-    "model": "gpt-5.4",
+    "model": "gemma4:latest",
     "kind": "direct",
-    "reasoning": "medium",
-    "contextUsedPercent": 51,
-    "contextTokens": 200000,
-    "remainingTokens": 98834,
-    "ageMs": 139808
+    "reasoning": "off",
+    "contextUsedPercent": 35,
+    "contextTokens": 131072,
+    "remainingTokens": 85170,
+    "ageMs": 1055894
   },
   "security": {
     "critical": 5,
@@ -32,28 +32,28 @@
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "gpt-5.4",
-      "ageMs": 139808,
-      "percentUsed": 51,
-      "remainingTokens": 98834,
-      "contextTokens": 200000,
-      "thinkingLevel": "medium"
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 1045857,
-      "percentUsed": 34,
-      "remainingTokens": 86308,
+      "ageMs": 1055894,
+      "percentUsed": 35,
+      "remainingTokens": 85170,
       "contextTokens": 131072,
       "thinkingLevel": "off"
     },
     {
       "agentId": "main",
       "kind": "direct",
+      "model": "gpt-5.4",
+      "ageMs": 1645670,
+      "percentUsed": 52,
+      "remainingTokens": 95966,
+      "contextTokens": 200000,
+      "thinkingLevel": "medium"
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
       "model": "qwen3.5:latest",
-      "ageMs": 1259894,
+      "ageMs": 3102458,
       "percentUsed": 13,
       "remainingTokens": 113944,
       "contextTokens": 131072,
@@ -63,7 +63,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 2084517,
+      "ageMs": 3927081,
       "percentUsed": null,
       "remainingTokens": null,
       "contextTokens": 200000,
@@ -73,7 +73,7 @@
       "agentId": "webmaster",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 14051790,
+      "ageMs": 15894354,
       "percentUsed": 13,
       "remainingTokens": 114315,
       "contextTokens": 131072,
@@ -83,7 +83,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "kimi-k2.5:cloud",
-      "ageMs": 17496203,
+      "ageMs": 19338767,
       "percentUsed": 12,
       "remainingTokens": 114881,
       "contextTokens": 131072,
