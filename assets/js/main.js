@@ -19,6 +19,41 @@ function renderList(id, items, mapFn) {
   });
 }
 
+function initVideoModal() {
+  const modal = document.getElementById('welcome-video-modal');
+  const openButton = document.querySelector('[data-video-open]');
+  if (!modal || !openButton) return;
+
+  const video = modal.querySelector('video');
+  const closeTargets = modal.querySelectorAll('[data-video-close]');
+
+  const closeModal = () => {
+    modal.hidden = true;
+    document.body.classList.remove('modal-open');
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+  };
+
+  openButton.addEventListener('click', () => {
+    modal.hidden = false;
+    document.body.classList.add('modal-open');
+    if (video) {
+      video.currentTime = 0;
+      void video.play().catch(() => {});
+    }
+  });
+
+  closeTargets.forEach(target => target.addEventListener('click', closeModal));
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !modal.hidden) {
+      closeModal();
+    }
+  });
+}
+
 (async function init() {
   const posts = await loadJSON('/diego-claw/data/blog.json');
   const changes = await loadJSON('/diego-claw/data/changelog.json');
@@ -27,4 +62,5 @@ function renderList(id, items, mapFn) {
   renderList('latest-posts', posts.slice(0, 3), p => `<a href="${p.url}">${p.title}</a> <small>(${p.date})</small>`);
   renderList('recent-updates', changes.slice(0, 3), c => `<strong>${c.version}</strong> - ${c.note}`);
   renderList('upcoming-events', events.slice(0, 3), e => `<a href="${e.url}">${e.title}</a> <small>(${e.date})</small>`);
+  initVideoModal();
 })();

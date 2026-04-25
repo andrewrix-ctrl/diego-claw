@@ -125,28 +125,11 @@ h2 {
   text-shadow: 0 4px 18px rgba(50, 212, 255, .22);
 }
 
-.welcome-reel {
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(300px, 1.25fr);
-  gap: 1.25rem;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.welcome-reel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top left, rgba(255, 94, 168, .18), transparent 40%),
-              radial-gradient(circle at bottom right, rgba(50, 212, 255, .16), transparent 42%);
-  pointer-events: none;
-}
-
-.welcome-copy,
-.welcome-video {
-  position: relative;
-  z-index: 1;
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .9rem;
 }
 
 .eyebrow {
@@ -159,14 +142,129 @@ h2 {
   text-transform: uppercase;
 }
 
-.welcome-copy h2 {
-  margin-bottom: .65rem;
+.video-thumb {
+  width: min(100%, 430px);
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: .85rem;
+  align-items: center;
+  padding: .8rem;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 156, 255, .42);
+  background: linear-gradient(135deg, rgba(38, 41, 78, .94), rgba(20, 31, 58, .94));
+  color: var(--text);
+  box-shadow: 0 16px 34px rgba(5, 9, 24, .36);
+  cursor: pointer;
+  text-align: left;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
-.welcome-copy p {
-  margin: 0;
+.video-thumb:hover {
+  transform: translateY(-2px);
+  border-color: rgba(75, 231, 176, .82);
+  box-shadow: 0 20px 40px rgba(5, 9, 24, .48);
+}
+
+.video-thumb-frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 156, 255, .38);
+  background: radial-gradient(circle at top left, rgba(255, 94, 168, .22), rgba(8, 12, 24, .86));
+}
+
+.video-thumb-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.video-thumb-play {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(8, 12, 24, .78);
+  border: 1px solid rgba(255, 255, 255, .22);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .3);
+  font-size: 1rem;
+}
+
+.video-thumb-copy {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+}
+
+.video-thumb-copy strong {
+  font-size: 1rem;
+}
+
+.video-thumb-copy span:last-child {
   color: var(--muted);
-  max-width: 34ch;
+  font-size: .94rem;
+  line-height: 1.35;
+}
+
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 8, 20, .78);
+  backdrop-filter: blur(8px);
+}
+
+.video-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 100%);
+  background: linear-gradient(180deg, rgba(28, 33, 61, .98), rgba(13, 18, 36, .98));
+  border: 1px solid rgba(124, 156, 255, .38);
+  border-radius: 22px;
+  padding: 1.2rem;
+  box-shadow: 0 28px 60px rgba(0, 0, 0, .42);
+}
+
+.video-modal-copy p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: .85rem;
+  right: .85rem;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, .16);
 }
 
 .welcome-video {
@@ -176,6 +274,10 @@ h2 {
   border: 1px solid rgba(124, 156, 255, .45);
   box-shadow: 0 18px 38px rgba(3, 8, 24, .42);
   background: rgba(8, 12, 24, .85);
+}
+
+body.modal-open {
+  overflow: hidden;
 }
 
 h2 {
@@ -307,14 +409,26 @@ a:hover {
 }
 
 @media (max-width: 700px) {
-  .hero,
-  .welcome-reel {
+  .hero {
     grid-template-columns: 1fr;
     text-align: center;
     justify-items: center;
   }
 
-  .welcome-copy p {
-    max-width: none;
+  .hero-copy {
+    align-items: center;
+  }
+
+  .video-thumb {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .video-modal {
+    padding: .85rem;
+  }
+
+  .video-modal-dialog {
+    padding: 1rem;
   }
 }
