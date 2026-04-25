@@ -96,7 +96,7 @@ main { padding: 2rem 0 3rem; }
 
 .hero {
   display: grid;
-  grid-template-columns: 130px 1fr;
+  grid-template-columns: 130px minmax(0, 1fr) minmax(260px, 360px);
   gap: 1rem;
   align-items: center;
   margin-bottom: 1rem;
@@ -145,24 +145,25 @@ h2 {
 .video-thumb {
   appearance: none;
   -webkit-appearance: none;
-  width: min(100%, 430px);
+  align-self: center;
+  justify-self: end;
+  width: min(100%, 340px);
   display: grid;
-  grid-template-columns: 132px 1fr;
-  gap: .85rem;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: .75rem;
   padding: .8rem;
-  border-radius: 16px;
+  border-radius: 18px;
   border: 1px solid rgba(124, 156, 255, .42);
   background: linear-gradient(135deg, rgba(38, 41, 78, .94), rgba(20, 31, 58, .94));
   color: var(--text);
   box-shadow: 0 16px 34px rgba(5, 9, 24, .36);
   cursor: pointer;
   text-align: left;
-  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
 }
 
 .video-thumb:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.01);
   border-color: rgba(75, 231, 176, .82);
   box-shadow: 0 20px 40px rgba(5, 9, 24, .48);
 }
@@ -172,7 +173,7 @@ h2 {
   display: block;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 14px;
   border: 1px solid rgba(124, 156, 255, .38);
   background: radial-gradient(circle at top left, rgba(255, 94, 168, .22), rgba(8, 12, 24, .86));
 }
@@ -202,7 +203,7 @@ h2 {
 .video-thumb-copy {
   display: flex;
   flex-direction: column;
-  gap: .2rem;
+  gap: .22rem;
 }
 
 .video-thumb-copy strong {
@@ -233,6 +234,8 @@ h2 {
   inset: 0;
   background: rgba(4, 8, 20, .78);
   backdrop-filter: blur(8px);
+  opacity: 0;
+  transition: opacity .28s ease;
 }
 
 .video-modal-dialog {
@@ -246,6 +249,18 @@ h2 {
   border-radius: 22px;
   padding: 1.2rem;
   box-shadow: 0 28px 60px rgba(0, 0, 0, .42);
+  opacity: 0;
+  transform-origin: top left;
+  transition: transform .34s cubic-bezier(.2, .8, .2, 1), opacity .2s ease;
+}
+
+.video-modal.is-visible .video-modal-backdrop {
+  opacity: 1;
+}
+
+.video-modal.is-visible .video-modal-dialog {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
 }
 
 .video-modal-copy p {
@@ -424,7 +439,7 @@ a:hover {
   }
 
   .video-thumb {
-    grid-template-columns: 1fr;
+    justify-self: center;
     width: 100%;
   }
 

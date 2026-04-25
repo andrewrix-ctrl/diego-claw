@@ -25,22 +25,62 @@ function initVideoModal() {
   if (!modal || !openButton) return;
 
   const video = modal.querySelector('video');
+  const dialog = modal.querySelector('.video-modal-dialog');
   const closeTargets = modal.querySelectorAll('[data-video-close]');
+  let closeTimer;
+  let playTimer;
+
+  const setDialogFromThumb = () => {
+    const thumbRect = openButton.getBoundingClientRect();
+    const dialogRect = dialog.getBoundingClientRect();
+    const dx = thumbRect.left - dialogRect.left;
+    const dy = thumbRect.top - dialogRect.top;
+    const sx = thumbRect.width / dialogRect.width;
+    const sy = thumbRect.height / dialogRect.height;
+    dialog.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+  };
+
+  const cleanupTimers = () => {
+    window.clearTimeout(closeTimer);
+    window.clearTimeout(playTimer);
+  };
 
   const closeModal = () => {
-    modal.classList.remove('is-open');
+    cleanupTimers();
+    modal.classList.remove('is-visible');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
     if (video) {
       video.pause();
       video.currentTime = 0;
     }
+    setDialogFromThumb();
+    closeTimer = window.setTimeout(() => {
+      modal.classList.remove('is-open');
+      dialog.style.transform = '';
+    }, 360);
   };
 
   openButton.addEventListener('click', () => {
+    cleanupTimers();
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
+    setDialogFromThumb();
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        modal.classList.add('is-visible');
+        dialog.style.transform = '';
+      });
+    });
+
+    if (video) {
+      video.currentTime = 0;
+      playTimer = window.setTimeout(() => {
+        void video.play().catch(() => {});
+      }, 260);
+    }
   });
 
   closeTargets.forEach(target => target.addEventListener('click', closeModal));
@@ -48,6 +88,12 @@ function initVideoModal() {
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && modal.classList.contains('is-open')) {
       closeModal();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if (!modal.classList.contains('is-open')) {
+      dialog.style.transform = '';
     }
   });
 }
