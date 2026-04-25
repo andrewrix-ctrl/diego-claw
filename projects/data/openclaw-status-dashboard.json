@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-25T02:10:02.758104+00:00",
+  "generatedAt": "2026-04-25T02:40:43.929340+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
     "gatewayLatencyMs": null,
-    "gatewayService": "running (pid 12131, state active)",
+    "gatewayService": "running (pid 12456, state active)",
     "agents": 4,
-    "sessions": 364,
+    "sessions": 365,
     "tasksActive": 0,
     "tasksQueued": 0,
     "taskFailures": 130,
@@ -14,28 +14,38 @@
     "channelSummary": []
   },
   "session": {
-    "model": "gpt-5.4",
-    "kind": "direct",
-    "reasoning": "off",
-    "contextUsedPercent": 28,
+    "model": "google/gemini-2.5-flash",
+    "kind": "group",
+    "reasoning": "standard",
+    "contextUsedPercent": 19,
     "contextTokens": 200000,
-    "remainingTokens": 143938,
-    "ageMs": 121492
+    "remainingTokens": 161683,
+    "ageMs": 356295
   },
   "security": {
-    "critical": 5,
+    "critical": 6,
     "warn": 7,
     "info": 3,
-    "summaryText": "Summary: 5 critical \u00b7 7 warn \u00b7 3 info"
+    "summaryText": "Summary: 6 critical \u00b7 7 warn \u00b7 3 info"
   },
   "recentSessions": [
     {
       "agentId": "main",
+      "kind": "group",
+      "model": "google/gemini-2.5-flash",
+      "ageMs": 356295,
+      "percentUsed": 19,
+      "remainingTokens": 161683,
+      "contextTokens": 200000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 121492,
-      "percentUsed": 28,
-      "remainingTokens": 143938,
+      "ageMs": 1713633,
+      "percentUsed": 34,
+      "remainingTokens": 131477,
       "contextTokens": 200000,
       "thinkingLevel": "off"
     },
@@ -43,7 +53,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 1043847,
+      "ageMs": 2885060,
       "percentUsed": 55,
       "remainingTokens": 89614,
       "contextTokens": 200000,
@@ -53,7 +63,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "qwen3.5:latest",
-      "ageMs": 4942946,
+      "ageMs": 6784159,
       "percentUsed": 13,
       "remainingTokens": 113944,
       "contextTokens": 131072,
@@ -63,7 +73,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 5767569,
+      "ageMs": 7608782,
       "percentUsed": null,
       "remainingTokens": null,
       "contextTokens": 200000,
@@ -73,21 +83,11 @@
       "agentId": "webmaster",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 17734842,
+      "ageMs": 19576055,
       "percentUsed": 13,
       "remainingTokens": 114315,
       "contextTokens": 131072,
       "thinkingLevel": "low"
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "kimi-k2.5:cloud",
-      "ageMs": 21179255,
-      "percentUsed": 12,
-      "remainingTokens": 114881,
-      "contextTokens": 131072,
-      "thinkingLevel": null
     }
   ],
   "usage": {
