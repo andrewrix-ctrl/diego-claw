@@ -655,6 +655,17 @@ a:hover {
   box-shadow: 0 14px 28px rgba(7, 11, 25, .18);
 }
 
+.blog-feature-image {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 18px;
+  margin: .8rem 0 1.1rem;
+  border: 1px solid rgba(124, 156, 255, .24);
+  box-shadow: 0 16px 32px rgba(8, 12, 24, .18);
+}
+
 .about-mini-hero {
   grid-template-columns: 100px minmax(0, 1fr);
 }
