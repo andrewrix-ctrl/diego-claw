@@ -26,17 +26,19 @@ function initVideoModal() {
 
   const video = modal.querySelector('video');
   const dialog = modal.querySelector('.video-modal-dialog');
+  const thumbSource = openButton.querySelector('.video-thumb-frame') || openButton;
   const closeTargets = modal.querySelectorAll('[data-video-close]');
   let closeTimer;
   let playTimer;
 
   const setDialogFromThumb = () => {
-    const thumbRect = openButton.getBoundingClientRect();
+    const thumbRect = thumbSource.getBoundingClientRect();
     const dialogRect = dialog.getBoundingClientRect();
     const dx = thumbRect.left - dialogRect.left;
     const dy = thumbRect.top - dialogRect.top;
     const sx = thumbRect.width / dialogRect.width;
     const sy = thumbRect.height / dialogRect.height;
+    dialog.style.transformOrigin = 'top left';
     dialog.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
   };
 
