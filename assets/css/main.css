@@ -631,6 +631,30 @@ a:hover {
   height: 100%;
 }
 
+.whats-new-page {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.whats-new-gallery {
+  align-items: stretch;
+}
+
+.whats-new-card {
+  overflow: hidden;
+}
+
+.whats-new-image {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: .85rem;
+  border: 1px solid rgba(124, 156, 255, .22);
+  box-shadow: 0 14px 28px rgba(7, 11, 25, .18);
+}
+
 .about-mini-hero {
   grid-template-columns: 100px minmax(0, 1fr);
 }
