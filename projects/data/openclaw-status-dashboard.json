@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-04-25T18:32:48.509137+00:00",
+  "generatedAt": "2026-04-25T19:03:28.782813+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
     "gatewayLatencyMs": null,
     "gatewayService": "running (pid 21179, state active)",
     "agents": 4,
-    "sessions": 238,
+    "sessions": 230,
     "tasksActive": 0,
     "tasksQueued": 0,
     "taskFailures": 135,
@@ -14,13 +14,13 @@
     "channelSummary": []
   },
   "session": {
-    "model": "gpt-5.4",
+    "model": "grok-4",
     "kind": "direct",
-    "reasoning": "off",
-    "contextUsedPercent": 51,
-    "contextTokens": 200000,
-    "remainingTokens": 98690,
-    "ageMs": 1304134
+    "reasoning": "standard",
+    "contextUsedPercent": 12,
+    "contextTokens": 256000,
+    "remainingTokens": 224743,
+    "ageMs": 5308
   },
   "security": {
     "critical": 6,
@@ -32,40 +32,10 @@
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "gpt-5.4",
-      "ageMs": 1304134,
-      "percentUsed": 51,
-      "remainingTokens": 98690,
-      "contextTokens": 200000,
-      "thinkingLevel": "off"
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 2259167,
-      "percentUsed": 12,
-      "remainingTokens": 115783,
-      "contextTokens": 131072,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 2259167,
-      "percentUsed": 12,
-      "remainingTokens": 115783,
-      "contextTokens": 131072,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "group",
       "model": "grok-4",
-      "ageMs": 11956833,
-      "percentUsed": 8,
-      "remainingTokens": 236129,
+      "ageMs": 5308,
+      "percentUsed": 12,
+      "remainingTokens": 224743,
       "contextTokens": 256000,
       "thinkingLevel": null
     },
@@ -73,17 +43,47 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 17570568,
-      "percentUsed": 45,
-      "remainingTokens": 109354,
+      "ageMs": 1329238,
+      "percentUsed": 51,
+      "remainingTokens": 97435,
       "contextTokens": 200000,
-      "thinkingLevel": "medium"
+      "thinkingLevel": "off"
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gemma4:latest",
+      "ageMs": 4101318,
+      "percentUsed": 12,
+      "remainingTokens": 115783,
+      "contextTokens": 131072,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gemma4:latest",
+      "ageMs": 4101318,
+      "percentUsed": 12,
+      "remainingTokens": 115783,
+      "contextTokens": 131072,
+      "thinkingLevel": null
     },
     {
       "agentId": "main",
       "kind": "group",
       "model": "grok-4",
-      "ageMs": 28209891,
+      "ageMs": 13798984,
+      "percentUsed": 8,
+      "remainingTokens": 236129,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "group",
+      "model": "grok-4",
+      "ageMs": 30052042,
       "percentUsed": 12,
       "remainingTokens": 226242,
       "contextTokens": 256000,
