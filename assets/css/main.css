@@ -14,36 +14,50 @@
   --mint: #4be7b0;
   --gold: #ffd166;
 
-  --bg1: #1d1042;
-  --bg2: #18386b;
-  --bg3: #1a8f8f;
+  /* Emoji Nova Rush background palette */
+  --nova-bg-1: #040814;
+  --nova-bg-2: #0b1023;
+  --nova-cyan: #67e8f9;
+  --nova-pink: #f472b6;
+  --nova-violet: #8b5cf6;
 }
 
 * { box-sizing: border-box; }
+html, body { min-height: 100%; }
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
-  background-size: 300% 300%;
-  animation: globalBgShift 14s ease infinite;
   color: var(--text);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(103, 232, 249, 0.18), transparent 22%),
+    radial-gradient(circle at 85% 10%, rgba(244, 114, 182, 0.16), transparent 20%),
+    radial-gradient(circle at 50% 110%, rgba(139, 92, 246, 0.24), transparent 28%),
+    linear-gradient(160deg, var(--nova-bg-1), var(--nova-bg-2));
+  overflow-x: hidden;
 }
 
-body::before {
+body::before,
+body::after {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.24;
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55) 1px, transparent 2px),
-    radial-gradient(circle at 80% 30%, rgba(255,255,255,0.45) 1px, transparent 2px),
-    radial-gradient(circle at 40% 70%, rgba(255,255,255,0.45) 1px, transparent 2px),
-    radial-gradient(circle at 15% 80%, rgba(255, 209, 102, 0.42) 1px, transparent 2px),
-    radial-gradient(circle at 88% 75%, rgba(75, 231, 176, 0.36) 1px, transparent 2px);
-  background-size: 180px 180px;
-  animation: globalTwinkle 8s linear infinite;
   z-index: 0;
+}
+
+body::before {
+  opacity: 0.9;
+  background-image:
+    linear-gradient(rgba(103, 232, 249, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(103, 232, 249, 0.07) 1px, transparent 1px);
+  background-size: 42px 42px;
+  -webkit-mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+  mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+}
+
+body::after {
+  background: radial-gradient(circle at center, rgba(103, 232, 249, 0.08), transparent 56%);
+  animation: globalPulseGlow 5s ease-in-out infinite;
 }
 
 header, main, footer {
@@ -51,16 +65,9 @@ header, main, footer {
   z-index: 1;
 }
 
-@keyframes globalBgShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes globalTwinkle {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
+@keyframes globalPulseGlow {
+  0%, 100% { transform: scale(1); opacity: 0.65; }
+  50% { transform: scale(1.06); opacity: 1; }
 }
 
 .container {
