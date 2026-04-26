@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T21:55:31.370549+00:00",
+  "generatedAt": "2026-04-26T22:26:13.044863+00:00",
   "runtimeVersion": "2026.4.23",
   "openclaw": {
     "gatewayStatus": "Running",
@@ -19,8 +19,8 @@
     "reasoning": "off",
     "contextUsedPercent": 88,
     "contextTokens": 200000,
-    "remainingTokens": 24197,
-    "ageMs": 867375
+    "remainingTokens": 23016,
+    "ageMs": 890135
   },
   "security": {
     "critical": 6,
@@ -33,60 +33,60 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 867375,
+      "ageMs": 890135,
       "percentUsed": 88,
-      "remainingTokens": 24197,
+      "remainingTokens": 23016,
       "contextTokens": 200000,
       "thinkingLevel": "off"
     },
     {
       "agentId": "main",
-      "kind": "direct",
+      "kind": "group",
       "model": "grok-4",
-      "ageMs": 3281007,
-      "percentUsed": 11,
-      "remainingTokens": 228883,
-      "contextTokens": 256000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "grok-4",
-      "ageMs": 3324604,
-      "percentUsed": 11,
-      "remainingTokens": 228883,
-      "contextTokens": 256000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 14424602,
-      "percentUsed": 12,
-      "remainingTokens": 115295,
-      "contextTokens": 131072,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 14424602,
-      "percentUsed": 12,
-      "remainingTokens": 115295,
-      "contextTokens": 131072,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gpt-5.4",
-      "ageMs": 25127320,
+      "ageMs": 1648693,
       "percentUsed": null,
       "remainingTokens": null,
-      "contextTokens": 200000,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "grok-4",
+      "ageMs": 5122921,
+      "percentUsed": 11,
+      "remainingTokens": 228883,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "grok-4",
+      "ageMs": 5166518,
+      "percentUsed": 11,
+      "remainingTokens": 228883,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gemma4:latest",
+      "ageMs": 16266516,
+      "percentUsed": 12,
+      "remainingTokens": 115295,
+      "contextTokens": 131072,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gemma4:latest",
+      "ageMs": 16266516,
+      "percentUsed": 12,
+      "remainingTokens": 115295,
+      "contextTokens": 131072,
       "thinkingLevel": null
     }
   ],
