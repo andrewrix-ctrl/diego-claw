@@ -586,14 +586,15 @@ a:hover {
 
 .about-hero-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
-  gap: 1.2rem;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .72fr);
+  gap: 1.35rem;
   align-items: center;
 }
 
 .about-hero-art {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .about-hero-image,
@@ -606,7 +607,8 @@ a:hover {
 }
 
 .about-hero-image {
-  max-width: 460px;
+  max-width: 380px;
+  width: 100%;
   height: auto;
   object-fit: contain;
   filter: saturate(1.06) contrast(1.03);
