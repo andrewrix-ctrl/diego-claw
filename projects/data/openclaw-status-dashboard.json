@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-26T09:40:25.956922+00:00",
-  "runtimeVersion": "2026.4.24",
+  "generatedAt": "2026-04-26T10:11:04.951618+00:00",
+  "runtimeVersion": "2026.4.23",
   "openclaw": {
-    "gatewayStatus": "Unavailable",
+    "gatewayStatus": "Running",
     "gatewayLatencyMs": null,
-    "gatewayService": "running (pid 499, state active)",
+    "gatewayService": "running (pid 8728, state active)",
     "agents": 4,
     "sessions": 214,
     "tasksActive": 0,
@@ -17,35 +17,45 @@
     "model": "gpt-5.4",
     "kind": "direct",
     "reasoning": "medium",
-    "contextUsedPercent": 44,
+    "contextUsedPercent": 59,
     "contextTokens": 200000,
-    "remainingTokens": 112330,
-    "ageMs": 129959
+    "remainingTokens": 82319,
+    "ageMs": 156766
   },
   "security": {
-    "critical": null,
-    "warn": null,
-    "info": null,
-    "summaryText": "Security audit unavailable"
+    "critical": 6,
+    "warn": 7,
+    "info": 3,
+    "summaryText": "Summary: 6 critical \u00b7 7 warn \u00b7 3 info"
   },
   "recentSessions": [
     {
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 129959,
-      "percentUsed": 44,
-      "remainingTokens": 112330,
+      "ageMs": 156766,
+      "percentUsed": 59,
+      "remainingTokens": 82319,
       "contextTokens": 200000,
       "thinkingLevel": "medium"
     },
     {
       "agentId": "main",
       "kind": "direct",
+      "model": "grok-4",
+      "ageMs": 298686,
+      "percentUsed": 17,
+      "remainingTokens": 211262,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 1551854,
-      "percentUsed": 66,
-      "remainingTokens": 67495,
+      "ageMs": 1277895,
+      "percentUsed": 77,
+      "remainingTokens": 45813,
       "contextTokens": 200000,
       "thinkingLevel": "off"
     },
@@ -53,7 +63,7 @@
       "agentId": "webmaster",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 1559896,
+      "ageMs": 3514178,
       "percentUsed": null,
       "remainingTokens": null,
       "contextTokens": 200000,
@@ -63,7 +73,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 1613727,
+      "ageMs": 3568009,
       "percentUsed": 8,
       "remainingTokens": 183862,
       "contextTokens": 200000,
@@ -73,19 +83,9 @@
       "agentId": "webmaster",
       "kind": "direct",
       "model": "grok-4",
-      "ageMs": 2056114,
+      "ageMs": 4010396,
       "percentUsed": 19,
       "remainingTokens": 208480,
-      "contextTokens": 256000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "researcher",
-      "kind": "direct",
-      "model": "grok-4",
-      "ageMs": 25321083,
-      "percentUsed": 11,
-      "remainingTokens": 226732,
       "contextTokens": 256000,
       "thinkingLevel": null
     }
@@ -112,6 +112,6 @@
       "progress": 100
     }
   ],
-  "aiSummary": "OpenClaw is running cleanly with healthy usage headroom.",
-  "riskLabel": "Low Risk"
+  "aiSummary": "OpenClaw is running and healthy overall, but the security audit still needs attention.",
+  "riskLabel": "Moderate Risk"
 }
