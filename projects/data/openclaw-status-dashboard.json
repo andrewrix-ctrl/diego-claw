@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T08:21:26.622594+00:00",
+  "generatedAt": "2026-04-26T08:52:11.519374+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
@@ -14,13 +14,13 @@
     "channelSummary": []
   },
   "session": {
-    "model": "gpt-5.4",
+    "model": "grok-4",
     "kind": "direct",
-    "reasoning": "off",
-    "contextUsedPercent": 65,
-    "contextTokens": 200000,
-    "remainingTokens": 69824,
-    "ageMs": 600837
+    "reasoning": "standard",
+    "contextUsedPercent": 17,
+    "contextTokens": 256000,
+    "remainingTokens": 211850,
+    "ageMs": 287047
   },
   "security": {
     "critical": 6,
@@ -32,10 +32,20 @@
     {
       "agentId": "main",
       "kind": "direct",
+      "model": "grok-4",
+      "ageMs": 287047,
+      "percentUsed": 17,
+      "remainingTokens": 211850,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 600837,
+      "ageMs": 662943,
       "percentUsed": 65,
-      "remainingTokens": 69824,
+      "remainingTokens": 69272,
       "contextTokens": 200000,
       "thinkingLevel": "off"
     },
@@ -43,19 +53,9 @@
       "agentId": "webmaster",
       "kind": "direct",
       "model": "grok-4",
-      "ageMs": 16205649,
+      "ageMs": 18050675,
       "percentUsed": 18,
       "remainingTokens": 210051,
-      "contextTokens": 256000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "grok-4",
-      "ageMs": 16207553,
-      "percentUsed": 14,
-      "remainingTokens": 219049,
       "contextTokens": 256000,
       "thinkingLevel": null
     },
@@ -63,7 +63,7 @@
       "agentId": "researcher",
       "kind": "direct",
       "model": "grok-4",
-      "ageMs": 20692867,
+      "ageMs": 22537893,
       "percentUsed": 11,
       "remainingTokens": 226732,
       "contextTokens": 256000,
@@ -73,7 +73,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "grok-4",
-      "ageMs": 22273174,
+      "ageMs": 24118200,
       "percentUsed": 10,
       "remainingTokens": 229620,
       "contextTokens": 256000,
@@ -83,7 +83,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "grok-4",
-      "ageMs": 22365635,
+      "ageMs": 24210661,
       "percentUsed": 13,
       "remainingTokens": 221629,
       "contextTokens": 256000,
