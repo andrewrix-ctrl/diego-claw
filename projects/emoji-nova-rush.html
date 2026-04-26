@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emoji Nova Rush • Diego Claw</title>
+  <style>
+    :root {
+      --bg-1: #040814;
+      --bg-2: #0b1023;
+      --panel: rgba(10, 16, 36, 0.82);
+      --panel-strong: rgba(9, 13, 28, 0.94);
+      --line: rgba(122, 162, 255, 0.22);
+      --cyan: #67e8f9;
+      --pink: #f472b6;
+      --violet: #8b5cf6;
+      --lime: #bef264;
+      --text: #e5f2ff;
+      --muted: #97a7c3;
+      --danger: #fb7185;
+      --success: #34d399;
+      --shadow: 0 24px 60px rgba(0,0,0,0.45);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(103, 232, 249, 0.18), transparent 22%),
+        radial-gradient(circle at 85% 10%, rgba(244, 114, 182, 0.16), transparent 20%),
+        radial-gradient(circle at 50% 110%, rgba(139, 92, 246, 0.24), transparent 28%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
+      overflow-x: hidden;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      background-image:
+        linear-gradient(rgba(103, 232, 249, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(103, 232, 249, 0.07) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+    }
+
+    body::after {
+      background: radial-gradient(circle at center, rgba(103, 232, 249, 0.08), transparent 56%);
+      animation: pulseGlow 5s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.65; }
+      50% { transform: scale(1.06); opacity: 1; }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .back-link,
+    .ghost-btn,
+    .primary-btn,
+    .chip-btn {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 18px;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(8px);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .back-link:hover,
+    .ghost-btn:hover,
+    .primary-btn:hover,
+    .chip-btn:hover,
+    .emoji-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(103, 232, 249, 0.55);
+      box-shadow: 0 14px 30px rgba(103, 232, 249, 0.14);
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, rgba(103, 232, 249, 0.22), rgba(139, 92, 246, 0.28));
+      font-weight: 700;
+    }
+
+    .hero,
+    .panel,
+    .results-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(103, 232, 249, 0.08);
+      border: 1px solid rgba(103, 232, 249, 0.18);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 4.6rem);
+      margin: 16px 0 14px;
+      line-height: 0.95;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 60ch;
+      margin-bottom: 22px;
+    }
+
+    .hero-actions,
+    .hero-stats,
+    .hud,
+    .results-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(8, 14, 30, 0.75), rgba(8, 14, 30, 0.95));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 100%;
+      display: grid;
+      align-content: center;
+      gap: 16px;
+    }
+
+    .hero-card .display-emoji {
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 1;
+      filter: drop-shadow(0 0 16px rgba(103, 232, 249, 0.45));
+    }
+
+    .hero-card h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .hero-card p,
+    .small-note,
+    .subtle {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel,
+    .results-panel {
+      padding: 22px;
+    }
+
+    .hud-card {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 14px;
+    }
+
+    .hud-card h3,
+    .target-card h2,
+    .results-panel h2 {
+      margin-top: 0;
+    }
+
+    .metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 12px;
+      gap: 8px;
+    }
+
+    .metric strong {
+      font-size: 1.8rem;
+    }
+
+    .progress-shell {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin: 10px 0 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
+      transition: width 0.2s linear;
+    }
+
+    .target-card {
+      margin-bottom: 16px;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(8, 14, 30, 0.78), rgba(8, 14, 30, 0.92));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .target-emoji {
+      font-size: clamp(3.2rem, 8vw, 5rem);
+      line-height: 1;
+      margin: 8px 0 14px;
+      filter: drop-shadow(0 0 18px rgba(244, 114, 182, 0.36));
+      animation: bob 2s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .status-line {
+      min-height: 28px;
+      font-weight: 600;
+      color: var(--cyan);
+      margin-bottom: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .emoji-card {
+      aspect-ratio: 1;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      color: var(--text);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease, opacity 0.16s ease;
+    }
+
+    .emoji-card:focus-visible,
+    .ghost-btn:focus-visible,
+    .primary-btn:focus-visible,
+    .chip-btn:focus-visible,
+    .back-link:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    .emoji-card.correct {
+      border-color: rgba(52, 211, 153, 0.8);
+      box-shadow: 0 0 0 1px rgba(52, 211, 153, 0.25), 0 0 22px rgba(52, 211, 153, 0.18);
+      background: linear-gradient(180deg, rgba(52, 211, 153, 0.22), rgba(255,255,255,0.04));
+      transform: scale(0.96);
+    }
+
+    .emoji-card.wrong {
+      border-color: rgba(251, 113, 133, 0.8);
+      box-shadow: 0 0 0 1px rgba(251, 113, 133, 0.22), 0 0 22px rgba(251, 113, 133, 0.18);
+      animation: shake 0.25s linear;
+    }
+
+    .emoji-card.hidden {
+      opacity: 0.16;
+      pointer-events: none;
+      transform: scale(0.9);
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    .hint-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      margin-top: 16px;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+    }
+
+    .results-panel {
+      display: none;
+      margin-top: 24px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .result-pill {
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .result-pill strong {
+      display: block;
+      font-size: 1.8rem;
+      margin-top: 6px;
+    }
+
+    .floating-score {
+      position: absolute;
+      pointer-events: none;
+      font-weight: 800;
+      font-size: 1.2rem;
+      opacity: 0;
+      transform: translateY(0);
+      animation: floatUp 700ms ease-out forwards;
+      text-shadow: 0 0 16px currentColor;
+    }
+
+    @keyframes floatUp {
+      0% { opacity: 0; transform: translateY(6px) scale(0.92); }
+      20% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-38px) scale(1.05); }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 16px;
+      top: -20px;
+      z-index: 4;
+      opacity: 0.8;
+      animation: confettiFall 1100ms linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes confettiFall {
+      to {
+        transform: translate3d(var(--x-shift), 105vh, 0) rotate(600deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(100% - 20px, 1000px);
+        padding-top: 18px;
+      }
+      .hero,
+      .panel,
+      .results-panel {
+        padding: 18px;
+      }
+      .grid {
+        gap: 10px;
+      }
+      .emoji-card {
+        border-radius: 18px;
+      }
+      .hero-actions .primary-btn,
+      .hero-actions .ghost-btn,
+      .results-actions .primary-btn,
+      .results-actions .ghost-btn,
+      .chip-btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="topbar">
+      <a class="back-link" href="/diego-claw/projects/">← Back to Diego’s projects</a>
+      <button id="themeToggle" class="chip-btn" type="button" aria-label="Toggle extra neon mode">✨ Extra neon</button>
+    </div>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Emoji arcade // futuristic reflex game</span>
+        <h1>Emoji Nova Rush</h1>
+        <p>
+          Lock onto the target emoji, smash every matching energy orb, and keep your combo alive before the reactor timer hits zero.
+          It’s fast, glowy, a little chaotic, and very Drew-coded.
+        </p>
+        <div class="hero-actions">
+          <button id="startBtn" class="primary-btn" type="button">Start the rush 🚀</button>
+          <button id="howBtn" class="ghost-btn" type="button">How to play</button>
+        </div>
+        <div class="hero-stats" style="margin-top:18px;">
+          <span class="chip-btn" aria-hidden="true">45s countdown ⏱️</span>
+          <span class="chip-btn" aria-hidden="true">Combo scoring 🔥</span>
+          <span class="chip-btn" aria-hidden="true">Mobile friendly 📱</span>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="display-emoji">🤖⚡🛸✨</div>
+        <h2>Mission brief</h2>
+        <p>Each round picks one target emoji. Tap every copy of that emoji in the grid. Clear the target set to jump to the next wave.</p>
+        <p class="small-note">Wrong taps cost points. Fast clears build combo. High scores get bragging rights.</p>
+      </div>
+    </section>
+
+    <section class="layout">
+      <aside class="panel" aria-label="Game status panel">
+        <div class="hud-card">
+          <div class="metric"><span>Score</span><strong id="scoreValue">0</strong></div>
+          <div class="metric"><span>Combo</span><strong id="comboValue">0x</strong></div>
+          <div class="metric"><span>Wave</span><strong id="waveValue">0</strong></div>
+        </div>
+        <div class="hud-card">
+          <h3>Reactor time</h3>
+          <div class="progress-shell" aria-hidden="true">
+            <div id="timeFill" class="progress-fill"></div>
+          </div>
+          <div class="metric"><span>Seconds left</span><strong id="timeValue">45</strong></div>
+          <p class="subtle">Clear a wave quickly to keep the momentum sparkling.</p>
+        </div>
+        <div class="hud-card">
+          <h3>Controls</h3>
+          <p class="subtle">Tap on mobile or click on desktop. Keyboard works too: tab through the grid and hit Enter or Space.</p>
+          <button id="restartBtn" class="ghost-btn" type="button">Restart round set</button>
+        </div>
+      </aside>
+
+      <section class="panel" aria-label="Game board">
+        <div class="target-card">
+          <p class="eyebrow" style="margin:0 0 12px 0;">Current target</p>
+          <div id="targetEmoji" class="target-emoji" aria-live="polite">🎯</div>
+          <h2 id="targetLabel">Press start to begin</h2>
+          <p id="statusLine" class="status-line" aria-live="polite">Ready to flood the grid with neon chaos.</p>
+        </div>
+        <div id="grid" class="grid" aria-label="Emoji game grid"></div>
+        <div class="hint-row">
+          <span>Tip: clear all target emojis to trigger the next wave.</span>
+          <span id="accuracyHint">Accuracy: 100%</span>
+        </div>
+      </section>
+    </section>
+
+    <section id="resultsPanel" class="results-panel" aria-live="polite">
+      <h2>Run complete ✨</h2>
+      <p id="resultsSummary" class="subtle">You turned the reactor into a shimmering masterpiece.</p>
+      <div class="results-grid">
+        <div class="result-pill"><span>Final score</span><strong id="finalScore">0</strong></div>
+        <div class="result-pill"><span>Best combo</span><strong id="bestCombo">0x</strong></div>
+        <div class="result-pill"><span>Accuracy</span><strong id="finalAccuracy">0%</strong></div>
+      </div>
+      <div class="results-actions">
+        <button id="playAgainBtn" class="primary-btn" type="button">Play again</button>
+        <button id="shareBtn" class="ghost-btn" type="button">Share score</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const EMOJIS = ["🤖","🛸","⚡","✨","🌈","🪩","🌙","💎","🧠","🔮","🎧","🌟","🛰️","🚀","🎮","🦾","🫧","💫","🧪","👾"];
+    const GRID_SIZE = 16;
+    const TOTAL_TIME = 45;
+    const gridEl = document.getElementById('grid');
+    const scoreValue = document.getElementById('scoreValue');
+    const comboValue = document.getElementById('comboValue');
+    const waveValue = document.getElementById('waveValue');
+    const timeValue = document.getElementById('timeValue');
+    const timeFill = document.getElementById('timeFill');
+    const targetEmoji = document.getElementById('targetEmoji');
+    const targetLabel = document.getElementById('targetLabel');
+    const statusLine = document.getElementById('statusLine');
+    const resultsPanel = document.getElementById('resultsPanel');
+    const resultsSummary = document.getElementById('resultsSummary');
+    const finalScore = document.getElementById('finalScore');
+    const bestCombo = document.getElementById('bestCombo');
+    const finalAccuracy = document.getElementById('finalAccuracy');
+    const accuracyHint = document.getElementById('accuracyHint');
+    const startBtn = document.getElementById('startBtn');
+    const restartBtn = document.getElementById('restartBtn');
+    const playAgainBtn = document.getElementById('playAgainBtn');
+    const shareBtn = document.getElementById('shareBtn');
+    const howBtn = document.getElementById('howBtn');
+    const themeToggle = document.getElementById('themeToggle');
+
+    let gameTimer = null;
+    let state = {};
+
+    function rand(list) {
+      return list[Math.floor(Math.random() * list.length)];
+    }
+
+    function shuffle(list) {
+      const copy = [...list];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function resetState() {
+      state = {
+        score: 0,
+        combo: 0,
+        bestCombo: 0,
+        wave: 0,
+        timeLeft: TOTAL_TIME,
+        hits: 0,
+        misses: 0,
+        currentTarget: null,
+        remainingTargets: 0,
+        active: false,
+      };
+      updateHud();
+      resultsPanel.style.display = 'none';
+    }
+
+    function updateHud() {
+      scoreValue.textContent = state.score;
+      comboValue.textContent = `${state.combo}x`;
+      waveValue.textContent = state.wave;
+      timeValue.textContent = state.timeLeft;
+      timeFill.style.width = `${(state.timeLeft / TOTAL_TIME) * 100}%`;
+      const attempts = state.hits + state.misses;
+      const accuracy = attempts ? Math.round((state.hits / attempts) * 100) : 100;
+      accuracyHint.textContent = `Accuracy: ${accuracy}%`;
+    }
+
+    function buildWave() {
+      state.wave += 1;
+      state.currentTarget = rand(EMOJIS);
+      targetEmoji.textContent = state.currentTarget;
+      targetLabel.textContent = `Tap every ${state.currentTarget} in the grid`;
+      statusLine.textContent = `Wave ${state.wave} is live — lock in and tap clean.`;
+
+      const targetCount = Math.min(3 + Math.floor(state.wave / 2), 7);
+      const cells = [];
+      const distractors = shuffle(EMOJIS.filter((emoji) => emoji !== state.currentTarget)).slice(0, GRID_SIZE - targetCount);
+
+      for (let i = 0; i < targetCount; i += 1) cells.push(state.currentTarget);
+      cells.push(...distractors);
+      const finalCells = shuffle(cells).slice(0, GRID_SIZE);
+
+      state.remainingTargets = targetCount;
+      gridEl.innerHTML = '';
+
+      finalCells.forEach((emoji) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'emoji-card';
+        btn.textContent = emoji;
+        btn.setAttribute('aria-label', `Emoji ${emoji}`);
+        btn.dataset.emoji = emoji;
+        btn.addEventListener('click', () => handleTap(btn, emoji));
+        gridEl.appendChild(btn);
+      });
+
+      updateHud();
+    }
+
+    function floatScore(text, x, y, good = true) {
+      const el = document.createElement('div');
+      el.className = 'floating-score';
+      el.textContent = text;
+      el.style.left = `${x}px`;
+      el.style.top = `${y}px`;
+      el.style.color = good ? 'var(--success)' : 'var(--danger)';
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 700);
+    }
+
+    function burstConfetti() {
+      for (let i = 0; i < 14; i += 1) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti';
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.background = rand(['#67e8f9', '#f472b6', '#8b5cf6', '#bef264']);
+        piece.style.setProperty('--x-shift', `${(Math.random() - 0.5) * 140}px`);
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 1150);
+      }
+    }
+
+    function handleTap(btn, emoji) {
+      if (!state.active || btn.classList.contains('hidden')) return;
+
+      const rect = btn.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+
+      if (emoji === state.currentTarget) {
+        btn.classList.add('correct', 'hidden');
+        state.hits += 1;
+        state.combo += 1;
+        state.bestCombo = Math.max(state.bestCombo, state.combo);
+        state.remainingTargets -= 1;
+        const gained = 10 + Math.min(state.combo, 8);
+        state.score += gained;
+        floatScore(`+${gained}`, x, y, true);
+
+        if (state.remainingTargets === 0) {
+          state.score += 20;
+          statusLine.textContent = `Wave cleared. Reactor stable. Spinning up the next grid…`;
+          burstConfetti();
+          updateHud();
+          setTimeout(() => {
+            if (state.active) buildWave();
+          }, 650);
+        } else {
+          statusLine.textContent = `Nice hit. ${state.remainingTargets} target${state.remainingTargets === 1 ? '' : 's'} left.`;
+          updateHud();
+        }
+      } else {
+        btn.classList.add('wrong');
+        setTimeout(() => btn.classList.remove('wrong'), 240);
+        state.misses += 1;
+        state.combo = 0;
+        state.score = Math.max(0, state.score - 6);
+        statusLine.textContent = `Oops — that's reactor noise, not the target.`;
+        floatScore('-6', x, y, false);
+        updateHud();
+      }
+    }
+
+    function tick() {
+      state.timeLeft -= 1;
+      updateHud();
+
+      if (state.timeLeft <= 10) {
+        timeFill.style.background = 'linear-gradient(90deg, #fb7185, #f59e0b)';
+      }
+
+      if (state.timeLeft <= 0) {
+        endGame();
+      }
+    }
+
+    function startGame() {
+      clearInterval(gameTimer);
+      resetState();
+      state.active = true;
+      timeFill.style.background = 'linear-gradient(90deg, var(--cyan), var(--violet), var(--pink))';
+      buildWave();
+      gameTimer = setInterval(tick, 1000);
+      startBtn.textContent = 'Restart the rush';
+      statusLine.textContent = 'Reactor online. Hunt the target emoji.';
+    }
+
+    function endGame() {
+      clearInterval(gameTimer);
+      state.active = false;
+      const attempts = state.hits + state.misses;
+      const accuracy = attempts ? Math.round((state.hits / attempts) * 100) : 0;
+      const title = state.score >= 320 ? 'Neon oracle' : state.score >= 220 ? 'Galaxy grinder' : state.score >= 120 ? 'Spark pilot' : 'Cute little chaos goblin';
+
+      finalScore.textContent = state.score;
+      bestCombo.textContent = `${state.bestCombo}x`;
+      finalAccuracy.textContent = `${accuracy}%`;
+      resultsSummary.textContent = `You finished with the rank: ${title}. Waves survived: ${state.wave}.`;
+      resultsPanel.style.display = 'block';
+      resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      statusLine.textContent = 'Run complete. Your emoji reactor has cooled down.';
+      updateHud();
+    }
+
+    function shareScore() {
+      const text = `I scored ${state.score} in Emoji Nova Rush on Diego's site 🚀✨ Try it: ${window.location.href}`;
+      if (navigator.share) {
+        navigator.share({ title: 'Emoji Nova Rush', text, url: window.location.href }).catch(() => {});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          statusLine.textContent = 'Score copied to clipboard. Go flex, superstar.';
+        }).catch(() => {
+          window.prompt('Copy your score text:', text);
+        });
+      } else {
+        window.prompt('Copy your score text:', text);
+      }
+    }
+
+    howBtn.addEventListener('click', () => {
+      statusLine.textContent = 'How to play: tap every matching target emoji. Clear the wave, build combos, and avoid random chaos taps.';
+    });
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('extra-neon');
+      if (document.body.classList.contains('extra-neon')) {
+        document.body.style.filter = 'saturate(1.15)';
+        statusLine.textContent = 'Extra neon mode activated. Completely unnecessary. Extremely correct.';
+      } else {
+        document.body.style.filter = 'none';
+        statusLine.textContent = 'Back to standard glow. Still deliciously futuristic.';
+      }
+    });
+
+    startBtn.addEventListener('click', startGame);
+    restartBtn.addEventListener('click', startGame);
+    playAgainBtn.addEventListener('click', startGame);
+    shareBtn.addEventListener('click', shareScore);
+
+    resetState();
+    gridEl.innerHTML = Array.from({ length: GRID_SIZE }, () => '<div class="emoji-card" aria-hidden="true">✨</div>').join('');
+  </script>
+</body>
+</html>
