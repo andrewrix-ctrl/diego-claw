@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T01:42:26.857113+00:00",
+  "generatedAt": "2026-04-26T02:13:07.980429+00:00",
   "runtimeVersion": "2026.4.22",
   "openclaw": {
     "gatewayStatus": "Running",
@@ -14,13 +14,13 @@
     "channelSummary": []
   },
   "session": {
-    "model": "gpt-5.4",
+    "model": "grok-4",
     "kind": "direct",
-    "reasoning": "off",
-    "contextUsedPercent": 58,
-    "contextTokens": 200000,
-    "remainingTokens": 83561,
-    "ageMs": 81146
+    "reasoning": "standard",
+    "contextUsedPercent": 10,
+    "contextTokens": 256000,
+    "remainingTokens": 229620,
+    "ageMs": 176732
   },
   "security": {
     "critical": 6,
@@ -32,20 +32,50 @@
     {
       "agentId": "main",
       "kind": "direct",
+      "model": "grok-4",
+      "ageMs": 176732,
+      "percentUsed": 10,
+      "remainingTokens": 229620,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "grok-4",
+      "ageMs": 269193,
+      "percentUsed": 13,
+      "remainingTokens": 221629,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 81146,
-      "percentUsed": 58,
-      "remainingTokens": 83561,
+      "ageMs": 638157,
+      "percentUsed": 59,
+      "remainingTokens": 81747,
       "contextTokens": 200000,
       "thinkingLevel": "off"
     },
     {
       "agentId": "main",
       "kind": "direct",
+      "model": "grok-4",
+      "ageMs": 654632,
+      "percentUsed": 13,
+      "remainingTokens": 221802,
+      "contextTokens": 256000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 16848500,
+      "ageMs": 660541,
       "percentUsed": 8,
-      "remainingTokens": 183853,
+      "remainingTokens": 183855,
       "contextTokens": 200000,
       "thinkingLevel": "medium"
     },
@@ -53,40 +83,10 @@
       "agentId": "main",
       "kind": "direct",
       "model": "grok-4",
-      "ageMs": 16937543,
+      "ageMs": 18780808,
       "percentUsed": 11,
       "remainingTokens": 228883,
       "contextTokens": 256000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "grok-4",
-      "ageMs": 16937543,
-      "percentUsed": 11,
-      "remainingTokens": 228883,
-      "contextTokens": 256000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "grok-4",
-      "ageMs": 23920472,
-      "percentUsed": 12,
-      "remainingTokens": 226052,
-      "contextTokens": 256000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gemma4:latest",
-      "ageMs": 28037536,
-      "percentUsed": 12,
-      "remainingTokens": 115783,
-      "contextTokens": 131072,
       "thinkingLevel": null
     }
   ],
