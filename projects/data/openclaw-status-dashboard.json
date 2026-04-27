@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-27T23:28:17.251607+00:00",
+  "generatedAt": "2026-04-27T23:58:55.104169+00:00",
   "runtimeVersion": "2026.4.23",
   "openclaw": {
     "gatewayStatus": "Running",
@@ -14,13 +14,13 @@
     "channelSummary": []
   },
   "session": {
-    "model": "gpt-5.5",
+    "model": "gpt-5.4",
     "kind": "direct",
-    "reasoning": "standard",
-    "contextUsedPercent": null,
+    "reasoning": "medium",
+    "contextUsedPercent": 42,
     "contextTokens": 200000,
-    "remainingTokens": null,
-    "ageMs": 377057
+    "remainingTokens": 115975,
+    "ageMs": 94792
   },
   "security": {
     "critical": 6,
@@ -32,20 +32,20 @@
     {
       "agentId": "main",
       "kind": "direct",
-      "model": "gpt-5.5",
-      "ageMs": 377057,
-      "percentUsed": null,
-      "remainingTokens": null,
+      "model": "gpt-5.4",
+      "ageMs": 94792,
+      "percentUsed": 42,
+      "remainingTokens": 115975,
       "contextTokens": 200000,
-      "thinkingLevel": null
+      "thinkingLevel": "medium"
     },
     {
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 1041762,
+      "ageMs": 1067593,
       "percentUsed": 30,
-      "remainingTokens": 140873,
+      "remainingTokens": 139634,
       "contextTokens": 200000,
       "thinkingLevel": "off"
     },
@@ -53,7 +53,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 8872270,
+      "ageMs": 10711086,
       "percentUsed": 11,
       "remainingTokens": 228883,
       "contextTokens": 256000,
@@ -63,7 +63,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 8890546,
+      "ageMs": 10729362,
       "percentUsed": 11,
       "remainingTokens": 228883,
       "contextTokens": 256000,
@@ -73,7 +73,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 19990772,
+      "ageMs": 21829588,
       "percentUsed": 12,
       "remainingTokens": 115389,
       "contextTokens": 131072,
@@ -83,7 +83,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gemma4:latest",
-      "ageMs": 19990772,
+      "ageMs": 21829588,
       "percentUsed": 12,
       "remainingTokens": 115389,
       "contextTokens": 131072,
