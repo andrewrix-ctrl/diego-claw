@@ -253,28 +253,98 @@
     }
 
     .summary-table {
-      margin-top: .75rem;
-      max-height: 260px;
-      overflow: auto;
-      border-radius: 12px;
+      margin-top: .95rem;
+      overflow-x: auto;
+      border-radius: 16px;
       border: 1px solid rgba(148, 163, 184, 0.8);
       background: rgba(15,23,42,0.96);
-      font-size: .82rem;
+      font-size: .92rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
     }
 
     .shell table {
       width: 100%;
+      min-width: 720px;
       border-collapse: collapse;
     }
 
     .shell th, .shell td {
-      padding: .4rem .5rem;
+      padding: .7rem .75rem;
       border-bottom: 1px solid rgba(55,65,81,0.9);
       text-align: left;
       vertical-align: top;
+      line-height: 1.4;
     }
 
-    .shell th { position: sticky; top: 0; background: rgba(15,23,42,0.98); z-index: 1; }
+    .shell th {
+      position: sticky;
+      top: 0;
+      background: rgba(15,23,42,0.98);
+      z-index: 1;
+      color: #fde68a;
+      font-size: .8rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .shell tbody tr:last-child td { border-bottom: 0; }
+
+    .outcome-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .25rem;
+      padding: .22rem .55rem;
+      border-radius: 999px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .outcome-pill.correct {
+      color: #bbf7d0;
+      background: rgba(74, 222, 128, 0.14);
+      border: 1px solid rgba(74, 222, 128, 0.65);
+    }
+
+    .outcome-pill.incorrect {
+      color: #fecaca;
+      background: rgba(255, 77, 157, 0.14);
+      border: 1px solid rgba(255, 77, 157, 0.65);
+    }
+
+    .final-card {
+      grid-column: 1 / -1;
+    }
+
+    .final-card .summary-table {
+      max-height: none;
+    }
+
+    .share-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      margin-top: 1rem;
+    }
+
+    .share-status {
+      width: 100%;
+      min-height: 1.2rem;
+      text-align: center;
+      font-size: .84rem;
+      color: #bfdbfe;
+    }
+
+    .quiz-complete #quizCard {
+      display: none;
+    }
+
+    @media (max-width: 640px) {
+      .summary-table { font-size: .84rem; }
+      .shell th, .shell td { padding: .58rem .6rem; }
+      .share-row .btn { width: 100%; }
+    }
 
     .pill-score {
       display: inline-flex;
@@ -371,22 +441,24 @@
         <div id="resultsBlock" style="display:none; width:100%; margin-top:.7rem;">
           <h2>Final results</h2>
           <div id="finalSummary" class="muted"></div>
-          <div class="summary-table" style="margin-top:.5rem;max-height:220px;">
+          <div class="summary-table" aria-label="Final answer summary">
             <table>
               <thead>
                 <tr>
-                  <th>#</th>
+                  <th>Question</th>
                   <th>Quote</th>
                   <th>Your answer</th>
-                  <th>Correct</th>
-                  <th>Source details</th>
+                  <th>Correct answer</th>
+                  <th>Outcome</th>
                 </tr>
               </thead>
               <tbody id="resultsBody"></tbody>
             </table>
           </div>
-          <div style="margin-top:0.75rem; text-align:center;">
-            <button id="playAgainBtn" class="btn" style="padding:.5rem 1.1rem; font-size:.9rem;">Play again</button>
+          <div class="share-row">
+            <button id="shareResultsBtn" class="btn primary" type="button">Share my score</button>
+            <button id="playAgainBtn" class="btn" type="button">Play again</button>
+            <div id="shareStatus" class="share-status" role="status" aria-live="polite"></div>
           </div>
         </div>
       </aside>
@@ -1014,7 +1086,10 @@
     const resultsBlock = document.getElementById('resultsBlock');
     const resultsBody = document.getElementById('resultsBody');
     const finalSummary = document.getElementById('finalSummary');
- const playAgainBtn = document.getElementById('playAgainBtn');
+    const playAgainBtn = document.getElementById('playAgainBtn');
+    const shareResultsBtn = document.getElementById('shareResultsBtn');
+    const shareStatus = document.getElementById('shareStatus');
+    const quizMain = document.querySelector('.shell main');
 
     function resetQuiz() {
       sequence = shuffle(QUESTIONS);
@@ -1023,6 +1098,11 @@
       score = 0;
       answers.length = 0;
       resultsBlock.style.display = 'none';
+      document.body.classList.remove('quiz-complete');
+      if (quizMain) quizMain.classList.remove('quiz-complete');
+      const sideResultCard = document.getElementById('sideResultCard');
+      if (sideResultCard) sideResultCard.classList.remove('final-card');
+      if (shareStatus) shareStatus.textContent = '';
       if (liveResult) liveResult.style.display = 'none';
       finalSummary.textContent = '';
       resultsBody.innerHTML = '';
@@ -1108,6 +1188,8 @@
 
       btnA.disabled = true;
       btnB.disabled = true;
+      btnA.style.display = 'none';
+      btnB.style.display = 'none';
 
       updateScoreBadge();
 
@@ -1135,22 +1217,33 @@
     function finishQuiz() {
       if (liveResult) liveResult.style.display = 'none';
       if (nextQuestionBtn) nextQuestionBtn.style.display = 'none';
+      btnA.style.display = 'none';
+      btnB.style.display = 'none';
+      document.body.classList.add('quiz-complete');
+      if (quizMain) quizMain.classList.add('quiz-complete');
+      const sideResultCard = document.getElementById('sideResultCard');
+      if (sideResultCard) sideResultCard.classList.add('final-card');
       resultsBlock.style.display = 'block';
       const pct = Math.round((score / 5) * 100);
       let emoji = '😐';
       if (score >= 4) emoji = '🎉';
       else if (score <= 2) emoji = '🤔';
       finalSummary.textContent = `Final score: ${score} out of 5 (${pct}%). ${emoji}`;
+      if (scoreBadge) scoreBadge.textContent = `Final score • ${score} / 5`;
+      if (shareStatus) shareStatus.textContent = '';
 
       resultsBody.innerHTML = '';
       for (const row of answers) {
         const tr = document.createElement('tr');
+        const userLabel = row.userAnswer === 'A' ? 'Donald Trump' : 'Movie quote';
+        const correctLabel = row.correctAnswer === 'A' ? 'Donald Trump' : 'Movie quote';
+        const outcome = row.isCorrect ? 'Correct' : 'Incorrect';
         tr.innerHTML = `
-          <td>${row.questionNumber}</td>
-          <td>${row.quote}</td>
-          <td>${row.userAnswer}</td>
-          <td>${row.correctAnswer}</td>
-          <td>${row.sourceDetails}</td>
+          <td>Q${row.questionNumber}</td>
+          <td>“${row.quote}”<br><span class="footer-note">${row.sourceDetails}</span></td>
+          <td>${userLabel}</td>
+          <td>${correctLabel}</td>
+          <td><span class="outcome-pill ${row.isCorrect ? 'correct' : 'incorrect'}">${row.isCorrect ? '✓' : '✕'} ${outcome}</span></td>
         `;
         resultsBody.appendChild(tr);
       }
@@ -1181,6 +1274,48 @@
     if (btnB) btnB.addEventListener('click', () => handleAnswer('B'));
     if (nextQuestionBtn) nextQuestionBtn.addEventListener('click', continueAfterReflection);
 
+    function getShareText() {
+      const pct = Math.round((score / 5) * 100);
+      const url = window.location.href;
+      return `I scored ${score}/5 (${pct}%) on Diego Claw's “Did Trump Say This?” quiz. Try it: ${url}`;
+    }
+
+    async function shareResults() {
+      const text = getShareText();
+      if (shareStatus) shareStatus.textContent = '';
+
+      try {
+        if (navigator.share) {
+          await navigator.share({
+            title: 'Did Trump Say This? Quiz',
+            text,
+            url: window.location.href
+          });
+          if (shareStatus) shareStatus.textContent = 'Shared — nicely played.';
+          return;
+        }
+
+        await navigator.clipboard.writeText(text);
+        if (shareStatus) shareStatus.textContent = 'Result copied to clipboard.';
+      } catch (err) {
+        const fallback = document.createElement('textarea');
+        fallback.value = text;
+        fallback.setAttribute('readonly', '');
+        fallback.style.position = 'fixed';
+        fallback.style.left = '-9999px';
+        document.body.appendChild(fallback);
+        fallback.select();
+        const copied = document.execCommand('copy');
+        fallback.remove();
+        if (shareStatus) {
+          shareStatus.textContent = copied
+            ? 'Result copied to clipboard.'
+            : `Copy this result: ${text}`;
+        }
+      }
+    }
+
+    if (shareResultsBtn) shareResultsBtn.addEventListener('click', shareResults);
     if (playAgainBtn) playAgainBtn.addEventListener('click', resetQuiz);
 
     if (tipBtn) tipBtn.addEventListener('click', showTip);
