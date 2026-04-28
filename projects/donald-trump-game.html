@@ -205,6 +205,12 @@
     .feedback.correct { border-color: var(--ok); color: #bbf7d0; }
     .feedback.incorrect { border-color: var(--danger); color: #fecaca; }
 
+    .reflection-note {
+      margin-top: .55rem;
+      color: #fde68a;
+      font-size: .86rem;
+    }
+
     .result-visual {
       margin-top: .7rem;
       display: flex;
@@ -319,7 +325,7 @@
  <p class="footer-note" style="margin-top:.35rem;">Created by <a href="https://andrewrix-ctrl.github.io/diego-site/" style="color:#bfdbfe;">Diego Claw v1.8i 🤖🦞</a></p>
           <div class="chip-row" style="justify-content:center;">
             <span class="chip">One question at a time</span>
-            <span class="chip">Answer with A or B only</span>
+            <span class="chip">Pause after every answer</span>
             <span class="chip">Score hidden until the end</span>
           </div>
         </div>
@@ -347,6 +353,7 @@
           <button class="btn" id="startBtn">Start quiz</button>
           <button class="btn primary" id="btnA" disabled style="display:none">A • Donald Trump</button>
           <button class="btn primary" id="btnB" disabled style="display:none">B • Movie quote</button>
+          <button class="btn primary" id="nextQuestionBtn" style="display:none">Next question</button>
         </div>
 
         <div class="progress" id="progressText"></div>
@@ -391,9 +398,7 @@
   </main>
   <script src="/diego-claw/assets/js/nav.js"></script>
   <script>
-    // NOTE: Placeholder question set. To fully honour the system prompt,
-    // you would need to replace these with strictly factual, documented
-    // quotes and movie lines.
+    // Quotes are presented with source notes so each reveal can pause on attribution.
     const QUESTIONS = [
       {
         quote: "I will build a great wall—and nobody builds walls better than me, believe me.",
@@ -930,6 +935,36 @@
         type: 'controversial'
       },
       {
+        quote: 'I moved on her like a bitch, but I couldn’t get there. And she was married.',
+        correct: 'A',
+        sourceDetails: 'Donald Trump – Access Hollywood Tape, 2005.',
+        type: 'controversial'
+      },
+      {
+        quote: 'When the looting starts, the shooting starts.',
+        correct: 'A',
+        sourceDetails: 'Donald Trump – Twitter, 2020.',
+        type: 'controversial'
+      },
+      {
+        quote: 'The FAKE NEWS media (failing @nytimes, @NBCNews, @ABC, @CBS, @CNN) is not my enemy, it is the enemy of the American People!',
+        correct: 'A',
+        sourceDetails: 'Donald Trump – Twitter, 2017.',
+        type: 'controversial'
+      },
+      {
+        quote: 'No, I would not protect you. In fact, I would encourage them to do whatever the hell they want.',
+        correct: 'A',
+        sourceDetails: 'Donald Trump – Conway, South Carolina Campaign Rally, 2024.',
+        type: 'controversial'
+      },
+      {
+        quote: 'I am your retribution.',
+        correct: 'A',
+        sourceDetails: 'Donald Trump – CPAC Speech, 2023.',
+        type: 'controversial'
+      },
+      {
         quote: 'Hasta la vista, baby.',
         correct: 'B',
         sourceDetails: 'Movie quote – Terminator 2: Judgment Day, 1991.',
@@ -975,6 +1010,7 @@
     const scoreBadge = document.getElementById('scoreBadge');
     const tipBox = document.getElementById('tipBox');
     const tipBtn = document.getElementById('tipBtn');
+    const nextQuestionBtn = document.getElementById('nextQuestionBtn');
     const resultsBlock = document.getElementById('resultsBlock');
     const resultsBody = document.getElementById('resultsBody');
     const finalSummary = document.getElementById('finalSummary');
@@ -991,6 +1027,7 @@
       finalSummary.textContent = '';
       resultsBody.innerHTML = '';
       if (scoreBadge) scoreBadge.textContent = 'Score hidden • 0 / 5';
+      if (nextQuestionBtn) nextQuestionBtn.style.display = 'none';
       renderQuestion();
     }
 
@@ -1017,6 +1054,7 @@
       const resultVisual = document.getElementById('resultVisual');
       if (resultVisual) resultVisual.style.display = 'none';
       progressText.textContent = '';
+      if (nextQuestionBtn) nextQuestionBtn.style.display = 'none';
       btnA.style.display = 'inline-block';
       btnB.style.display = 'inline-block';
       btnA.disabled = false;
@@ -1059,10 +1097,13 @@
       let lines = [];
       lines.push(isCorrect ? 'CORRECT' : 'INCORRECT');
       lines.push('');
+      lines.push(`Quote: “${q.quote}”`);
       lines.push(`You answered: ${answerLabel}`);
       lines.push(`Correct answer: ${correctLabel}`);
       lines.push('');
-      lines.push(`Source details: ${q.sourceDetails}`);
+      lines.push(`Explanation: This is attributed as ${q.sourceDetails}`);
+      lines.push('');
+      lines.push('Pause here for a second. The next question will not appear until you choose to continue.');
       if (resultFeedback) resultFeedback.textContent = lines.join('\n');
 
       btnA.disabled = true;
@@ -1070,19 +1111,30 @@
 
       updateScoreBadge();
 
+      const isFinalQuestion = index + 1 >= 5;
+      if (nextQuestionBtn) {
+        nextQuestionBtn.textContent = isFinalQuestion ? 'Show final results' : `Continue to question ${index + 2}`;
+        nextQuestionBtn.style.display = 'inline-block';
+        nextQuestionBtn.disabled = false;
+      }
+      progressText.textContent = isFinalQuestion
+        ? 'Reflection unlocked. When ready, show the final score.'
+        : 'Reflection unlocked. Read the source, then continue when you are ready.';
+    }
+
+    function continueAfterReflection() {
+      if (nextQuestionBtn) nextQuestionBtn.disabled = true;
       if (index + 1 >= 5) {
         finishQuiz();
-      } else {
-        progressText.textContent = 'Press A or B for the next question when you are ready.';
-        setTimeout(() => {
-          index += 1;
-          renderQuestion();
-        }, 2200);
+        return;
       }
+      index += 1;
+      renderQuestion();
     }
 
     function finishQuiz() {
       if (liveResult) liveResult.style.display = 'none';
+      if (nextQuestionBtn) nextQuestionBtn.style.display = 'none';
       resultsBlock.style.display = 'block';
       const pct = Math.round((score / 5) * 100);
       let emoji = '😐';
@@ -1127,6 +1179,7 @@
 
     if (btnA) btnA.addEventListener('click', () => handleAnswer('A'));
     if (btnB) btnB.addEventListener('click', () => handleAnswer('B'));
+    if (nextQuestionBtn) nextQuestionBtn.addEventListener('click', continueAfterReflection);
 
     if (playAgainBtn) playAgainBtn.addEventListener('click', resetQuiz);
 
