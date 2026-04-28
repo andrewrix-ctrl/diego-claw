@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T02:01:25.375918+00:00",
+  "generatedAt": "2026-04-28T02:32:04.043803+00:00",
   "runtimeVersion": "2026.4.23",
   "openclaw": {
     "gatewayStatus": "Running",
@@ -16,11 +16,11 @@
   "session": {
     "model": "gpt-5.4",
     "kind": "direct",
-    "reasoning": "standard",
-    "contextUsedPercent": null,
+    "reasoning": "off",
+    "contextUsedPercent": 32,
     "contextTokens": 200000,
-    "remainingTokens": null,
-    "ageMs": 78798
+    "remainingTokens": 136751,
+    "ageMs": 1265957
   },
   "security": {
     "critical": 6,
@@ -33,37 +33,37 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 78798,
-      "percentUsed": null,
-      "remainingTokens": null,
-      "contextTokens": 200000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gpt-5.4",
-      "ageMs": 78798,
-      "percentUsed": null,
-      "remainingTokens": null,
-      "contextTokens": 200000,
-      "thinkingLevel": null
-    },
-    {
-      "agentId": "main",
-      "kind": "direct",
-      "model": "gpt-5.4",
-      "ageMs": 1213874,
-      "percentUsed": 31,
-      "remainingTokens": 137303,
+      "ageMs": 1265957,
+      "percentUsed": 32,
+      "remainingTokens": 136751,
       "contextTokens": 200000,
       "thinkingLevel": "off"
     },
     {
       "agentId": "main",
       "kind": "direct",
+      "model": "gpt-5.4",
+      "ageMs": 1917406,
+      "percentUsed": null,
+      "remainingTokens": null,
+      "contextTokens": 200000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gpt-5.4",
+      "ageMs": 1917406,
+      "percentUsed": null,
+      "remainingTokens": null,
+      "contextTokens": 200000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 1971873,
+      "ageMs": 3810481,
       "percentUsed": 49,
       "remainingTokens": 102377,
       "contextTokens": 200000,
@@ -73,7 +73,7 @@
       "agentId": "webmaster",
       "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 1978767,
+      "ageMs": 3817375,
       "percentUsed": 17,
       "remainingTokens": 165580,
       "contextTokens": 200000,
@@ -83,7 +83,7 @@
       "agentId": "webmaster",
       "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 2386987,
+      "ageMs": 4225595,
       "percentUsed": 13,
       "remainingTokens": 173192,
       "contextTokens": 200000,
