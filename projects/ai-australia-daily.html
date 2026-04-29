@@ -12,13 +12,14 @@
     .hero p { color:#cbd5e1; margin: .45rem 0 0; }
     .kicker { color:#67e8f9; text-transform:uppercase; letter-spacing:.07em; font-size:.75rem; margin:0; font-weight:700; }
     .meta { color:#93c5fd; font-size:.88rem; margin-top:.5rem; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:.8rem; }
-    .dev-card { background:#111827; border:1px solid #334155; border-radius:14px; padding:.9rem; }
-    .dev-card h3 { margin:0 0 .35rem; font-size:1rem; }
-    .dev-card p { margin:.35rem 0; color:#cbd5e1; font-size:.92rem; }
-    .impact { margin-top:.55rem; padding:.55rem; border-radius:10px; background:rgba(59,130,246,.12); border:1px solid rgba(147,197,253,.35); }
+    .grid { display:flex; flex-direction:column; gap:.8rem; }
+    .dev-card { background:#111827; border:1px solid #334155; border-radius:14px; padding:1rem; box-shadow:0 10px 28px rgba(2,6,23,.16); }
+    .dev-card h3 { margin:0 0 .45rem; font-size:1.08rem; line-height:1.35; }
+    .dev-card p { margin:.35rem 0; color:#cbd5e1; font-size:.94rem; line-height:1.55; }
+    .summary-label { color:#e2e8f0; font-weight:700; }
+    .impact { margin-top:.65rem; padding:.65rem; border-radius:10px; background:rgba(59,130,246,.12); border:1px solid rgba(147,197,253,.35); }
     .impact strong { color:#bfdbfe; }
-    a.source { color:#67e8f9; text-decoration:none; font-size:.85rem; }
+    a.source { display:inline-block; margin-top:.45rem; color:#67e8f9; text-decoration:none; font-size:.88rem; font-weight:700; }
     a.source:hover { text-decoration:underline; }
     .ops { margin-top:1rem; background:#0b1220; border:1px solid #334155; border-radius:14px; padding:.85rem; }
     .ops li { margin:.35rem 0; color:#cbd5e1; }
@@ -30,61 +31,82 @@
   <main class="brief-wrap">
     <section class="hero">
       <p class="kicker">Daily Tracker</p>
-      <h1 style="margin:.2rem 0 0;">Recent AI developments in Australia + what it means for Fujitsu</h1>
-      <p>This page is structured for daily refreshes, each item includes a practical implication for Fujitsu in Australia.</p>
-      <p class="meta"><strong>Last updated:</strong> 30 Apr 2026 (AEST)</p>
+      <h1 style="margin:.2rem 0 0;">AI in Australia Daily Brief — 30 Apr 2026</h1>
+      <p>Australia-focused AI developments with practical, story-specific implications for Fujitsu.</p>
+      <p class="meta"><strong>Last updated:</strong> 30 Apr 2026, 8:00am AEST</p>
     </section>
 
-    <section class="grid">
+    <section class="grid" aria-label="AI in Australia daily briefing stories">
       <article class="dev-card">
-        <h3>AI deepfakes are in our schools. What&#x27;s the right way to handle them? - Australian Broadcasting Corporation</h3>
-        <p>AI deepfakes are in our schools. What&#x27;s the right way to handle them? Australian Broadcasting Corporation</p>
-        <a class="source" href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNWFlMX0Y2X2h2bmhyekF4aDFuV2dXczUzZ0dSdGZNZFM1YWhZRjZJNEo2Tl9NWk9QemNVcjhYeWxORjk0bVQyWnluWURiTXBocENlakVkZVhmQmZCUnRWWlRSRmdkcDRlLXdZY2I4OVdfTmxud1Q5eUQ1UkJ3Y0RDS1RsWE5td0VGVUcxajZFRHFoM2dlOGZ1S0tUZVNhQ0tYczZPUEY4aGZucTBkX2dLYjdR?oc=5" target="_blank">Source</a>
-        <p class="impact"><strong>Implication for Fujitsu:</strong> Create sector-specific solution packs with responsible AI controls to speed trust and procurement confidence.</p>
+        <h3>Microsoft signs Australian AI MoU and announces A$25 billion AI, cloud, cyber and skills investment</h3>
+        <p><span class="summary-label">Summary:</span> The Australian Government signed a new AI collaboration MoU with Microsoft, alongside Microsoft’s announcement of A$25 billion in Australian digital infrastructure, AI capacity, cyber defence and skilling commitments through 2029. The agreement links Microsoft’s future operations to the government’s data centre and AI infrastructure expectations.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> This raises the bar for Azure-led transformation deals: Fujitsu should package migration, FinOps, security architecture and responsible-AI governance around expanded local Azure capacity, while positioning as the delivery partner that can turn Microsoft’s national investment into measurable agency and enterprise outcomes.</p>
+        <a class="source" href="https://www.minister.industry.gov.au/ministers/timayres/media-releases/new-agreement-ai-collaboration-microsoft" target="_blank" rel="noopener noreferrer">Source: Department of Industry ministerial release</a>
       </article>
 
       <article class="dev-card">
-        <h3>AI will be &#x27;the biggest challenge of all&#x27; for workplaces if it&#x27;s not controlled - Australian Broadcasting Corporation</h3>
-        <p>AI will be &#x27;the biggest challenge of all&#x27; for workplaces if it&#x27;s not controlled Australian Broadcasting Corporation</p>
-        <a class="source" href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNdjNzM2NEalZuaDdsWXlfUmhBUDJ4SlMya0ZrQTlPZjFUYWxmeUJzM2dVbVlMY3B3Z2tfVXphcUhETzViZHZacnFKMXh0R3VWNVZYNWJpdkxMU1hzN0ZiRUI3eUxBdy0zRGZ1VTMwbm5xSU9IalVTVWVsSF8tYl9SWUdhNTJSMEZodmJacnItR0FZUWxidlE?oc=5" target="_blank">Source</a>
-        <p class="impact"><strong>Implication for Fujitsu:</strong> Translate this development into practical client roadmaps focused on trust, productivity and measurable business outcomes.</p>
+        <h3>National expectations for AI data centres put energy, water, jobs and local capability at the centre</h3>
+        <p><span class="summary-label">Summary:</span> The government’s national expectations for data centres and AI infrastructure ask developers to prioritise Australia’s national interest, support the clean-energy transition, use water responsibly, invest in local skills and strengthen research and innovation capability. Projects aligned to these expectations are expected to receive smoother regulatory engagement.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> Data-centre-dependent AI proposals now need a social-licence story, not just a compute story. Fujitsu can differentiate in cloud, sovereign AI and infrastructure bids by adding energy/water impact assessment, local skills commitments, resilience design and Australian research/start-up ecosystem participation to client business cases.</p>
+        <a class="source" href="https://www.minister.industry.gov.au/ministers/timayres/media-releases/australian-approach-ai-expectations-data-centres-deliver-australians" target="_blank" rel="noopener noreferrer">Source: Department of Industry ministerial release</a>
       </article>
 
       <article class="dev-card">
-        <h3>AI giant Anthropic hires Australian boss as it opens local office - SMH.com.au</h3>
-        <p>AI giant Anthropic hires Australian boss as it opens local office SMH.com.au</p>
-        <a class="source" href="https://news.google.com/rss/articles/CBMivAFBVV95cUxPeDJQQi12c3QybW52WW5rdFNuVGJlcm5GNVJOLWV0UEZoemRza0FIZGt1VE5iRWgyMGFCdVBwX29Bb0lkM08wc1ZyVUtmUnNmYWNVT3BQWTd1OEFLMTJXMTRaMVBLSTJRMlhlalYtcERNQTJpcGlXZkFfYnU4aXQtaUVERlhpMndzUXBwWXZiSm5MUDVpVnBuTWxlYmpqWkVnSC03QjFfWHp2ZksyN04zV2dIbWhLaW9YaTZwTA?oc=5" target="_blank">Source</a>
-        <p class="impact"><strong>Implication for Fujitsu:</strong> Translate this development into practical client roadmaps focused on trust, productivity and measurable business outcomes.</p>
+        <h3>Anthropic signs first National AI Plan collaboration arrangement with the Australian Government</h3>
+        <p><span class="summary-label">Summary:</span> Anthropic’s MoU with the Australian Government commits the company to align future Australian operations with national AI infrastructure expectations and to work with Australia’s AI Safety Institute, researchers, workers, start-ups and small businesses.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> Enterprise clients will increasingly ask for model choice and Claude-specific controls. Fujitsu should be ready with vendor-neutral genAI patterns covering Anthropic, Microsoft/OpenAI and Google: model risk assessment, secure integration, data-loss prevention, auditability and change management for regulated sectors.</p>
+        <a class="source" href="https://www.minister.industry.gov.au/ministers/timayres/media-releases/new-agreement-ai-collaboration-anthropic" target="_blank" rel="noopener noreferrer">Source: Department of Industry ministerial release</a>
       </article>
 
       <article class="dev-card">
-        <h3>Anthropic names Australian managing director as AI giant expands - AFR</h3>
-        <p>Anthropic names Australian managing director as AI giant expands AFR</p>
-        <a class="source" href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQblBqeEs0VUdZNl9ieUNRU2s2b3FLcEVyUklWYVVMenl2bjFmQkdkemdkVmNKRVdiTzdWZkNtbnN4Y05lQllHUFdiVkxOd01wMVBCdFFRSnhTWFY4RVo0NEhXTC1Kc3pBUVpjdVhuS0FKb3VPZG5LcnlVVHk2MzVlNERBVFNOdHNSUml0VDBXMEZFTlgzZDFFZkRYN0ZMOU1JTW5NamRHT2dydnktY1JFeg?oc=5" target="_blank">Source</a>
-        <p class="impact"><strong>Implication for Fujitsu:</strong> Translate this development into practical client roadmaps focused on trust, productivity and measurable business outcomes.</p>
+        <h3>ABC reports pressure for a national strategy on AI in workplaces</h3>
+        <p><span class="summary-label">Summary:</span> A John Curtin Research Centre report, covered by the ABC, warns that unchecked workplace AI could increase surveillance, unsafe workloads and job insecurity. It calls for a national AI taskforce, Fair Work Act review, mandatory human oversight and better worker consultation before deployment.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> AI productivity programs for Australian clients need workforce guardrails from day one. Fujitsu should bake human oversight, consultation artefacts, role-impact assessments, training plans and measurable workload controls into delivery methods, especially for HR, contact-centre, retail and public-sector automation.</p>
+        <a class="source" href="https://www.abc.net.au/news/2026-04-29/ai-workplace-regulation-federal-government/106611684" target="_blank" rel="noopener noreferrer">Source: ABC News</a>
       </article>
 
       <article class="dev-card">
-        <h3>AI architects become their own victims - Australian Broadcasting Corporation</h3>
-        <p>AI architects become their own victims Australian Broadcasting Corporation</p>
-        <a class="source" href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNYzU0a3NVTnNKRkRNM29QbEFwOFBFc01GcllZM0tGZXdZNV8tdlhqRzdtRDR5Yi1EM3RPWjlPS0pGMnBTNzRJdjhsazVsWHpFeURXOHhkNlN3LXpLNElXMDFicHFHejFTeG5KVDgtRUxKRGpzTklkM1pXRVA5Zlhwc2l3VWVzWS11ZXp3VHROSzZxQ0xfNTVTMUp3WFA0dkI2ZHVz?oc=5" target="_blank">Source</a>
-        <p class="impact"><strong>Implication for Fujitsu:</strong> Use this as a workforce-change conversation starter, pairing AI adoption with role redesign, training, governance and measurable productivity benefits.</p>
+        <h3>CSIRO study finds Australian firms adopting AI are hiring more, not less</h3>
+        <p><span class="summary-label">Summary:</span> CSIRO research analysing more than 4,000 Australian firms found AI-adopting companies posted 36 per cent more non-AI job ads over time than comparable non-adopters, with broader skill requirements rather than simple job replacement.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> This is useful evidence for executive AI adoption conversations. Fujitsu can frame AI programs around workforce augmentation and skills uplift, using the CSIRO data to support change-management narratives and to justify capability-building workstreams alongside automation delivery.</p>
+        <a class="source" href="https://www.csiro.au/en/news/All/Articles/2026/April/Research-into-firms-adopting-AI" target="_blank" rel="noopener noreferrer">Source: CSIRO</a>
       </article>
 
       <article class="dev-card">
-        <h3>UK-based AI firm targets Australia’s NDIS crisis - The Australian</h3>
-        <p>UK-based AI firm targets Australia’s NDIS crisis The Australian</p>
-        <a class="source" href="https://news.google.com/rss/articles/CBMi8wFBVV95cUxPZ2xid1Q2OEJ3YU5EVlQzeGN0N3ZVZjVvRDZtblRaYUkzbTZJVW9pNFNDcGtaeWxtNU5yeWxZV2EyN0pRZWc0WEtWa0F1aUVYampxeFpxeEhSNVEtbjJIQUJ1NExzeWNrRHVqR0NLMmdqR3dJSXlTYlQwVGlpVFpxOTljckFTS1F0bWRwNkVlVjBTaG4zdWxQcTczelJ1cjBKYXRPMjYxbkRPUGw0YjZPOVB1TjBqSG1zajFFeFZUaTNIS1dKVWY4SWJ4Vzk0WjhxRUlCZ3FDTzdCV012dXNPN1NodXVCelc3TjZuQm9EOC1pU1XSAfgBQVVfeXFMT3ZiYU1kNkYtaUphRlZYM3JScnNraEVGY1EtV2k0MkdzY0x5WDhXdElGYW81VEl4ZE5yTURaOGdadnNPclhQZXRFYVo1a0tLM2U3b1dteGs4RHpfMXQ3cEl5Ykg1WHFjYkliSEQ4OWJFWnIyLUtyNTZERElXdU14S3hNVWYza20zRUV6WWQ2SFBEMGhZN1VqMlROdFZja1B6eHJFVkJNalllZGZ5R2tqVEpfb3ZMRTRwNHF3RXNnMk1OQlhKTXZkdzcxYmVhTnpYeGR6OGtEWHlrRlFkSDdPbXRaSGs2WWtRSHA1bmZ4OGlXNk5WYnE1aXg?oc=5" target="_blank">Source</a>
-        <p class="impact"><strong>Implication for Fujitsu:</strong> Translate this development into practical client roadmaps focused on trust, productivity and measurable business outcomes.</p>
+        <h3>CSIRO, Google Australia and MLA use a global AI challenge to improve pasture biomass measurement</h3>
+        <p><span class="summary-label">Summary:</span> CSIRO announced winners of the Image2Biomass Prediction Competition, a Kaggle challenge with Google Australia and Meat &amp; Livestock Australia. Nearly 100,000 model submissions from about 14,000 registrations tested AI models that estimate pasture biomass from Australian field images.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> Agriculture and natural-resources clients will want practical AI beyond chatbots. Fujitsu can target agribusiness, sustainability and government land-management opportunities with computer-vision pipelines, edge data capture, model governance and integration into farm/asset management platforms.</p>
+        <a class="source" href="https://www.csiro.au/en/news/All/News/2026/April/New-AI-tools-find-smarter-ways-to-measure-pasture" target="_blank" rel="noopener noreferrer">Source: CSIRO</a>
+      </article>
+
+      <article class="dev-card">
+        <h3>Plans emerge for a gigawatt-scale AI data centre in Western Australia’s Kimberley</h3>
+        <p><span class="summary-label">Summary:</span> ABC reported plans for Project Meridien, a proposed AI data centre south of Broome that would begin at roughly 240MW of IT capacity and could scale toward a 1GW facility, powered by wind, solar and natural gas, with potential customers including mining and regional Asian markets.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> If large AI training infrastructure shifts closer to mining and energy regions, Fujitsu should watch for WA opportunities in mining AI, remote operations, secure connectivity, sustainability reporting and hybrid cloud designs that connect regional compute with enterprise systems in Perth, Sydney and Canberra.</p>
+        <a class="source" href="https://www.abc.net.au/news/2026-04-20/plans-emerge-gigawatt-scale-ai-data-centre-kimberley/106567332" target="_blank" rel="noopener noreferrer">Source: ABC News</a>
+      </article>
+
+      <article class="dev-card">
+        <h3>Critical infrastructure cyber reporting now explicitly captures AI-related incidents</h3>
+        <p><span class="summary-label">Summary:</span> Reporting on CISC guidance highlights that AI-related cybersecurity incidents affecting critical infrastructure must be reported under the Security of Critical Infrastructure Act’s Mandatory Cyber Incident Reporting obligations. Examples include risky AI coding extensions connecting privileged environments to external AI platforms.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> For utilities, transport, health, telco and government clients, Fujitsu should add AI-specific controls to SOCI-aligned cyber programs: approved-tool catalogues, logging for AI agents/extensions, privileged-host restrictions, incident playbooks and evidence packs for mandatory reporting.</p>
+        <a class="source" href="https://industrialcyber.co/regulation-standards-and-compliance/australias-cisc-tightens-cyber-reporting-rules-to-capture-ai-driven-incidents-in-critical-infrastructure/" target="_blank" rel="noopener noreferrer">Source: Industrial Cyber</a>
+      </article>
+
+      <article class="dev-card">
+        <h3>OAIC and eSafety formalise cooperation as AI amplifies privacy and online-safety risks</h3>
+        <p><span class="summary-label">Summary:</span> OAIC and the eSafety Commissioner signed an MoU to coordinate on issues where privacy and online safety intersect, including age assurance and social-media minimum-age obligations. The regulators explicitly note that AI is amplifying risks and increasing the need for privacy-respecting safety technologies.</p>
+        <p class="impact"><strong>Implication for Fujitsu:</strong> Digital identity, age assurance and citizen-facing AI projects will face tighter privacy/safety scrutiny. Fujitsu should treat privacy engineering, child-safety risk assessment, explainability and regulator-ready documentation as core deliverables, not optional compliance appendices.</p>
+        <a class="source" href="https://www.oaic.gov.au/news/media-centre/esafety-and-oaic-working-together-to-protect-privacy-and-safety-for-all-australians" target="_blank" rel="noopener noreferrer">Source: OAIC</a>
       </article>
     </section>
 
     <section class="ops">
       <h2 style="margin:0 0 .4rem;">Daily update checklist</h2>
       <ol>
-        <li>Refresh 4-8 Australia-specific AI developments from government, regulators, CSIRO, and major industry players.</li>
-        <li>Add one plain-English implication for Fujitsu for each update (delivery, risk, sales, or capability).</li>
-        <li>Update the <strong>Last updated</strong> timestamp and keep stale items for 7 days max.</li>
+        <li>Refresh 5-10 Australia-specific AI developments from government, regulators, CSIRO/research, major industry players and credible business/technology outlets.</li>
+        <li>For each item keep the email-ready format: headline, concise summary, source link and a story-specific implication for Fujitsu.</li>
+        <li>Prioritise current developments tied to clients, risk, governance, delivery, sovereign AI, cloud/data centre, cyber, policy/regulation and industry adoption.</li>
       </ol>
       <p style="margin:.5rem 0 0;"><a href="/diego-claw/projects/">← Back to Projects</a></p>
     </section>
