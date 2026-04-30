@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-30T11:13:54.127410+00:00",
+  "generatedAt": "2026-04-30T11:44:29.287482+00:00",
   "runtimeVersion": "2026.4.23",
   "openclaw": {
     "gatewayStatus": "Running",
@@ -9,7 +9,7 @@
     "sessions": 231,
     "tasksActive": 0,
     "tasksQueued": 0,
-    "taskFailures": 136,
+    "taskFailures": 133,
     "heartbeatEvery": "30m",
     "channelSummary": []
   },
@@ -19,8 +19,8 @@
     "reasoning": "medium",
     "contextUsedPercent": 37,
     "contextTokens": 200000,
-    "remainingTokens": 126984,
-    "ageMs": 172517
+    "remainingTokens": 126418,
+    "ageMs": 213504
   },
   "security": {
     "critical": 6,
@@ -33,9 +33,9 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 172517,
+      "ageMs": 213504,
       "percentUsed": 37,
-      "remainingTokens": 126984,
+      "remainingTokens": 126418,
       "contextTokens": 200000,
       "thinkingLevel": "medium"
     },
@@ -43,7 +43,7 @@
       "agentId": "main",
       "kind": "group",
       "model": "gpt-5.5",
-      "ageMs": 781901,
+      "ageMs": 2617020,
       "percentUsed": 27,
       "remainingTokens": 146774,
       "contextTokens": 200000,
@@ -53,7 +53,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 785108,
+      "ageMs": 2620227,
       "percentUsed": 81,
       "remainingTokens": 38461,
       "contextTokens": 200000,
@@ -63,7 +63,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 7823208,
+      "ageMs": 9658327,
       "percentUsed": 26,
       "remainingTokens": 147618,
       "contextTokens": 200000,
@@ -73,7 +73,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.5",
-      "ageMs": 8027678,
+      "ageMs": 9862797,
       "percentUsed": 23,
       "remainingTokens": 153684,
       "contextTokens": 200000,
@@ -83,7 +83,7 @@
       "agentId": "main",
       "kind": "direct",
       "model": "gpt-5.4",
-      "ageMs": 8810532,
+      "ageMs": 10645651,
       "percentUsed": 9,
       "remainingTokens": 181647,
       "contextTokens": 200000,
