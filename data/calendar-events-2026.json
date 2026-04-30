@@ -74,6 +74,27 @@
       "type": "event",
       "event": "Sydney social night",
       "with": "Friends"
+    },
+    "17": {
+      "text": "Work Trip",
+      "type": "away",
+      "event": "Work Trip",
+      "with": "Work",
+      "where": "Not specified"
+    },
+    "18": {
+      "text": "Work Trip",
+      "type": "away",
+      "event": "Work Trip",
+      "with": "Work",
+      "where": "Not specified"
+    },
+    "19": {
+      "text": "Work Trip",
+      "type": "away",
+      "event": "Work Trip",
+      "with": "Work",
+      "where": "Not specified"
     }
   },
   "september": {
