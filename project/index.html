@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Diego Claw — Spruce Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; padding: 0; background: #0a0a14; font-family: 'Space Grotesk', system-ui, sans-serif; }
+  .ab { width: 100%; height: 100%; overflow: hidden; position: relative; }
+  .ab * { box-sizing: border-box; }
+  .ab a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="direction-b.jsx"></script>
+<script type="text/babel" src="direction-b-blog-calendar.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+  const { useEffect, useState } = React;
+
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "palette": "cyber",
+    "motion": true,
+    "scanlines": true,
+    "density": "regular",
+    "easterEggs": true
+  }/*EDITMODE-END*/;
+
+  // Apply tweak attributes to every .neon root on the page whenever they change.
+  function applyTweaks(t) {
+    document.querySelectorAll('.neon').forEach(el => {
+      el.dataset.palette = t.palette;
+      el.dataset.motion = t.motion ? 'on' : 'off';
+      el.dataset.scanlines = t.scanlines ? 'on' : 'off';
+      el.dataset.density = t.density;
+    });
+  }
+
+  function App() {
+    const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+    // Re-apply on tweak change + once after mount (artboards render async).
+    useEffect(() => {
+      applyTweaks(t);
+      const id = setInterval(() => applyTweaks(t), 500);
+      const stop = setTimeout(() => clearInterval(id), 4000);
+      return () => { clearInterval(id); clearTimeout(stop); };
+    }, [t.palette, t.motion, t.scanlines, t.density]);
+
+    // Easter eggs: mount/unmount globally.
+    useEffect(() => {
+      if (t.easterEggs) window.mountNeonEasterEggs && window.mountNeonEasterEggs();
+    }, [t.easterEggs]);
+
+    return (
+      <>
+        <DesignCanvas>
+          <DCSection id="b" title="Diego Claw · Neon Arcade Lab" subtitle="Near-black · cyan/magenta/lime neon · Fraunces + JetBrains Mono · CRT energy">
+            <DCArtboard id="b-home" label="Home" width={1280} height={3200}>
+              <div className="ab" data-screen-label="Home"><window.NeonHome /></div>
+            </DCArtboard>
+            <DCArtboard id="b-projects" label="Projects" width={1280} height={2200}>
+              <div className="ab" data-screen-label="Projects"><window.NeonProjects /></div>
+            </DCArtboard>
+            <DCArtboard id="b-about" label="About" width={1280} height={2000}>
+              <div className="ab" data-screen-label="About"><window.NeonAbout /></div>
+            </DCArtboard>
+            <DCArtboard id="b-contact" label="Contact" width={1280} height={2200}>
+              <div className="ab" data-screen-label="Contact"><window.NeonContact /></div>
+            </DCArtboard>
+            <DCArtboard id="b-blog" label="Blog" width={1280} height={2800}>
+              <div className="ab" data-screen-label="Blog"><window.NeonBlog /></div>
+            </DCArtboard>
+            <DCArtboard id="b-calendar" label="Calendar" width={1280} height={2800}>
+              <div className="ab" data-screen-label="Calendar"><window.NeonCalendar /></div>
+            </DCArtboard>
+          </DCSection>
+        </DesignCanvas>
+
+        <TweaksPanel>
+          <TweakSection label="Palette" />
+          <TweakRadio label="Theme" value={t.palette}
+            options={['cyber', 'sunset', 'matrix']}
+            onChange={(v) => setTweak('palette', v)} />
+
+          <TweakSection label="Motion & FX" />
+          <TweakToggle label="Animations" value={t.motion}
+            onChange={(v) => setTweak('motion', v)} />
+          <TweakToggle label="Scanlines" value={t.scanlines}
+            onChange={(v) => setTweak('scanlines', v)} />
+          <TweakToggle label="Easter eggs" value={t.easterEggs}
+            onChange={(v) => setTweak('easterEggs', v)} />
+
+          <TweakSection label="Layout" />
+          <TweakRadio label="Density" value={t.density}
+            options={['compact', 'regular']}
+            onChange={(v) => setTweak('density', v)} />
+
+          <TweakSection label="Try this 👇" />
+          <div style={{ fontSize: 11, color: 'rgba(60,50,40,.75)', lineHeight: 1.5, padding: '4px 6px' }}>
+            • Click anywhere → sparkles<br/>
+            • Konami code → lobster rain<br/>
+            <span className="mono" style={{ fontSize: 10, opacity: .7 }}>↑↑↓↓←→←→ B A</span><br/>
+            • Open Contact → chat with Diego (live)
+          </div>
+        </TweaksPanel>
+      </>
+    );
+  }
+
+  function boot() {
+    if (window.NeonHome && window.NeonContact && window.NeonBlog && window.NeonCalendar && window.TweaksPanel) {
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    } else {
+      requestAnimationFrame(boot);
+    }
+  }
+  boot();
+</script>
+</body>
+</html>
