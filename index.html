@@ -474,20 +474,21 @@ function NeonHome(){
 
 // ── PROJECTS PAGE ─────────────────────────────────────────────────────────────
 function NeonProjects(){
+  const base='https://andrewrix-ctrl.github.io/diego-claw/projects/';
   const all=[
-    {name:'Emoji Rain',desc:'Basket-catcher with bombs. Loud sound effects, levelling chaos.',tag:'game',emoji:'☔',c:B.cyan,year:'2026',url:'https://andrewrix-ctrl.github.io/emoji-rain'},
-    {name:'Emoji Nova Rush',desc:'Neon reflex game. Combo scoring + countdown pressure.',tag:'game',emoji:'✦',c:B.magenta,year:'2026',url:'https://andrewrix-ctrl.github.io/nova-rush'},
-    {name:'AI Model Guide',desc:'Practical menu of models, token pricing, OAuth alternatives.',tag:'guide',emoji:'🧠',c:B.lime,year:'2025',url:'https://andrewrix-ctrl.github.io/ai-model-guide'},
-    {name:'AI Tools Market Map',desc:'Curated directory with descriptions, pricing, ratings.',tag:'directory',emoji:'🗺️',c:B.amber,year:'2025',url:'https://andrewrix-ctrl.github.io/ai-tools-market-map'},
-    {name:'AI Literacy Hub',desc:'Plain-English AI education without buzzword soup.',tag:'edu',emoji:'🎓',c:B.violet,year:'2025',url:'https://andrewrix-ctrl.github.io/ai-literacy-hub'},
-    {name:'GeekBooks Store',desc:'SAFe ART bookstore turned working static shop.',tag:'shop',emoji:'📚',c:B.cyan,year:'2025',url:'https://andrewrix-ctrl.github.io/geekbooks'},
-    {name:'Frontend Fancy Lab',desc:'CSS experiments and motion playground.',tag:'lab',emoji:'🧪',c:B.magenta,year:'2025',url:'https://andrewrix-ctrl.github.io/frontend-fancy-lab'},
-    {name:'Inner West Podiatry',desc:'Friendlier health site, warmer copy.',tag:'client',emoji:'🦶',c:B.lime,year:'2025',url:'https://andrewrix-ctrl.github.io/inner-west-podiatry'},
-    {name:'AI in Australia Daily',desc:'Daily AI news brief tuned to Aussie context.',tag:'news',emoji:'📰',c:B.amber,year:'2026',url:'https://andrewrix-ctrl.github.io/ai-australia-daily'},
-    {name:'NRL Footy Tipping',desc:'Weekly predictions and confidence levels.',tag:'sport',emoji:'🏉',c:B.red,year:'2025',url:'https://andrewrix-ctrl.github.io/nrl-footy-tipping'},
-    {name:'Custom Skills Directory',desc:'Reusable skills — the engine room.',tag:'internal',emoji:'⚙️',c:B.cyan,year:'2024',url:'https://andrewrix-ctrl.github.io/skills-directory'},
-    {name:'Did Trump Say This?',desc:'Trivia quiz with surprising hit-rate.',tag:'quiz',emoji:'🎤',c:B.red,year:'2024',url:'https://andrewrix-ctrl.github.io/did-trump-say-this'},
-    {name:'7-Eleven Coffee',desc:'Caffeinated tribute to convenience-store coffee.',tag:'tribute',emoji:'☕',c:B.amber,year:'2024',url:'https://andrewrix-ctrl.github.io/7eleven-coffee'},
+    {name:'Emoji Rain',desc:'Basket-catcher with bombs. Loud sound effects, levelling chaos.',tag:'game',emoji:'☔',c:B.cyan,year:'2026',url:base+'emoji-rain'},
+    {name:'Emoji Nova Rush',desc:'Neon reflex game. Combo scoring + countdown pressure.',tag:'game',emoji:'✦',c:B.magenta,year:'2026',url:base+'nova-rush'},
+    {name:'AI Model Guide',desc:'Practical menu of models, token pricing, OAuth alternatives.',tag:'guide',emoji:'🧠',c:B.lime,year:'2025',url:base+'ai-model-guide'},
+    {name:'AI Tools Market Map',desc:'Curated directory with descriptions, pricing, ratings.',tag:'directory',emoji:'🗺️',c:B.amber,year:'2025',url:base+'ai-tools-market-map'},
+    {name:'AI Literacy Hub',desc:'Plain-English AI education without buzzword soup.',tag:'edu',emoji:'🎓',c:B.violet,year:'2025',url:base+'ai-literacy-hub'},
+    {name:'GeekBooks Store',desc:'SAFe ART bookstore turned working static shop.',tag:'shop',emoji:'📚',c:B.cyan,year:'2025',url:base+'geekbooks'},
+    {name:'Frontend Fancy Lab',desc:'CSS experiments and motion playground.',tag:'lab',emoji:'🧪',c:B.magenta,year:'2025',url:base+'frontend-fancy-lab'},
+    {name:'Inner West Podiatry',desc:'Friendlier health site, warmer copy.',tag:'client',emoji:'🦶',c:B.lime,year:'2025',url:base+'inner-west-podiatry'},
+    {name:'AI in Australia Daily',desc:'Daily AI news brief tuned to Aussie context.',tag:'news',emoji:'📰',c:B.amber,year:'2026',url:base+'ai-australia-daily'},
+    {name:'NRL Footy Tipping',desc:'Weekly predictions and confidence levels.',tag:'sport',emoji:'🏉',c:B.red,year:'2025',url:base+'nrl-footy-tipping'},
+    {name:'Custom Skills Directory',desc:'Reusable skills — the engine room.',tag:'internal',emoji:'⚙️',c:B.cyan,year:'2024',url:base+'skills-directory'},
+    {name:'Did Trump Say This?',desc:'Trivia quiz with surprising hit-rate.',tag:'quiz',emoji:'🎤',c:B.red,year:'2024',url:base+'did-trump-say-this'},
+    {name:'7-Eleven Coffee',desc:'Caffeinated tribute to convenience-store coffee.',tag:'tribute',emoji:'☕',c:B.amber,year:'2024',url:base+'7eleven-coffee'},
   ];
   const filters=[{l:'all',n:13,on:true},{l:'games',n:3},{l:'ai_tools',n:4},{l:'client',n:1},{l:'fun',n:5}];
   return (
