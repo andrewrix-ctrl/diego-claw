@@ -1,0 +1,117 @@
+{
+  "generatedAt": "2026-05-21T03:37:27.277143+00:00",
+  "runtimeVersion": "2026.5.18",
+  "openclaw": {
+    "gatewayStatus": "Running",
+    "gatewayLatencyMs": null,
+    "gatewayService": "running (pid 27174, state active)",
+    "agents": 5,
+    "sessions": 70,
+    "tasksActive": 0,
+    "tasksQueued": 0,
+    "taskFailures": 9,
+    "heartbeatEvery": "30m",
+    "channelSummary": []
+  },
+  "session": {
+    "model": "gpt-5.5",
+    "kind": "direct",
+    "reasoning": "standard",
+    "contextUsedPercent": 27,
+    "contextTokens": 272000,
+    "remainingTokens": 199417,
+    "ageMs": 323665
+  },
+  "security": {
+    "critical": 6,
+    "warn": 6,
+    "info": 3,
+    "summaryText": "Summary: 6 critical \u00b7 6 warn \u00b7 3 info"
+  },
+  "recentSessions": [
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gpt-5.5",
+      "ageMs": 323665,
+      "percentUsed": 27,
+      "remainingTokens": 199417,
+      "contextTokens": 272000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gpt-5.4",
+      "ageMs": 640617,
+      "percentUsed": 17,
+      "remainingTokens": 165854,
+      "contextTokens": 200000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "direct",
+      "model": "gpt-5.5",
+      "ageMs": 1590871,
+      "percentUsed": 23,
+      "remainingTokens": 208396,
+      "contextTokens": 272000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "diagnostics",
+      "kind": "cron",
+      "model": "gemini-3.1-pro-preview",
+      "ageMs": 20227986,
+      "percentUsed": 4,
+      "remainingTokens": 191908,
+      "contextTokens": 200000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "cron",
+      "model": "gpt-5.5",
+      "ageMs": 22028625,
+      "percentUsed": 14,
+      "remainingTokens": 172216,
+      "contextTokens": 200000,
+      "thinkingLevel": null
+    },
+    {
+      "agentId": "main",
+      "kind": "cron",
+      "model": "gpt-5.5",
+      "ageMs": 23828626,
+      "percentUsed": 55,
+      "remainingTokens": 89447,
+      "contextTokens": 200000,
+      "thinkingLevel": null
+    }
+  ],
+  "usage": {
+    "day": {
+      "leftPercent": 98,
+      "consumed": "5h used",
+      "remaining": "3h 48m remaining",
+      "label": "Very safe"
+    },
+    "week": {
+      "leftPercent": 98,
+      "consumed": "2% used",
+      "remaining": "4d 7h remaining",
+      "label": "Excellent"
+    }
+  },
+  "tokens": [
+    {
+      "name": "OpenAI Codex OAuth",
+      "status": "OK",
+      "expiresIn": "Active",
+      "progress": 100
+    }
+  ],
+  "aiSummary": "OpenClaw is running and healthy overall, but the security audit still needs attention.",
+  "riskLabel": "Moderate Risk"
+}

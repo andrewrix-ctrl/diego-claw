@@ -1,25 +1,64 @@
-# CODING AGENTS: READ THIS FIRST
+# Diego Claw
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Static site for Diego Claw, published via GitHub Pages.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+## Local staging before push
 
-## What you should do — IMPORTANT
+Because the site uses absolute paths like `/diego-claw/assets/...`, serve it from the workspace parent, not from inside the repo root.
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+### Quick preview
 
-**Read `project/index.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+From the repo root:
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+```bash
+./scripts/preview_site.sh
+```
 
-## About the design files
+Then open:
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+```text
+http://localhost:8123/diego-claw/
+```
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+You can also choose a different port:
 
-## Bundle contents
+```bash
+./scripts/preview_site.sh 9000
+```
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Diego Claw site` project files (HTML prototypes, assets, components)
+## Recommended workflow
+
+1. Create a feature branch for changes.
+2. Run the local preview server.
+3. Review the page locally before push.
+4. Commit only the intended files.
+5. Push to GitHub once the local preview looks right.
+
+Example:
+
+```bash
+cd ~/.openclaw/workspace/diego-claw
+git checkout -b feature/my-change
+./scripts/preview_site.sh
+```
+
+In another terminal:
+
+```bash
+cd ~/.openclaw/workspace/diego-claw
+git status
+git add <files>
+git commit -m "Describe the change"
+git push origin <branch>
+```
+
+## Optional separate staging worktree
+
+If you want a separate folder just for testing changes before merge/push:
+
+```bash
+cd ~/.openclaw/workspace/diego-claw
+git worktree add ../diego-claw-staging -b staging-preview
+```
+
+That gives you a clean parallel checkout for staging work.

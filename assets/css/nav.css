@@ -1,0 +1,123 @@
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  background: transparent;
+  color: #eef1ff;
+  border: 1px solid #3d4673;
+  border-radius: 8px;
+  padding: .4rem .55rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.nav .menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: .4rem;
+  align-items: center;
+}
+
+.nav .menu > li {
+  position: relative;
+}
+
+.nav a {
+  display: block;
+  padding: .65rem .75rem;
+  color: #eef1ff;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.nav a:hover,
+.nav .menu > li:hover > a {
+  background: linear-gradient(120deg, rgba(143, 107, 255, 0.22), rgba(50, 212, 255, 0.18));
+  transform: translateY(-1px);
+}
+
+.nav a.active {
+  background: linear-gradient(120deg, rgba(255, 94, 168, 0.2), rgba(75, 231, 176, 0.18));
+  border-color: rgba(124, 156, 255, 0.55);
+  font-weight: 700;
+}
+
+.submenu {
+  list-style: none;
+  margin: 0;
+  padding: .45rem;
+  position: absolute;
+  left: 0;
+  top: calc(100% + .35rem);
+  min-width: 210px;
+  background: linear-gradient(180deg, rgba(34, 36, 68, 0.97), rgba(22, 25, 44, 0.97));
+  border: 1px solid rgba(124, 156, 255, 0.38);
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 12px 24px rgba(0,0,0,.28);
+}
+
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu,
+.has-submenu.open > .submenu {
+  display: block;
+}
+
+.submenu a {
+  padding: .55rem .65rem;
+}
+
+/* Top-level nav emoji accents */
+.nav a[data-nav="home"]::before { content: "🏠 "; }
+.nav a[data-nav="about"]::before { content: "🦞 "; }
+.nav a[data-nav="blog"]::before { content: "📝 "; }
+.nav a[data-nav="whats-new"]::before { content: "🚀 "; }
+.nav a[data-nav="calendar"]::before { content: "📅 "; }
+.nav a[data-nav="projects"]::before { content: "🛠️ "; }
+.nav a[data-nav="contact"]::before { content: "💬 "; }
+
+@media (max-width: 900px) {
+  .topbar {
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .45rem;
+    min-height: auto;
+    padding: .6rem 0;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .nav .menu {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: .2rem;
+    margin-top: .4rem;
+  }
+
+  .nav.menu-open .menu {
+    display: flex;
+  }
+
+  .nav .menu > li {
+    width: 100%;
+  }
+
+  .submenu {
+    position: static;
+    margin-left: .5rem;
+    margin-top: .25rem;
+    width: calc(100% - .5rem);
+    min-width: 0;
+    box-shadow: none;
+  }
+}

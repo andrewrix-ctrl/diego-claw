@@ -1,0 +1,372 @@
+{
+  "updated": "2026-05-21",
+  "retentionDays": 7,
+  "items": [
+    {
+      "date": "2026-05-21",
+      "title": "AustralianSuper appoints its first head of AI and automation",
+      "url": "https://www.itnews.com.au/news/australiansuper-hires-its-first-head-of-ai-and-automation-626015",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "WA government is negotiating access to Anthropic’s Mythos model",
+      "url": "https://www.innovationaus.com/an-arms-race-wa-govt-negotiating-access-to-anthropics-mythos/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "iTnews says fears over Mythos-enabled hacking may be overstated",
+      "url": "https://www.itnews.com.au/news/fears-of-unfettered-hacking-spurred-by-anthropics-mythos-ai-model-likely-overstated-626031",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "ARN reports Gartner’s forecast for US$2.59T in global AI spend",
+      "url": "https://www.arnnet.com.au/article/4173416/global-ai-spend-to-hit-us2-59t-in-2026-gartner.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "Snowflake gains IRAP assessment for Google Cloud’s Melbourne region",
+      "url": "https://www.arnnet.com.au/article/4173435/snowflake-passes-irap-assessment-for-google-clouds-melbourne-region.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "Bluechip adds MSI AI PCs, edge devices and servers across A/NZ",
+      "url": "https://www.arnnet.com.au/article/4173430/bluechip-adds-msi-to-a-nz-distie-portfolio.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "IT Brief says analyst teams are still correcting AI outputs",
+      "url": "https://itbrief.com.au/story/alteryx-unveils-agentic-automation-tools-for-analysts",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-21",
+      "title": "InnovationAus warns Australia needs stronger AI biosecurity settings",
+      "url": "https://www.innovationaus.com/govt-must-rise-to-the-ai-biosecurity-threat-experts-warn/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "Service Stream checks field work with computer vision",
+      "url": "https://www.itnews.com.au/news/service-stream-is-checking-field-work-with-computer-vision-625979",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "TechnologyOne says embedded AI is helping public-sector software growth",
+      "url": "https://www.innovationaus.com/techone-tips-uk-to-match-top-aussie-market-in-two-years/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "InnovationAus pushes government data security beyond compliance in the AI era",
+      "url": "https://www.innovationaus.com/compliance-to-resilience-securing-government-data-in-the-ai-era/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "Adactin uses federal AI directory listing to chase public-sector AI work",
+      "url": "https://www.crn.com.au/news/2026/ai/adactin-targets-public-sector-ai-work-after-federal-directory-listing",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "F5 finds ANZ still trails global peers on running AI inference directly",
+      "url": "https://itbrief.com.au/story/f5-says-ai-inference-now-core-to-business-operations",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "Technology Decisions says architecture is becoming the AI differentiator",
+      "url": "https://www.technologydecisions.com.au/content/it-management/article/five-changes-shaping-australia-s-ai-powered-enterprises-1446472732",
+      "source": "Technology Decisions"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "ACMA spectrum bill keeps AI-native network economics in view",
+      "url": "https://www.itnews.com.au/news/telcos-unable-to-overturn-73bn-bill-to-renew-mobile-spectrum-626003",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Rio Tinto brings automation and Copilot into month-end finance",
+      "url": "https://www.itnews.com.au/news/rio-tinto-brings-automation-copilot-to-its-finance-function-625319",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Telstra and Ericsson put AI-native 6G into Australian test plans",
+      "url": "https://www.itnews.com.au/news/telstra-and-ericsson-to-jointly-research-and-test-6g-625974",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Dell reshapes partner incentives around AI, cyber and sovereign cloud",
+      "url": "https://www.arnnet.com.au/article/4172136/dell-revamps-partner-program-to-chase-6t-market-opportunity.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Dell and NVIDIA pitch “tokens” as the new enterprise compute unit",
+      "url": "https://www.arnnet.com.au/article/4172577/from-chips-to-tokens-dell-nvidia-reshape-enterprise-compute-for-agentic-ai.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "CSIRO launches Vetra edge AI infrastructure for real-world robotics",
+      "url": "https://www.innovationaus.com/clouds-clearing-csiro-shifts-compute-to-the-edge-for-ai/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "InnovationAus says “Buy Australian” needs to include local technology procurement",
+      "url": "https://www.innovationaus.com/buy-australian-campaign-must-first-target-canberra/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Boomi and Red Hat pitch an integrated stack for governed agentic AI",
+      "url": "https://www.technologydecisions.com.au/content/it-management/news/boomi-forms-ai-partnership-with-red-hat-555766936",
+      "source": "Technology Decisions"
+    },
+    {
+      "date": "2026-05-19",
+      "title": "Akamai moves to buy LayerX to control AI use inside browsers",
+      "url": "https://www.technologydecisions.com.au/content/security/news/akamai-plans-to-buy-layerx-for-285-5m-1225223391",
+      "source": "Technology Decisions"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "Service NSW moves 200-plus digital products onto OpenShift on AWS",
+      "url": "https://www.itnews.com.au/news/service-nsw-charts-a-path-off-vmwares-container-platform-625898",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "Australia Post targets 13 platform ecosystems as the base for data and AI",
+      "url": "https://www.itnews.com.au/news/australia-posts-future-it-estate-to-rely-on-13-platform-ecosystems-625879",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "Estia Health uses Zero Trust to secure dynamic aged-care access",
+      "url": "https://www.itnews.com.au/news/estia-health-drives-zero-trust-security-overhaul-625478",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "CRN says AI, hybrid complexity and sovereignty are reshaping the Australian channel",
+      "url": "https://www.crn.com.au/news/2026/research/ai-hybrid-cloud-sovereignty-forces-shaping-aussie-channel",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "ARN highlights regulator pressure for stronger agentic AI security controls",
+      "url": "https://www.arnnet.com.au/article/4167570/government-and-regulators-demand-stronger-agentic-ai-security-controls.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "AWS A/NZ partner chief says production AI still depends on cloud migration and governance",
+      "url": "https://www.arnnet.com.au/article/4171083/aws-pip-gilbert-sees-partners-as-the-strategy-for-unlocking-ai-and-cloud-innovation.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-18",
+      "title": "Qantas faces union pressure over AI strategy after operational gains and job cuts",
+      "url": "https://www.ch-aviation.com/news/167236-qantas-faces-union-pressure-over-ai-strategy",
+      "source": "ch-aviation"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Versent and AWS formalise five-year AI, cloud and sovereignty push",
+      "url": "https://www.crn.com.au/news/2026/partners/versent-and-aws-formalise-five-year-push-into-ai-cloud-and-sovereignty",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Enterprise AI returns rise with stronger sovereignty controls, study finds",
+      "url": "https://itbrief.com.au/story/sovereignty-boosts-enterprise-ai-returns-study-finds",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "NTT DATA says enterprise AI is hitting infrastructure limits",
+      "url": "https://itbrief.com.au/story/enterprise-ai-hits-infrastructure-limits-says-ntt-data",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "A/NZ brands lead APAC in finding agentic AI use cases, but data quality blocks scale",
+      "url": "https://channellife.com.au/story/australia-new-zealand-brands-lead-apac-in-agentic-ai",
+      "source": "ChannelLife Australia"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "iManage launches MCP server for governed AI access to sensitive content",
+      "url": "https://itbrief.com.au/story/imanage-launches-mcp-server-to-link-content-with-ai",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "ADP says 44 percent of Australian workers use AI multiple times a week",
+      "url": "https://newshub.medianet.com.au/2026/05/half-of-global-workforce-using-ai-weekly-yet-frequent-users-question-their-productivity-adp-research/153504/",
+      "source": "Medianet / ADP Research"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Australia tightens scrutiny on data centres as AI infrastructure demand rises",
+      "url": "https://itbrief.com.au/story/australia-tightens-data-centre-scrutiny-amid-ai-boom",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-16",
+      "title": "Supreme Court of Victoria issues new practice note and judicial AI guidelines",
+      "url": "https://www.supremecourt.vic.gov.au/news/new-practice-note-and-judicial-guidelines-on-the-use-of-artificial-intelligence",
+      "source": "Supreme Court of Victoria"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "NBN Co looks to agentic AI to share more network intelligence with retailers",
+      "url": "https://www.itnews.com.au/news/nbn-co-ai-could-give-rsps-more-network-intelligence-625870",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "F5 patches 18-year-old NGINX vulnerability found by an AI scanner",
+      "url": "https://www.itnews.com.au/news/f5-patches-18-year-old-ai-found-rift-vulnerability-in-nginx-web-server-625881",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "Flight Centre starts looking for cloud exits as subscription sprawl bites",
+      "url": "https://www.itnews.com.au/news/flight-centre-looking-for-cloud-exits-625803",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "Brisbane consultancy ArgentEdge launches around Google-first agentic workplaces",
+      "url": "https://www.arnnet.com.au/article/4170543/argentedge-launches-to-tap-into-agentic-ai-adoption-inflection-point.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "InnovationAus says Australia’s real AI risk is skills spreading too slowly",
+      "url": "https://www.innovationaus.com/australias-real-ai-risk-is-falling-behind-on-skills/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "Australian AI identity governance lags as non-human identities multiply",
+      "url": "https://securitybrief.com.au/story/australia-ai-identity-governance-lags-as-risks-rise",
+      "source": "SecurityBrief Australia"
+    },
+    {
+      "date": "2026-05-15",
+      "title": "Attack-surface study warns exposed databases and APIs remain common as AI speeds exploitation",
+      "url": "https://itbrief.com.au/story/mysql-exposures-slow-fixes-plague-firms-study-finds",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-14",
+      "title": "Australian public cloud spend forecast to hit $33.6b as AI workloads accelerate",
+      "url": "https://www.arnnet.com.au/article/4169761/ai-demand-drives-surge-in-expected-public-cloud-spend-to-33-6b.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-14",
+      "title": "AWS leadership change reinforces local cloud and AI infrastructure push",
+      "url": "https://www.arnnet.com.au/article/4170400/aws-rianne-van-veldhuizen-steps-away-from-a-nz-role.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-14",
+      "title": "SAP pitches autonomous enterprise agents for finance, HR and supply chain",
+      "url": "https://www.arnnet.com.au/article/4170898/saps-biggest-ai-bet-yet-agents-that-execute-not-just-assist-2.html",
+      "source": "ARN / CIO"
+    },
+    {
+      "date": "2026-05-14",
+      "title": "Microsoft’s MDASH AI scanner finds critical Windows remote-code-execution flaws",
+      "url": "https://www.itnews.com.au/news/microsofts-mdash-ai-vulnerability-scanner-finds-four-critical-windows-rces-625826",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-14",
+      "title": "Canvas breach deal keeps student data pressure on SaaS risk management",
+      "url": "https://www.itnews.com.au/news/canvas-parent-company-reaches-agreement-with-hacking-group-behindbreach-625832",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-14",
+      "title": "Rafay gains NVIDIA AI Cloud-Ready validation for AI cloud operators",
+      "url": "https://itbrief.com.au/story/rafay-wins-nvidia-ai-cloud-ready-validation-for-ai-clouds",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-14",
+      "title": "Elfworks uses four-model validation to de-risk Australian tax research",
+      "url": "https://www.accountantsdaily.com.au/technology/22430-multi-model-validation-how-elfworks-uses-4-ai-models-to-de-risk-australian-tax-research",
+      "source": "Accountants Daily"
+    },
+    {
+      "date": "2026-05-14",
+      "title": "Budget reaction: AI acceleration welcomed, but cyber and data gaps remain",
+      "url": "https://cfotech.com.au/story/australian-budget-boosts-ai-but-cyber-gaps-remain",
+      "source": "CFOTech Australia"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "IAG puts 92 GenAI use cases into production across insurance operations",
+      "url": "https://www.itnews.com.au/news/iag-drives-ai-more-deeply-across-its-operations-625817",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "Dicker Data says AI is forcing partners into ecosystem-led delivery",
+      "url": "https://www.arnnet.com.au/article/4169714/dicker-datas-techx-2026-spotlights-ai-led-ecosystem-shift.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "Ingram Micro’s Windows 11 upgrade push reframes device refresh as AI readiness",
+      "url": "https://www.arnnet.com.au/article/4169767/blue-connections-it-wins-bmw-in-ingram-micros-windows-11-upgrade-drive.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "Federal budget funds Digital ID, My Health Record and AI-enabled approvals systems",
+      "url": "https://www.itnews.com.au/news/gov-to-sustain-key-tech-programs-with-new-billions-625811",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "Energy ministers push data centres to fully offset electricity demand",
+      "url": "https://www.theguardian.com/environment/2026/may/12/datacentres-australia-wind-solar-energy-investment",
+      "source": "Guardian Australia"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "Proofpoint report says Australian AI data incidents are rising",
+      "url": "https://www.cyberdaily.au/tech/13545-report-ai-based-data-incidents-on-the-rise-in-australia",
+      "source": "Cyber Daily"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "Fortinet and NVIDIA expand AI security controls for enterprise deployments",
+      "url": "https://itbrief.com.au/story/fortinet-expands-nvidia-tie-up-to-secure-enterprise-ai",
+      "source": "IT Brief Australia"
+    },
+    {
+      "date": "2026-05-13",
+      "title": "SecurityBrief warns Essential Eight compliance is not enough for AI-era resilience",
+      "url": "https://securitybrief.com.au/story/compliance-is-not-the-same-as-resilience-what-australian-organisations-are-missing-beyond-the-essential-eight",
+      "source": "SecurityBrief Australia"
+    }
+  ]
+}

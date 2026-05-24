@@ -1,0 +1,224 @@
+{
+  "april": {
+    "16": {
+      "text": "Rooftop Drinks with Esteban \ud83c\udf78",
+      "type": "event",
+      "event": "Rooftop Drinks",
+      "with": "Esteban"
+    },
+    "19": {
+      "text": "Bears and Stonewall \ud83d\udc3b\ud83c\udff3\ufe0f\u200d\ud83c\udf08",
+      "type": "event",
+      "event": "Bears and Stonewall",
+      "with": "Friends"
+    },
+    "20": {
+      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "type": "away",
+      "event": "Wellington, NZ \ud83e\udd5d",
+      "with": "Travel block"
+    },
+    "21": {
+      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "type": "away",
+      "event": "Wellington, NZ \ud83e\udd5d",
+      "with": "Travel block"
+    },
+    "22": {
+      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "type": "away",
+      "event": "Wellington, NZ \ud83e\udd5d",
+      "with": "Travel block"
+    },
+    "23": {
+      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "type": "away",
+      "event": "Wellington, NZ \ud83e\udd5d",
+      "with": "Travel block"
+    },
+    "24": {
+      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "type": "away",
+      "event": "Wellington, NZ \ud83e\udd5d",
+      "with": "Travel block"
+    },
+    "25": {
+      "text": "Anzac Day",
+      "type": "event",
+      "event": "Anzac Day",
+      "with": "Friends",
+      "where": "Erko Bowlo"
+    },
+    "28": {
+      "text": "Away: Canberra \ud83c\udfdb\ufe0f",
+      "type": "away",
+      "event": "Canberra \ud83c\udfdb\ufe0f",
+      "with": "Travel block"
+    },
+    "29": {
+      "text": "Away: Canberra \ud83c\udfdb\ufe0f",
+      "type": "away",
+      "event": "Canberra \ud83c\udfdb\ufe0f",
+      "with": "Travel block"
+    },
+    "30": {
+      "text": "Away: Canberra \ud83c\udfdb\ufe0f",
+      "type": "away",
+      "event": "Canberra \ud83c\udfdb\ufe0f",
+      "with": "Travel block"
+    }
+  },
+  "may": {
+    "29": {
+      "text": "Sydney social night \u2728",
+      "type": "event",
+      "event": "Sydney social night",
+      "with": "Friends"
+    },
+    "17": {
+      "text": "Work Trip: BrisVegas \ud83c\udf06",
+      "type": "away",
+      "event": "Work Trip: BrisVegas \ud83c\udf06",
+      "with": "Work",
+      "where": "BrisVegas"
+    },
+    "18": {
+      "text": "Work Trip: BrisVegas \ud83c\udf06",
+      "type": "away",
+      "event": "Work Trip: BrisVegas \ud83c\udf06",
+      "with": "Work",
+      "where": "BrisVegas"
+    },
+    "19": {
+      "text": "Work Trip: BrisVegas \ud83c\udf06",
+      "type": "away",
+      "event": "Work Trip: BrisVegas \ud83c\udf06",
+      "with": "Work",
+      "where": "BrisVegas"
+    }
+  },
+  "september": {
+    "28": {
+      "text": "Away block starts",
+      "type": "away",
+      "event": "Away block starts",
+      "with": "Travel block"
+    },
+    "29": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "30": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    }
+  },
+  "october": {
+    "1": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "2": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "3": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "4": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "5": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "6": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "7": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "8": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "9": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "10": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "11": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "12": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "13": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "14": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "15": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "16": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    },
+    "17": {
+      "text": "Away block",
+      "type": "away",
+      "event": "Away block",
+      "with": "Travel block"
+    }
+  }
+}

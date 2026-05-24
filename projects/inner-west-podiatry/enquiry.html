@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Make an enquiry – Inner West Podiatry</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <nav class="top-nav">
+      <div class="top-nav-inner">
+        <div class="top-nav-title">Inner West Podiatry</div>
+        <div class="top-nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="conditions.html">Conditions</a>
+          <a href="kids-feet.html">Children's feet</a>
+          <a href="diabetes-foot-care.html">Diabetes</a>
+          <a href="faq.html">Fees &amp; FAQs</a>
+          <a href="our-clinic.html">Our clinic</a>
+          <a href="enquiry.html" class="active">Make an enquiry</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <div class="page-eyebrow">INNER WEST PODIATRY – GLEBE</div>
+      <h1>Make an enquiry</h1>
+      <p>
+        If you&apos;d like to ask a question before booking, please use the form below. We&apos;ll get back to you as soon as we
+        can during clinic hours.
+      </p>
+    </header>
+
+    <main>
+      <div class="section-grid" style="margin-bottom:1rem;">
+        <figure class="image-card">
+          <img src="media/inner-west-podiatry-waiting-room-lifestyle.jpg" alt="Calm, welcoming podiatry clinic waiting area" />
+          <figcaption>Tell us what is bothering you and we will guide next steps.</figcaption>
+        </figure>
+        <article class="card">
+          <h2 style="margin-top:0;">Prefer to call?</h2>
+          <p>For urgent pain or quick triage, call <a href="tel:0280406687">(02) 8040 6687</a> during clinic hours.</p>
+        </article>
+      </div>
+      <div class="enquiry-card">
+        <form id="enquiry-form">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div>
+            <label for="email">Email address</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div>
+            <label for="contactMethod">Preferred contact method</label>
+            <select id="contactMethod" name="contactMethod" required>
+              <option value="">Please choose…</option>
+              <option value="email">Email</option>
+              <option value="phone">Phone</option>
+            </select>
+            <p class="helper">If you prefer phone, please include your best contact number in the enquiry box.</p>
+          </div>
+
+          <div>
+            <label for="message">Enquiry</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit">Send enquiry</button>
+          </div>
+        </form>
+        <p class="helper" style="margin-top:0.75rem;">
+          When you press "Send enquiry", your email program will open a new message addressed to the clinic with your
+          details pre-filled. You can review and send it from there.
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      Inner West Podiatry · Ground Floor, 170 St Johns Road, Glebe NSW 2037 · Phone (02) 8040 6687<br />
+      Created with help from Diego Claw 🤖🦞
+    </footer>
+  </div>
+
+  <script src="site.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('enquiry-form');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = document.getElementById('name').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var contact = document.getElementById('contactMethod').value;
+        var message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !contact || !message) {
+          alert('Please fill in all required fields before sending your enquiry.');
+          return;
+        }
+
+        var subject = encodeURIComponent('New podiatry enquiry from ' + name);
+        var bodyLines = [
+          'Name: ' + name,
+          'Email: ' + email,
+          'Preferred contact method: ' + (contact === 'email' ? 'Email' : 'Phone'),
+          '',
+          'Enquiry:',
+          message
+        ];
+        var body = encodeURIComponent(bodyLines.join('\n'));
+
+        var mailto = 'mailto:andrew.rix@gmail.com?subject=' + subject + '&body=' + body;
+        window.location.href = mailto;
+      });
+    })();
+  </script>
+</body>
+</html>

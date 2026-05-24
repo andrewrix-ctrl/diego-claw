@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /diego-claw/diego-vault/
+Noindex: /diego-claw/diego-vault/

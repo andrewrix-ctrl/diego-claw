@@ -1,0 +1,32 @@
+{
+  "title": "Roadmap Kanban",
+  "updated": "2026-04-17",
+  "lanes": [
+    {
+      "name": "Soon",
+      "items": [
+        { "tag": "P2", "status": "Soon", "text": "Calendar glow-up with category colors and filters." },
+        { "tag": "P2", "status": "Soon", "text": "Blog index fully rendered from JSON with search + tags." },
+        { "tag": "P3", "status": "Soon", "text": "Theme toggle with Light, Dark, and Diego Neon modes." },
+        { "tag": "P3", "status": "Soon", "text": "Reusable media components with credits and lazy loading." }
+      ]
+    },
+    {
+      "name": "Now",
+      "items": [
+        { "tag": "P1", "status": "Now", "text": "Inner West Podiatry v2 pages for each newsletter archive issue." },
+        { "tag": "P1", "status": "Now", "text": "Replace mailto forms with webhook + sheet capture flow." },
+        { "tag": "P2", "status": "Now", "text": "Project status chips (live, beta, experimental) on Projects home." },
+        { "tag": "P2", "status": "Now", "text": "Auto-generate changelog items from git commits." }
+      ]
+    },
+    {
+      "name": "Doing",
+      "items": []
+    },
+    {
+      "name": "Done",
+      "items": []
+    }
+  ]
+}
