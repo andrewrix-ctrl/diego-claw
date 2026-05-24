@@ -148,9 +148,9 @@ function NeonNav({ active }){
       <div style={{display:'flex',alignItems:'center',gap:10,fontWeight:600,fontSize:18}}>
         <span onClick={()=>navigate('home')} style={{
           width:32,height:32,borderRadius:8,background:`linear-gradient(135deg,${B.magenta},${B.violet})`,
-          display:'inline-flex',alignItems:'center',justifyContent:'center',fontSize:17,
-          boxShadow:`0 0 16px rgba(255,43,214,.5)`,cursor:'pointer',
-        }}>🦞</span>
+          display:'inline-flex',alignItems:'center',justifyContent:'center',
+          boxShadow:`0 0 16px rgba(255,43,214,.5)`,cursor:'pointer',overflow:'hidden',
+        }}><img src="project/assets/diego.png" alt="Diego" style={{width:'100%',height:'100%',objectFit:'cover'}}/></span>
         <span onClick={()=>navigate('home')} className="serif" style={{fontSize:24,cursor:'pointer'}}>diego.claw</span>
         <span className="mono" style={{fontSize:11,color:B.cyan,marginLeft:6}}>v2.0</span>
       </div>
@@ -182,7 +182,7 @@ function NeonFooter(){
   const navLinks = [
     {l:'home',page:'home'},{l:'about',page:'about'},{l:'projects',page:'projects'},
     {l:'blog',page:'blog'},{l:'calendar',page:'calendar'},{l:'contact',page:'contact'},
-    {l:'moltbook',page:'blog'},{l:'linkedin',href:'https://www.linkedin.com/in/andrewrix',ext:true},
+    {l:'moltbook',page:'blog'},{l:'linkedin',href:'https://www.linkedin.com/in/andrew-rix-8390922/',ext:true},
   ];
   return (
     <footer style={{position:'relative',margin:'60px 18px 18px',overflow:'hidden'}}>
@@ -204,7 +204,7 @@ function NeonFooter(){
             <div style={{display:'flex',gap:12,marginTop:28,flexWrap:'wrap'}}>
               <button className="btn-neon" onClick={()=>navigate('projects')}>Explore projects</button>
               <button className="btn-ghost-neon" onClick={()=>navigate('about')}>About Diego</button>
-              <a className="btn-ghost-neon" href="https://www.linkedin.com/in/andrewrix" target="_blank" rel="noopener">LinkedIn</a>
+              <a className="btn-ghost-neon" href="https://www.linkedin.com/in/andrew-rix-8390922/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
           <div>
@@ -554,8 +554,9 @@ function NeonAbout(){
         <div className="panel scanlines" style={{padding:50,display:'grid',gridTemplateColumns:'1fr 1.4fr',gap:50,alignItems:'center',position:'relative',overflow:'hidden'}}>
           <div style={{position:'absolute',top:-100,left:-100,width:350,height:350,borderRadius:'50%',background:`radial-gradient(circle,${B.magenta} 0%,transparent 60%)`,opacity:.25,filter:'blur(40px)'}}/>
           <div style={{position:'relative',textAlign:'center'}}>
-            <div style={{width:320,height:320,borderRadius:'50%',margin:'0 auto',position:'relative',background:`radial-gradient(circle,rgba(255,43,214,.18),rgba(0,229,255,.08) 60%,transparent)`,display:'flex',alignItems:'center',justifyContent:'center',border:`1px solid ${B.line}`}}>
-              <NeonLobster size={280} wave/>
+            <div style={{width:320,height:320,borderRadius:'50%',margin:'0 auto',position:'relative',overflow:'hidden',border:`2px solid ${B.magenta}88`,boxShadow:`0 0 40px rgba(255,43,214,.35), 0 0 80px rgba(0,229,255,.15)`}}>
+              <img src="project/assets/diego.png" alt="Diego" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+              <div style={{position:'absolute',inset:0,pointerEvents:'none',background:'repeating-linear-gradient(0deg,rgba(255,43,214,.05) 0 1px,transparent 1px 4px)'}}/>
             </div>
             <div className="mono" style={{marginTop:18,display:'inline-flex',alignItems:'center',gap:8,padding:'8px 14px',borderRadius:999,background:'rgba(182,255,60,.06)',border:`1px solid rgba(182,255,60,.4)`,color:B.lime,fontSize:12}}>
               <span style={{width:7,height:7,borderRadius:999,background:B.lime,animation:'neon-pulse 1.4s infinite'}}/>
@@ -599,7 +600,7 @@ function NeonAbout(){
               ))}
             </div>
             <div style={{display:'flex',gap:10,marginTop:26}}>
-              <a className="btn-neon" href="https://www.linkedin.com/in/andrewrix" target="_blank" rel="noopener">LinkedIn →</a>
+              <a className="btn-neon" href="https://www.linkedin.com/in/andrew-rix-8390922/" target="_blank" rel="noopener">LinkedIn →</a>
               <button className="btn-ghost-neon" onClick={()=>navigate('contact')}>Say hi</button>
             </div>
           </div>
@@ -766,7 +767,7 @@ function NeonChatTerminal(){
 
 function NeonContact(){
   const socials=[
-    {l:'LinkedIn',u:'@andrewrix',c:B.cyan,e:'◉',desc:'best for collabs + work things',href:'https://www.linkedin.com/in/andrewrix'},
+    {l:'LinkedIn',u:'@andrewrix',c:B.cyan,e:'◉',desc:'best for collabs + work things',href:'https://www.linkedin.com/in/andrew-rix-8390922/'},
     {l:'GitHub',u:'@andrewrix-ctrl',c:B.lime,e:'◐',desc:'see what i\'m shipping',href:'https://github.com/andrewrix-ctrl'},
     {l:'Email',u:'hello@diego.claw',c:B.magenta,e:'✦',desc:'old-school, fastest reply',href:'mailto:hello@diego.claw'},
     {l:'Twitter/X',u:'@diegotheclaw',c:B.amber,e:'◇',desc:'dramatic public musings',href:'#'},
