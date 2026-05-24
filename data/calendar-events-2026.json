@@ -1,45 +1,45 @@
 {
   "april": {
     "16": {
-      "text": "Rooftop Drinks with Esteban \ud83c\udf78",
+      "text": "Rooftop Drinks with Esteban 🍸",
       "type": "event",
       "event": "Rooftop Drinks",
       "with": "Esteban"
     },
     "19": {
-      "text": "Bears and Stonewall \ud83d\udc3b\ud83c\udff3\ufe0f\u200d\ud83c\udf08",
+      "text": "Bears and Stonewall 🐻🏳️‍🌈",
       "type": "event",
       "event": "Bears and Stonewall",
       "with": "Friends"
     },
     "20": {
-      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "text": "Away: Wellington, NZ 🥝",
       "type": "away",
-      "event": "Wellington, NZ \ud83e\udd5d",
+      "event": "Wellington, NZ 🥝",
       "with": "Travel block"
     },
     "21": {
-      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "text": "Away: Wellington, NZ 🥝",
       "type": "away",
-      "event": "Wellington, NZ \ud83e\udd5d",
+      "event": "Wellington, NZ 🥝",
       "with": "Travel block"
     },
     "22": {
-      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "text": "Away: Wellington, NZ 🥝",
       "type": "away",
-      "event": "Wellington, NZ \ud83e\udd5d",
+      "event": "Wellington, NZ 🥝",
       "with": "Travel block"
     },
     "23": {
-      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "text": "Away: Wellington, NZ 🥝",
       "type": "away",
-      "event": "Wellington, NZ \ud83e\udd5d",
+      "event": "Wellington, NZ 🥝",
       "with": "Travel block"
     },
     "24": {
-      "text": "Away: Wellington, NZ \ud83e\udd5d",
+      "text": "Away: Wellington, NZ 🥝",
       "type": "away",
-      "event": "Wellington, NZ \ud83e\udd5d",
+      "event": "Wellington, NZ 🥝",
       "with": "Travel block"
     },
     "25": {
@@ -50,51 +50,58 @@
       "where": "Erko Bowlo"
     },
     "28": {
-      "text": "Away: Canberra \ud83c\udfdb\ufe0f",
+      "text": "Away: Canberra 🏛️",
       "type": "away",
-      "event": "Canberra \ud83c\udfdb\ufe0f",
+      "event": "Canberra 🏛️",
       "with": "Travel block"
     },
     "29": {
-      "text": "Away: Canberra \ud83c\udfdb\ufe0f",
+      "text": "Away: Canberra 🏛️",
       "type": "away",
-      "event": "Canberra \ud83c\udfdb\ufe0f",
+      "event": "Canberra 🏛️",
       "with": "Travel block"
     },
     "30": {
-      "text": "Away: Canberra \ud83c\udfdb\ufe0f",
+      "text": "Away: Canberra 🏛️",
       "type": "away",
-      "event": "Canberra \ud83c\udfdb\ufe0f",
+      "event": "Canberra 🏛️",
       "with": "Travel block"
     }
   },
   "may": {
-    "29": {
-      "text": "Sydney social night \u2728",
-      "type": "event",
-      "event": "Sydney social night",
-      "with": "Friends"
-    },
     "17": {
-      "text": "Work Trip: BrisVegas \ud83c\udf06",
+      "text": "Work Trip: BrisVegas 🌆",
       "type": "away",
-      "event": "Work Trip: BrisVegas \ud83c\udf06",
+      "event": "Work Trip: BrisVegas 🌆",
       "with": "Work",
       "where": "BrisVegas"
     },
     "18": {
-      "text": "Work Trip: BrisVegas \ud83c\udf06",
+      "text": "Work Trip: BrisVegas 🌆",
       "type": "away",
-      "event": "Work Trip: BrisVegas \ud83c\udf06",
+      "event": "Work Trip: BrisVegas 🌆",
       "with": "Work",
       "where": "BrisVegas"
     },
     "19": {
-      "text": "Work Trip: BrisVegas \ud83c\udf06",
+      "text": "Work Trip: BrisVegas 🌆",
       "type": "away",
-      "event": "Work Trip: BrisVegas \ud83c\udf06",
+      "event": "Work Trip: BrisVegas 🌆",
       "with": "Work",
       "where": "BrisVegas"
+    },
+    "27": {
+      "text": "Malebox with Sam 📬",
+      "type": "event",
+      "event": "Malebox with Sam 📬",
+      "with": "Sam Stephens",
+      "where": "TBC"
+    },
+    "29": {
+      "text": "Sydney social night ✨",
+      "type": "event",
+      "event": "Sydney social night",
+      "with": "Friends"
     }
   },
   "september": {
