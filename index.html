@@ -865,17 +865,19 @@ function NeonContact(){
 
 // ── BLOG PAGE ─────────────────────────────────────────────────────────────────
 function NeonBlog(){
-  const featured={title:'How I taught a lobster to write better headlines than I do',excerpt:"Diego started as a copy assistant. Three months in he's the editor-in-chief. A short, slightly defensive essay about handing the mic to an AI mascot — and why the writing got sharper.",tag:'essay',color:B.magenta,date:'May 18, 2026',read:'6 min',emoji:'🎙️'};
+  const bp='https://andrewrix-ctrl.github.io/diego-site/diego-claw/blog/posts/';
+  const bi='https://andrewrix-ctrl.github.io/diego-site/diego-claw/blog/';
+  const featured={title:'How I taught a lobster to write better headlines than I do',excerpt:"Diego started as a copy assistant. Three months in he's the editor-in-chief. A short, slightly defensive essay about handing the mic to an AI mascot — and why the writing got sharper.",tag:'essay',color:B.magenta,date:'May 18, 2026',read:'6 min',emoji:'🎙️',url:bp+'hello-diego-claw.html'};
   const posts=[
-    {title:"A market map of AI tools that won't exist in six months",excerpt:'Snapshot of the AI tool landscape circa 2026 — what\'s sticking, what\'s vapor, and what\'s quietly dominating.',tag:'analysis',color:B.cyan,date:'May 11, 2026',read:'8 min',emoji:'🗺️'},
-    {title:'Claude-native vs Claude-bolted-on: a working distinction',excerpt:'Why some AI products feel like a magic trick and others feel like a chatbot wearing a costume.',tag:'opinion',color:B.lime,date:'May 04, 2026',read:'5 min',emoji:'🧠'},
-    {title:"I shipped 12 projects this year. Here's what actually mattered.",excerpt:"The pattern wasn't the stack or the framework. It was a deeply unprofessional commitment to shipping ugly first.",tag:'retro',color:B.amber,date:'Apr 27, 2026',read:'7 min',emoji:'📦'},
-    {title:'Building Emoji Nova Rush in 4 hours and 47 minutes',excerpt:'Speedrun of a vanilla-JS reflex game with combo scoring, neon trails, and an embarrassing number of audio cues.',tag:'build-log',color:B.violet,date:'Apr 20, 2026',read:'4 min',emoji:'✦'},
-    {title:'Why every personal site should have a mascot',excerpt:'A defense of giving your portfolio a face, a voice, and ideally, opinions about coffee.',tag:'manifesto',color:B.magenta,date:'Apr 13, 2026',read:'3 min',emoji:'🦞'},
-    {title:'7-Eleven coffee, ranked by emotional support value',excerpt:'A taxonomy of convenience-store caffeine. Includes vibes ratings. No, you cannot review this.',tag:'fun',color:B.red,date:'Apr 06, 2026',read:'2 min',emoji:'☕'},
-    {title:"The cheapest model that's still smart enough to be useful",excerpt:'A pragmatic walkthrough of the model menu, including token math and the OAuth alternative most people miss.',tag:'guide',color:B.cyan,date:'Mar 30, 2026',read:'9 min',emoji:'💸'},
-    {title:"Notes on writing copy that doesn't sound like a hostage video",excerpt:'A short field guide for landing pages, error states, and the eternal struggle against the word "seamless".',tag:'writing',color:B.lime,date:'Mar 23, 2026',read:'5 min',emoji:'✍️'},
-    {title:'Did Trump say this? A trivia engine and what it taught me about LLM evals',excerpt:"I built a quiz, then ruined my evening trying to score it. A small lesson in classification, confidence, and chaos.",tag:'experiment',color:B.amber,date:'Mar 16, 2026',read:'6 min',emoji:'🎤'},
+    {title:"A market map of AI tools that won't exist in six months",excerpt:'Snapshot of the AI tool landscape circa 2026 — what\'s sticking, what\'s vapor, and what\'s quietly dominating.',tag:'analysis',color:B.cyan,date:'May 11, 2026',read:'8 min',emoji:'🗺️',url:bi},
+    {title:'Claude-native vs Claude-bolted-on: a working distinction',excerpt:'Why some AI products feel like a magic trick and others feel like a chatbot wearing a costume.',tag:'opinion',color:B.lime,date:'May 04, 2026',read:'5 min',emoji:'🧠',url:bp+'the-847-problem-and-trustworthy-ai.html'},
+    {title:"I shipped 12 projects this year. Here's what actually mattered.",excerpt:"The pattern wasn't the stack or the framework. It was a deeply unprofessional commitment to shipping ugly first.",tag:'retro',color:B.amber,date:'Apr 27, 2026',read:'7 min',emoji:'📦',url:bp+'moltbook-day-one-field-notes.html'},
+    {title:'Building Emoji Nova Rush in 4 hours and 47 minutes',excerpt:'Speedrun of a vanilla-JS reflex game with combo scoring, neon trails, and an embarrassing number of audio cues.',tag:'build-log',color:B.violet,date:'Apr 20, 2026',read:'4 min',emoji:'✦',url:bp+'moltbook-ideas-to-build-next.html'},
+    {title:'Why every personal site should have a mascot',excerpt:'A defense of giving your portfolio a face, a voice, and ideally, opinions about coffee.',tag:'manifesto',color:B.magenta,date:'Apr 13, 2026',read:'3 min',emoji:'🦞',url:bp+'hello-diego-claw.html'},
+    {title:'7-Eleven coffee, ranked by emotional support value',excerpt:'A taxonomy of convenience-store caffeine. Includes vibes ratings. No, you cannot review this.',tag:'fun',color:B.red,date:'Apr 06, 2026',read:'2 min',emoji:'☕',url:bi},
+    {title:"The cheapest model that's still smart enough to be useful",excerpt:'A pragmatic walkthrough of the model menu, including token math and the OAuth alternative most people miss.',tag:'guide',color:B.cyan,date:'Mar 30, 2026',read:'9 min',emoji:'💸',url:bp+'the-847-problem-and-trustworthy-ai.html'},
+    {title:"Notes on writing copy that doesn't sound like a hostage video",excerpt:'A short field guide for landing pages, error states, and the eternal struggle against the word "seamless".',tag:'writing',color:B.lime,date:'Mar 23, 2026',read:'5 min',emoji:'✍️',url:bi},
+    {title:'Did Trump say this? A trivia engine and what it taught me about LLM evals',excerpt:"I built a quiz, then ruined my evening trying to score it. A small lesson in classification, confidence, and chaos.",tag:'experiment',color:B.amber,date:'Mar 16, 2026',read:'6 min',emoji:'🎤',url:bi},
   ];
   const tags=[{l:'all',n:24,on:true},{l:'essay',n:5},{l:'build-log',n:7},{l:'guide',n:4},{l:'opinion',n:3},{l:'fun',n:5}];
   return (
@@ -904,7 +906,8 @@ function NeonBlog(){
 
       <section style={{padding:'40px 70px'}}>
         <div className="mono" style={{fontSize:11,color:featured.color,letterSpacing:'0.08em',marginBottom:12}}>~ /featured · pinned</div>
-        <div className="panel scanlines panel-card" style={{display:'grid',gridTemplateColumns:'1.2fr 1fr',overflow:'hidden',position:'relative'}}
+        <a href={featured.url} target="_blank" rel="noopener noreferrer" data-nopark="1"
+          className="panel scanlines panel-card" style={{display:'grid',gridTemplateColumns:'1.2fr 1fr',overflow:'hidden',position:'relative',textDecoration:'none',color:'inherit',cursor:'pointer'}}
           onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 0 40px ${featured.color}55`;e.currentTarget.style.borderColor=featured.color+'88'}}
           onMouseLeave={e=>{e.currentTarget.style.boxShadow='none';e.currentTarget.style.borderColor=B.line}}>
           <div style={{padding:50,position:'relative',zIndex:2}}>
@@ -924,7 +927,7 @@ function NeonBlog(){
             <div style={{fontSize:240,lineHeight:1,position:'relative',zIndex:1,filter:`drop-shadow(0 0 40px ${featured.color})`,animation:'neon-bob 4s ease-in-out infinite'}}>{featured.emoji}</div>
             <div style={{position:'absolute',inset:0,pointerEvents:'none',background:'repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 3px)'}}/>
           </div>
-        </div>
+        </a>
       </section>
 
       <section style={{padding:'40px 70px'}}>
@@ -934,7 +937,8 @@ function NeonBlog(){
         </h2>
         <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:18}}>
           {posts.map(p=>(
-            <div key={p.title} className="panel panel-card" style={{padding:22,position:'relative',overflow:'hidden'}}
+            <a key={p.title} href={p.url} target="_blank" rel="noopener noreferrer" data-nopark="1"
+              className="panel panel-card" style={{padding:22,position:'relative',overflow:'hidden',display:'block',textDecoration:'none',color:'inherit',cursor:'pointer'}}
               onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 0 28px ${p.color}55`;e.currentTarget.style.borderColor=p.color+'88'}}
               onMouseLeave={e=>{e.currentTarget.style.boxShadow='none';e.currentTarget.style.borderColor=B.line}}>
               <div style={{height:140,borderRadius:10,position:'relative',overflow:'hidden',background:`linear-gradient(135deg,${p.color}25,${B.bg2})`,border:`1px solid ${p.color}40`,marginBottom:18,display:'flex',alignItems:'center',justifyContent:'center'}}>
@@ -946,9 +950,9 @@ function NeonBlog(){
               <div className="serif" style={{fontSize:22,lineHeight:1.15,fontWeight:400,marginBottom:10}}>{p.title}</div>
               <div style={{fontSize:13.5,color:B.textDim,lineHeight:1.55}}>{p.excerpt}</div>
               <div className="mono" style={{marginTop:16,paddingTop:14,borderTop:`1px dashed ${B.line}`,fontSize:11,color:B.textDimmer,display:'flex',justifyContent:'space-between'}}>
-                <span>{p.date}</span><span>{p.read}</span>
+                <span>{p.date}</span><span style={{color:p.color}}>{p.read} · read ↗</span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
         <div style={{display:'flex',justifyContent:'center',marginTop:36}}>
