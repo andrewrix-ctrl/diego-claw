@@ -328,16 +328,17 @@ function NeonFeatureGame(){
 }
 
 function NeonProjectsSection(){
+  const ds='https://andrewrix-ctrl.github.io/diego-site/';
   const projects=[
-    {name:'7-Eleven Coffee',desc:'Cheeky tribute to convenience-store coffee.',tag:'tribute',emoji:'☕',glow:B.amber},
-    {name:'AI Model Guide',desc:'Practical menu of models, token pricing, OAuth alternatives.',tag:'guide',emoji:'🧠',glow:B.cyan},
-    {name:'AI Tools Market Map',desc:'Curated directory with descriptions, pricing, ratings.',tag:'directory',emoji:'🗺️',glow:B.lime},
-    {name:'GeekBooks Store',desc:'SAFe ART bookstore sim turned working static shop.',tag:'shop',emoji:'📚',glow:B.magenta},
-    {name:'AI Literacy Hub',desc:'Plain-English AI education without buzzword soup.',tag:'edu',emoji:'🎓',glow:B.violet},
-    {name:'Inner West Podiatry',desc:'Friendlier health site, warmer copy.',tag:'client',emoji:'🦶',glow:B.amber},
-    {name:'NRL Footy Tipping',desc:'Weekly predictions and confidence levels.',tag:'sport',emoji:'🏉',glow:B.red},
-    {name:'Custom Skills Directory',desc:'Reusable skills — the engine room.',tag:'internal',emoji:'⚙️',glow:B.cyan},
-    {name:'Emoji Nova Rush',desc:'Neon reflex game with combo scoring.',tag:'game',emoji:'✦',glow:B.magenta},
+    {name:'7-Eleven Coffee',desc:'Cheeky tribute to convenience-store coffee.',tag:'tribute',emoji:'☕',glow:B.amber,url:ds},
+    {name:'AI Model Guide',desc:'Practical menu of models, token pricing, OAuth alternatives.',tag:'guide',emoji:'🧠',glow:B.cyan,url:ds+'reports/openrouter-models/'},
+    {name:'AI Tools Market Map',desc:'Curated directory with descriptions, pricing, ratings.',tag:'directory',emoji:'🗺️',glow:B.lime,url:'https://andrewrix-ctrl.github.io/ai-trends-au/'},
+    {name:'GeekBooks Store',desc:'SAFe ART bookstore sim turned working static shop.',tag:'shop',emoji:'📚',glow:B.magenta,url:'https://andrewrix-ctrl.github.io/claude-workspace/geekbooks/'},
+    {name:'AI Literacy Hub',desc:'Plain-English AI education without buzzword soup.',tag:'edu',emoji:'🎓',glow:B.violet,url:'https://andrewrix-ctrl.github.io/ai-literacy-hub/'},
+    {name:'Inner West Podiatry',desc:'Friendlier health site, warmer copy.',tag:'client',emoji:'🦶',glow:B.amber,url:'https://andrewrix-ctrl.github.io/inner-west-podiatry/'},
+    {name:'NRL Footy Tipping',desc:'Weekly predictions and confidence levels.',tag:'sport',emoji:'🏉',glow:B.red,url:ds+'nrl-footy-tipping/'},
+    {name:'Custom Skills Directory',desc:'Reusable skills — the engine room.',tag:'internal',emoji:'⚙️',glow:B.cyan,url:ds+'skills.html'},
+    {name:'Emoji Nova Rush',desc:'Neon reflex game with combo scoring.',tag:'game',emoji:'✦',glow:B.magenta,url:ds+'emoji-nova-rush.html'},
   ];
   return (
     <section style={{padding:'60px 70px',position:'relative'}}>
@@ -354,7 +355,8 @@ function NeonProjectsSection(){
       </div>
       <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:20}}>
         {projects.map(p=>(
-          <div key={p.name} className="panel panel-card" style={{padding:24,display:'block',position:'relative'}}
+          <a key={p.name} href={p.url} target="_blank" rel="noopener noreferrer" data-nopark="1"
+            className="panel panel-card" style={{padding:24,display:'block',position:'relative',textDecoration:'none',color:'inherit',cursor:'pointer'}}
             onMouseEnter={e=>{e.currentTarget.style.boxShadow=`0 0 30px ${p.glow}55,inset 0 0 30px ${p.glow}10`;e.currentTarget.style.borderColor=p.glow+'88'}}
             onMouseLeave={e=>{e.currentTarget.style.boxShadow='none';e.currentTarget.style.borderColor=B.line}}>
             <div style={{display:'flex',justifyContent:'space-between',alignItems:'start',marginBottom:16}}>
@@ -363,11 +365,11 @@ function NeonProjectsSection(){
             </div>
             <div className="serif" style={{fontSize:26,lineHeight:1.1,marginBottom:8,fontWeight:400}}>{p.name}</div>
             <div style={{fontSize:14,lineHeight:1.5,color:B.textDim}}>{p.desc}</div>
-            <div className="mono" style={{marginTop:16,fontSize:12,color:B.textDimmer,display:'flex',justifyContent:'space-between'}}>
-              <span>open →</span>
-              <span>./{p.tag}/{p.name.toLowerCase().replace(/\s+/g,'-').replace(/[^\w-]/g,'')}</span>
+            <div className="mono" style={{marginTop:16,fontSize:12,color:p.glow,display:'flex',justifyContent:'space-between'}}>
+              <span>open ↗</span>
+              <span>./{p.tag}</span>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
