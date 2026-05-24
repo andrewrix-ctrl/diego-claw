@@ -1,7 +1,61 @@
 {
-  "updated": "2026-05-21",
+  "updated": "2026-05-25",
   "retentionDays": 7,
   "items": [
+    {
+      "date": "2026-05-25",
+      "title": "CBA puts a DevOps agent into after-hours incident response",
+      "url": "https://www.itnews.com.au/news/cbas-devops-agent-is-helping-on-call-engineers-on-2am-wake-up-duty-626037",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Employers Mutual Limited shifts security operations toward AI-backed XDR",
+      "url": "https://www.itnews.com.au/news/employers-mutual-limited-strengthens-cyber-defences-with-xdr-shift-625475",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "CBA uses AI to analyse staff feedback and suggest follow-up actions",
+      "url": "https://www.itnews.com.au/news/cba-looks-to-ai-for-workforce-planning-625497",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Tasmania funds an AI sandbox inside a wider digital uplift",
+      "url": "https://www.innovationaus.com/tasmania-looks-to-tech-uplift-to-ease-budget-pain/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Microsoft announces a $25 billion Australia AI, cloud and cyber push",
+      "url": "https://www.crn.com.au/news/2026/ai/3-announcements-satya-nadella-made-at-microsoft-ai-tour",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Cisco, Sharon AI and NVIDIA launch a secure AI factory in Australia",
+      "url": "https://www.crn.com.au/news/2026/data-center/cisco-nvidia-sharon-ai-secure-ai-factory",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "ServiceNow reworks its Build partner program for AI agents",
+      "url": "https://www.crn.com.au/news/2026/software/servicenow-unveils-new-build-partner-program-to-make-room-for-ai-agents",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Cursor hires an Australia and New Zealand regional head",
+      "url": "https://www.arnnet.com.au/article/4176097/cursor-hires-pete-short-as-a-nz-head.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-25",
+      "title": "Crayon says AI is pushing MSPs from transactions to outcome-led services",
+      "url": "https://www.arnnet.com.au/article/4176038/crayons-mathew-howard-sees-parallel-growth-for-distie-and-msps.html",
+      "source": "ARN"
+    },
     {
       "date": "2026-05-21",
       "title": "AustralianSuper appoints its first head of AI and automation",
