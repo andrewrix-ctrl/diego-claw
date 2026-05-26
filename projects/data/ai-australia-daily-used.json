@@ -1,7 +1,49 @@
 {
-  "updated": "2026-05-26",
+  "updated": "2026-05-27",
   "retentionDays": 7,
   "items": [
+    {
+      "date": "2026-05-27",
+      "title": "Australia Post co-develops ML models to prioritise security incidents",
+      "url": "https://www.itnews.com.au/news/australia-post-is-co-developing-two-ml-models-to-prioritise-its-incident-queue-626130",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "Infratil says AI demand is lifting data-centre and renewables earnings",
+      "url": "https://www.arnnet.com.au/article/4176842/infratil-lifts-earnings-on-ai-driven-data-centre-and-renewables-growth-2.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "CIO Australia says local leaders are moving agentic AI from pilots to production",
+      "url": "https://www.cio.com/article/4177107/how-australian-cios-can-unlock-the-agentic-ai-advantage.html",
+      "source": "CIO Australia"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "Oracle NetSuite ANZ warns partners not to bet the whole business on AI",
+      "url": "https://www.crn.com.au/news/2026/software/oracle-netsuite-anz-gm-channel-and-ecosystem-discusses-saaspocalypse",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "Mantel Group says agentic AI is leading customer conversations",
+      "url": "https://www.crn.com.au/news/2026/partners/mantel-group-finds-agentic-ai-is-now-leading-customer-conversations",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "CRN says AI, hybrid complexity and sovereignty are reshaping the Australian channel",
+      "url": "https://www.crn.com.au/news/2026/research/ai-hybrid-cloud-sovereignty-forces-shaping-aussie-channel",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "The Mandarin frames sovereign capability centres as a public-sector AI delivery model",
+      "url": "https://www.themandarin.com.au/311523-sovereign-capability-centres-delivering-global-expertise-with-national-control/",
+      "source": "The Mandarin"
+    },
     {
       "date": "2026-05-26",
       "title": "Rio Tinto uses AI to document a 30-year-old manufacturing system",
@@ -187,54 +229,6 @@
       "title": "ACMA spectrum bill keeps AI-native network economics in view",
       "url": "https://www.itnews.com.au/news/telcos-unable-to-overturn-73bn-bill-to-renew-mobile-spectrum-626003",
       "source": "iTnews"
-    },
-    {
-      "date": "2026-05-19",
-      "title": "Rio Tinto brings automation and Copilot into month-end finance",
-      "url": "https://www.itnews.com.au/news/rio-tinto-brings-automation-copilot-to-its-finance-function-625319",
-      "source": "iTnews"
-    },
-    {
-      "date": "2026-05-19",
-      "title": "Telstra and Ericsson put AI-native 6G into Australian test plans",
-      "url": "https://www.itnews.com.au/news/telstra-and-ericsson-to-jointly-research-and-test-6g-625974",
-      "source": "iTnews"
-    },
-    {
-      "date": "2026-05-19",
-      "title": "Dell reshapes partner incentives around AI, cyber and sovereign cloud",
-      "url": "https://www.arnnet.com.au/article/4172136/dell-revamps-partner-program-to-chase-6t-market-opportunity.html",
-      "source": "ARN"
-    },
-    {
-      "date": "2026-05-19",
-      "title": "Dell and NVIDIA pitch \u201ctokens\u201d as the new enterprise compute unit",
-      "url": "https://www.arnnet.com.au/article/4172577/from-chips-to-tokens-dell-nvidia-reshape-enterprise-compute-for-agentic-ai.html",
-      "source": "ARN"
-    },
-    {
-      "date": "2026-05-19",
-      "title": "CSIRO launches Vetra edge AI infrastructure for real-world robotics",
-      "url": "https://www.innovationaus.com/clouds-clearing-csiro-shifts-compute-to-the-edge-for-ai/",
-      "source": "InnovationAus"
-    },
-    {
-      "date": "2026-05-19",
-      "title": "InnovationAus says \u201cBuy Australian\u201d needs to include local technology procurement",
-      "url": "https://www.innovationaus.com/buy-australian-campaign-must-first-target-canberra/",
-      "source": "InnovationAus"
-    },
-    {
-      "date": "2026-05-19",
-      "title": "Boomi and Red Hat pitch an integrated stack for governed agentic AI",
-      "url": "https://www.technologydecisions.com.au/content/it-management/news/boomi-forms-ai-partnership-with-red-hat-555766936",
-      "source": "Technology Decisions"
-    },
-    {
-      "date": "2026-05-19",
-      "title": "Akamai moves to buy LayerX to control AI use inside browsers",
-      "url": "https://www.technologydecisions.com.au/content/security/news/akamai-plans-to-buy-layerx-for-285-5m-1225223391",
-      "source": "Technology Decisions"
     }
   ]
 }
