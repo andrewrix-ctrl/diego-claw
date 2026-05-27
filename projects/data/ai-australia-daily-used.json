@@ -1,7 +1,55 @@
 {
-  "updated": "2026-05-27",
+  "updated": "2026-05-28",
   "retentionDays": 7,
   "items": [
+    {
+      "date": "2026-05-28",
+      "title": "Transurban expands customer service through Amazon Connect",
+      "url": "https://www.itnews.com.au/news/transurban-to-run-more-of-its-customer-service-out-of-amazon-connect-626063",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Broadcom pushes partners toward private-cloud AI delivery",
+      "url": "https://www.arnnet.com.au/article/4177475/broadcom-to-strengthen-its-partner-ecosystem-with-next-phase-of-growth.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "ARN says AI is squeezing MSPs toward advisory services",
+      "url": "https://www.arnnet.com.au/article/4177419/ai-pricing-pressures-and-the-shift-to-advisory-services-hitting-msps-hard.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Data Centre Association says Australia's AI demand needs faster approvals",
+      "url": "https://www.arnnet.com.au/article/4177379/australias-ai-demand-hinges-on-faster-approvals-dca-says.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Anthropic lands its first direct Australian federal government deal",
+      "url": "https://www.innovationaus.com/anthropic-lands-first-federal-govt-deal-with-fair-work/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Victoria claims a $1.2bn data-centre investment edge over NSW",
+      "url": "https://www.innovationaus.com/vic-govt-claims-1-2bn-data-centre-edge-on-nsw/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Queensland digital leaders weigh AI productivity against privacy risk",
+      "url": "https://www.themandarin.com.au/313741-queenslands-digital-mandarins-talk-ai/",
+      "source": "The Mandarin"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Queensland says fewer than one in 10 public servants use QChat",
+      "url": "https://www.themandarin.com.au/313731-qchat-queensland-public-service-ai-david-crisafulli-one-in-10/",
+      "source": "The Mandarin"
+    },
     {
       "date": "2026-05-27",
       "title": "Australia Post co-develops ML models to prioritise security incidents",
@@ -187,48 +235,6 @@
       "title": "InnovationAus warns Australia needs stronger AI biosecurity settings",
       "url": "https://www.innovationaus.com/govt-must-rise-to-the-ai-biosecurity-threat-experts-warn/",
       "source": "InnovationAus"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "Service Stream checks field work with computer vision",
-      "url": "https://www.itnews.com.au/news/service-stream-is-checking-field-work-with-computer-vision-625979",
-      "source": "iTnews"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "TechnologyOne says embedded AI is helping public-sector software growth",
-      "url": "https://www.innovationaus.com/techone-tips-uk-to-match-top-aussie-market-in-two-years/",
-      "source": "InnovationAus"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "InnovationAus pushes government data security beyond compliance in the AI era",
-      "url": "https://www.innovationaus.com/compliance-to-resilience-securing-government-data-in-the-ai-era/",
-      "source": "InnovationAus"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "Adactin uses federal AI directory listing to chase public-sector AI work",
-      "url": "https://www.crn.com.au/news/2026/ai/adactin-targets-public-sector-ai-work-after-federal-directory-listing",
-      "source": "CRN Australia"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "F5 finds ANZ still trails global peers on running AI inference directly",
-      "url": "https://itbrief.com.au/story/f5-says-ai-inference-now-core-to-business-operations",
-      "source": "IT Brief Australia"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "Technology Decisions says architecture is becoming the AI differentiator",
-      "url": "https://www.technologydecisions.com.au/content/it-management/article/five-changes-shaping-australia-s-ai-powered-enterprises-1446472732",
-      "source": "Technology Decisions"
-    },
-    {
-      "date": "2026-05-20",
-      "title": "ACMA spectrum bill keeps AI-native network economics in view",
-      "url": "https://www.itnews.com.au/news/telcos-unable-to-overturn-73bn-bill-to-renew-mobile-spectrum-626003",
-      "source": "iTnews"
     }
   ]
 }
