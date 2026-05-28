@@ -1,7 +1,55 @@
 {
-  "updated": "2026-05-28",
+  "updated": "2026-05-29",
   "retentionDays": 7,
   "items": [
+    {
+      "date": "2026-05-29",
+      "title": "iTnews says agencies are being warned to fix security basics before frontier AI",
+      "url": "https://www.itnews.com.au/news/gov-urges-agencies-to-fix-security-basics-before-buying-into-frontier-ai-626205",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "Pax8 tells Australian MSPs to turn AI disruption into recurring revenue",
+      "url": "https://www.arnnet.com.au/article/4177946/turning-ai-disruption-into-recurring-revenue-for-msps.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "Orro and Megaport pitch faster managed connectivity and compute for Australian businesses",
+      "url": "https://www.arnnet.com.au/article/4177981/orro-and-megaport-partner-to-overcome-limits-of-traditional-telco-systems.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "InnovationAus says the APS AI uplift remains patchy despite progress",
+      "url": "https://www.innovationaus.com/public-sector-ai-uplift-patchy-but-progress-is-made/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "Ping Identity adds governance and access controls for AI agents",
+      "url": "https://www.technologydecisions.com.au/content/security/news/ping-identity-adds-ai-agent-support-to-flagship-platform-15960332",
+      "source": "Technology Decisions"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "Technology Decisions warns token-heavy AI use is not the same as business value",
+      "url": "https://www.technologydecisions.com.au/content/it-management/article/-tokenmaxxing-facing-a-reality-check-as-enterprises-question-ai-value-292762348",
+      "source": "Technology Decisions"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "The Mandarin flags Fitch concerns over Australian AI data-centre power demand",
+      "url": "https://www.themandarin.com.au/313841-ratings-agency-fitch-warns-on-australias-rapacious-ai-data-centre-power-consumption/",
+      "source": "The Mandarin"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "Mistral pushes back on criticism of military AI use as safety debate intensifies",
+      "url": "https://www.innovationaus.com/mistral-rejects-pope-leo-criticism-of-ai-military-use/",
+      "source": "InnovationAus"
+    },
     {
       "date": "2026-05-28",
       "title": "Transurban expands customer service through Amazon Connect",
@@ -187,54 +235,6 @@
       "title": "Crayon says AI is pushing MSPs from transactions to outcome-led services",
       "url": "https://www.arnnet.com.au/article/4176038/crayons-mathew-howard-sees-parallel-growth-for-distie-and-msps.html",
       "source": "ARN"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "AustralianSuper appoints its first head of AI and automation",
-      "url": "https://www.itnews.com.au/news/australiansuper-hires-its-first-head-of-ai-and-automation-626015",
-      "source": "iTnews"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "WA government is negotiating access to Anthropic\u2019s Mythos model",
-      "url": "https://www.innovationaus.com/an-arms-race-wa-govt-negotiating-access-to-anthropics-mythos/",
-      "source": "InnovationAus"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "iTnews says fears over Mythos-enabled hacking may be overstated",
-      "url": "https://www.itnews.com.au/news/fears-of-unfettered-hacking-spurred-by-anthropics-mythos-ai-model-likely-overstated-626031",
-      "source": "iTnews"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "ARN reports Gartner\u2019s forecast for US$2.59T in global AI spend",
-      "url": "https://www.arnnet.com.au/article/4173416/global-ai-spend-to-hit-us2-59t-in-2026-gartner.html",
-      "source": "ARN"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "Snowflake gains IRAP assessment for Google Cloud\u2019s Melbourne region",
-      "url": "https://www.arnnet.com.au/article/4173435/snowflake-passes-irap-assessment-for-google-clouds-melbourne-region.html",
-      "source": "ARN"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "Bluechip adds MSI AI PCs, edge devices and servers across A/NZ",
-      "url": "https://www.arnnet.com.au/article/4173430/bluechip-adds-msi-to-a-nz-distie-portfolio.html",
-      "source": "ARN"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "IT Brief says analyst teams are still correcting AI outputs",
-      "url": "https://itbrief.com.au/story/alteryx-unveils-agentic-automation-tools-for-analysts",
-      "source": "IT Brief Australia"
-    },
-    {
-      "date": "2026-05-21",
-      "title": "InnovationAus warns Australia needs stronger AI biosecurity settings",
-      "url": "https://www.innovationaus.com/govt-must-rise-to-the-ai-biosecurity-threat-experts-warn/",
-      "source": "InnovationAus"
     }
   ]
 }
