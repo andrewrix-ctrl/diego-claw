@@ -1,7 +1,55 @@
 {
-  "updated": "2026-05-29",
+  "updated": "2026-06-01",
   "retentionDays": 7,
   "items": [
+    {
+      "date": "2026-06-01",
+      "title": "Team Global Express moves its first 12 AI agents into production",
+      "url": "https://www.itnews.com.au/news/team-global-express-has-the-logistics-for-ai-use-in-place-626143",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "CBA shifts more than a decade of data to cloud as AI analytics demand grows",
+      "url": "https://www.itnews.com.au/news/cba-sends-over-a-decade-of-data-to-the-cloud-as-ai-demand-ramps-626211",
+      "source": "iTnews"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "Centorrino buys Centauri to deepen Microsoft AI Business Solutions capability",
+      "url": "https://www.arnnet.com.au/article/4178485/centorrino-technologies-boosts-microsoft-dynamics-365-skills-with-centauri-buy.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "Workday GO extends into Australia and New Zealand with an AI-ready data message",
+      "url": "https://www.arnnet.com.au/article/4178468/workday-go-extended-out-for-a-nz-mid-market-organisations.html",
+      "source": "ARN"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "CRN says partners see Microsoft-ACTU AI agreement as a practical starting point",
+      "url": "https://www.crn.com.au/news/2026/ai/partners-react-to-microsoft-australia-and-actu-new-ai-agreement",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "CRN flags Gartner forecast of AI infrastructure driving 13.5 percent IT spending growth",
+      "url": "https://www.crn.com.au/news/2026/data-and-analytics/investment-in-ai-infrastructure-sees-global-it-spending-grow-13-5-percent",
+      "source": "CRN Australia"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "InnovationAus reports criticism of CSIRO's AI approach and social licence risk",
+      "url": "https://www.innovationaus.com/csiros-botched-approach-to-ai-puts-social-licence-at-risk/",
+      "source": "InnovationAus"
+    },
+    {
+      "date": "2026-06-01",
+      "title": "Technology Decisions says Australian AI must be built as a data system",
+      "url": "https://www.technologydecisions.com.au/content/data-centres/article/ai-in-australia-must-be-built-as-a-data-system-not-just-a-compute-system-150676049",
+      "source": "Technology Decisions"
+    },
     {
       "date": "2026-05-29",
       "title": "iTnews says agencies are being warned to fix security basics before frontier AI",
